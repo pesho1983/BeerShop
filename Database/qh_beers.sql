@@ -13,7 +13,7 @@
 
 
 -- Dumping database structure for qh_beer_shop
-CREATE DATABASE IF NOT EXISTS `qh_beer_shop` /*!40100 DEFAULT CHARACTER SET latin1 */;
+CREATE DATABASE IF NOT EXISTS `qh_beer_shop` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `qh_beer_shop`;
 
 -- Дъмп структура за таблица qh_beer_shop.orders
