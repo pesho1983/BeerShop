@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 09, 2018 at 08:51 AM
+-- Generation Time: Mar 09, 2018 at 01:00 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -32,7 +32,7 @@ CREATE TABLE `orders` (
   `id` int(10) UNSIGNED NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `user_id` int(11) UNSIGNED NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -46,7 +46,7 @@ CREATE TABLE `order_detail` (
   `product_id` int(11) UNSIGNED NOT NULL DEFAULT '0',
   `price` decimal(10,2) NOT NULL DEFAULT '0.00',
   `quantity` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -56,11 +56,11 @@ CREATE TABLE `order_detail` (
 
 CREATE TABLE `products` (
   `id` int(11) UNSIGNED NOT NULL,
-  `name` varchar(50) CHARACTER SET utf8 NOT NULL DEFAULT '0',
-  `description` text CHARACTER SET utf8 NOT NULL,
+  `name` varchar(50) NOT NULL DEFAULT '0',
+  `description` text NOT NULL,
   `price` decimal(10,2) NOT NULL DEFAULT '0.00',
-  `picture` varchar(50) CHARACTER SET utf8 NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `picture` varchar(50) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -70,14 +70,14 @@ CREATE TABLE `products` (
 
 CREATE TABLE `users` (
   `id` int(11) UNSIGNED NOT NULL,
-  `username` varchar(50) CHARACTER SET utf8 NOT NULL DEFAULT '0',
-  `password` varchar(50) CHARACTER SET utf8 NOT NULL DEFAULT '0',
-  `email` varchar(50) CHARACTER SET utf8 NOT NULL DEFAULT '0',
-  `phone` varchar(50) CHARACTER SET utf8 NOT NULL DEFAULT '0',
-  `address` varchar(50) CHARACTER SET utf8 NOT NULL DEFAULT '0',
-  `first_name` varchar(50) CHARACTER SET utf8 NOT NULL DEFAULT '0',
-  `last_name` varchar(50) CHARACTER SET utf8 NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `username` varchar(50) NOT NULL DEFAULT '0',
+  `password` varchar(50) NOT NULL DEFAULT '0',
+  `email` varchar(50) NOT NULL DEFAULT '0',
+  `phone` varchar(50) NOT NULL DEFAULT '0',
+  `address` varchar(50) NOT NULL DEFAULT '0',
+  `first_name` varchar(50) NOT NULL DEFAULT '0',
+  `last_name` varchar(50) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Indexes for dumped tables
