@@ -1,27 +1,125 @@
-ul {
-    list-style-type: none;
-    margin: 0;
-    display:inline-block;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-    position: fixed;
-    top: 0;
-    width: 100%;
+@import url(https://fonts.googleapis.com/css?family=Raleway:300);
 
-}
-
-
-li {
-    float: left;
-}
-
-li a {
-    display: block;
-    color: white;
+@import url(https://fonts.googleapis.com/css?family=Oswald:300);
+nav {
+    height: 200px;
+    margin-bottom: 500px;
     text-align: center;
-    padding: 14px 16px;
+    background: #333;
+    border-bottom: #E05151 5px solid;
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    z-index: -1;
+}
+nav ul {
+    list-style: none;
+    margin:0;
+    padding:0;
+    position: relative;
+}
+nav ul li {
+    display: inline-block;
+    margin: 7px;
+    font-size:30px;
+    font-family: 'Oswald', sans-serif;
+    margin-top: 125px;
+    background: #333;
+    brder: 13px solid #333;
+}
+nav ul li a {
+    color: white;
     text-decoration: none;
+    transition: all .5s;
+}
+nav ul li a:hover {
+    color: #E05151;
+    transition: all .5s;
+    border-bottom: 8px solid #E05151;
+}
+nav ul li a:active {
+    color: ;
+    border-bottom: 8px solid #E05151;
+}
+nav ul li ul {
+    display: none;
+    opacity:0;
+}
+nav ul li:hover ul {
+    display: block;
+    opacity:1;
+    position: absolute;
+    background: #229;
+    transition: all .5s;
+}
+nav ul li:hover ul li {
+    display: block;
+    margin-top: -80px;
+    border-bottom: 8px solid #333;
+    margin-left: -14px;
+    padding-bottom: 10px;
+    border: 13px solid #333;
+    background: #333 !important;
+}
+nav ul li:hover ul li a{
+    display: inline-block;
+}
+#ip {
+    width: 300px;
+    margin-top: 12px;
+    margin-left: 20px;
+    color: white;
+    font-size: 16px;
+    font-family: 'Raleway', sans-serif;
+}
+#ip:hover {
+    color: #E05151;
+    background: white;
+    transition: all 1s;
+}
+#ip2 {
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    margin-top: -19.5px;
+    width: 160px
+}
+h1 {
+    z-index: 200;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    color: #E05151;
+    font-size: 50px;
+    margin-top: 44px;
+}
+*{
+    font-weight:700
+}
+.button {
+    width: 80px;
+    border: 2px solid #E05151;
+    border-radius: 5px;
+    color: #E05151;
+}
+.button:hover {
+    background: #E05151;
+    color: #333;
+    border: 2px solid #E05151;
+    border-radius: 5px;
+    transition: .5s;
+}
+.button2 {
+    width: 120px;
+    border: 2px solid #E05151;
+    border-radius: 5px;
+    color: #E05151;
+}
+.button2:hover {
+    background: #E05151;
+    color: #333;
+    border: 2px solid #E05151;
+    border-radius: 5px;
+    transition: .5s;
 }
 
 /* Change the link color to #111 (black) on hover */
