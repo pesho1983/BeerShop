@@ -1,3 +1,14 @@
 .navbar-custom {
     background-color: #ff5500;
 }
+div .margin{
+    margin-bottom: 5px;
+}
+
+.extraPlace{
+    margin: 20px 0 20px 0;
+}
+
+.alignLeftContent{
+    text-align: left;
+}
