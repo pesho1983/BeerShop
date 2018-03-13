@@ -1,100 +1,95 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Signin</title>
+    <title>Registration</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Custom styles for this template -->
-    <link href="signin.css" rel="stylesheet">
-  </head>
+    <link href="css/registerPage.css" rel="stylesheet">
 
-  <body class="text-center">
+</head>
 
-<div>
-    <form>
+<body class="text-center">
+
+<div class="container">
+    <form action="#">
         <fieldset>
-            <legend class="h3 mb-3 font-weight-normal">Register</legend>
+            <legend class="extraPlace">Register</legend>
 
-			<div>
-                <label class="sr-only">Username</label>
-                <div>
-                    <input id="username" name="username" type="text" placeholder="Username">
-                </div>
-            </div>
-			
-			<div>
-                <label class="sr-only">Password</label>
-                <div>
-                    <input id="password" name="password" type="password" placeholder="Password">
-                </div>
+            <div class="input-group margin">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input class="form-control" id="username" name="username" type="text" placeholder="Username">
+
             </div>
 
-            <div>
-                <label class="sr-only">Confirm Password</label>
-                <div>
-                    <input id="confirmPass" name="confirmPass" type="password" placeholder="Confirm Password">
-                </div>
-            </div>
-			
-			<div>
-                <label class="sr-only">First Name</label>
-                <div>
-                    <input id="firstName" name="LastName" type="text" placeholder="First Name">
-                </div>
-            </div>
-			
-			<div>
-                <label class="sr-only">Second Name</label>
-                <div>
-                    <input id="SecondName" name="secondName" type="text" placeholder="Second Name">
-                </div>
-            </div>
- 
-            <div>
-                <label class="sr-only">Email</label>
-                <div>
-                    <input id="email" name="email" type="email" placeholder="Email">
-                </div>
+            <div class="input-group margin">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input class="form-control" id="password" name="password" type="password" placeholder="Password">
+
             </div>
 
-            <div>
-                <label class="sr-only">Phone Number</label>
-                <div>
-                    <input id="phone" name="phone" type="text" placeholder="Phone Number">
-                </div>
+            <div class="input-group margin">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input class="form-control" id="confirmPass" name="confirmPass" type="password"
+                       placeholder="Confirm Password">
             </div>
 
-            <div>
-                <label class="sr-only">Address</label>
-                <div>
-                    <input id="address" name="address" type="text" placeholder="Address">
-                </div>
+            <div class="input-group margin">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input class="form-control" id="firstName" name="LastName" type="text" placeholder="First Name">
             </div>
 
-			<form>
-				<input type="checkbox">Age 18+ <br>
-				<input type="checkbox">I have read and agree to the <a href="https://www.un.org/Depts/ptd/terms-and-conditions-agreement">Terms and Conditions</a><br>
-				<input type="checkbox">GDPR Agreement 
-			</form>
-			
-            <div>
-                <div>
-                    <button class="btn btn-lg btn-primary btn-block" type="reset">Cancel</button>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
-                </div>
+            <div class="input-group margin">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input class="form-control" id="lastName" name="lastName" type="text" placeholder="LastName">
             </div>
-			<p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+
+            <div class="input-group margin">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                <input class="form-control" id="email" name="email" type="email" placeholder="Email">
+            </div>
+
+            <div class="input-group margin">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-phone-alt"></i></span>
+                <input class="form-control" id="phone" name="phone" type="text" placeholder="Phone Number">
+            </div>
+
+            <div class="input-group margin">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                <input class="form-control" id="address" name="address" type="text" placeholder="Address">
+            </div>
+
+            <div class="checkbox alignLeftContent">
+                <label>
+                    <input type="checkbox" name="age" value="1"> Age 18+
+                </label><br>
+
+                <label>
+                    <input type="checkbox" name="agreement" value="1"> I have read and agree to the <a
+                    href="https://www.un.org/Depts/ptd/terms-and-conditions-agreement">Terms and Conditions</a>
+                </label><br>
+
+                <label>
+                    <input type="checkbox" name="gdpr" value="1"> GDPR Agreement
+                </label>
+            </div>
+
+            <button class="btn btn-lg btn-success btn-block" type="submit">Register</button>
+            <button class="btn btn-lg btn-secondary btn-block" type="reset">Clear</button>
         </fieldset>
     </form>
+    <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
 </div>
 
-  </body>
+</body>
 </html>

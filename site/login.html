@@ -11,26 +11,40 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Custom styles for this template -->
     <link href="signin.css" rel="stylesheet">
+      <link href="css/registerPage.css" rel="stylesheet">
+
   </head>
 
   <body class="text-center">
-    <form class="form-signin">
-      <img class="mb-4" src="" alt="" width="72" height="72">
-      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-      <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-      <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
-      </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
-    </form>
+  <div class="container" style="width: 80%">
+
+      <form action="#">
+        <fieldset>
+          <legend class="extraPlace"> Please sign in</legend>
+
+          <div class="input-group margin">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+          </div>
+
+          <div class="input-group margin">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+          </div>
+
+          <div class="checkbox alignLeftContent">
+            <label>
+              <input type="checkbox" value="remember-me" name="remember"> Remember me
+            </label>
+          </div>
+          <button class="btn btn-lg btn-success btn-block" type="submit">Sign in</button>
+        </fieldset>
+      </form>
+
+    <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+  </div>
   </body>
 </html>
