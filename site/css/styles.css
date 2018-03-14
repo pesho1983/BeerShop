@@ -26,7 +26,7 @@ nav ul li {
     font-family: 'Oswald', sans-serif;
     margin-top: 125px;
     background: #333;
-    brder: 13px solid #333;
+    border: 13px solid #333;
 }
 nav ul li a {
     color: white;
@@ -39,7 +39,7 @@ nav ul li a:hover {
     border-bottom: 8px solid #E05151;
 }
 nav ul li a:active {
-    color: ;
+    /*color: ;*/
     border-bottom: 8px solid #E05151;
 }
 nav ul li ul {
@@ -56,7 +56,6 @@ nav ul li:hover ul {
 nav ul li:hover ul li {
     display: block;
     margin-top: -80px;
-    border-bottom: 8px solid #333;
     margin-left: -14px;
     padding-bottom: 10px;
     border: 13px solid #333;
@@ -138,3 +137,6 @@ div .margin{
 .alignLeftContent{
     text-align: left;
 }
+/*#home_css{*/
+    /*background: #005cbf;*/
+/*}*/
