@@ -1,6 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:300);
 
 @import url(https://fonts.googleapis.com/css?family=Oswald:300);
+footer{
+}
 nav {
     height: 200px;
     margin-bottom: 500px;
@@ -12,12 +14,17 @@ nav {
     left:0;
     width:100%;
     z-index: -1;
+    overflow: hidden;
+}
+nav a{
+    float:left;
 }
 nav ul {
     list-style: none;
-    margin:0;
+    margin-right: 17em;
     padding:0;
     position: relative;
+    float: none;
 }
 nav ul li {
     display: inline-block;
@@ -27,6 +34,7 @@ nav ul li {
     margin-top: 125px;
     background: #333;
     brder: 13px solid #333;
+    position:relative;
 }
 nav ul li a {
     color: white;
@@ -41,6 +49,9 @@ nav ul li a:hover {
 nav ul li a:active {
     color: ;
     border-bottom: 8px solid #E05151;
+}
+nav ul a{
+    float:left;
 }
 nav ul li ul {
     display: none;
