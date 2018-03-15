@@ -3,7 +3,7 @@
 @import url(https://fonts.googleapis.com/css?family=Oswald:300);
 nav {
     height: 200px;
-    margin-bottom: 2px;
+    margin-bottom: 15px;
     text-align: center;
     background: url(../images/backgroundNew.png);
     background-size: 100%;
@@ -15,10 +15,6 @@ nav {
     z-index: -1;
     overflow: hidden;
 
-}
-body{
-    margin : 0;
-    padding : 0;
 }
 nav a{
     float:left;
