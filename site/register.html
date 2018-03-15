@@ -15,81 +15,78 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Custom styles for this template -->
-    <link href="css/registerPage.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
 
 </head>
 
 <body class="text-center">
 
-<div class="container">
-    <form action="#">
-        <fieldset>
-            <legend class="extraPlace">Register</legend>
+    <div class="container">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <form action="#">
+                <fieldset>
+                    <legend class="extraPlace">Register</legend>
 
-            <div class="input-group margin">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                <input class="form-control" id="username" name="username" type="text" placeholder="Username">
+                    <div class="input-group margin">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input class="form-control" id="username" name="username" type="text" placeholder="Username">
 
-            </div>
+                    </div>
 
-            <div class="input-group margin">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                <input class="form-control" id="password" name="password" type="password" placeholder="Password">
+                    <div class="input-group margin">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input class="form-control" id="password" name="password" type="password" placeholder="Password">
 
-            </div>
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input class="form-control"  name="confirmPass" type="password" placeholder="Confirm Password">
 
-            <div class="input-group margin">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                <input class="form-control" id="confirmPass" name="confirmPass" type="password"
-                       placeholder="Confirm Password">
-            </div>
+                    </div>
 
-            <div class="input-group margin">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                <input class="form-control" id="firstName" name="LastName" type="text" placeholder="First Name">
-            </div>
+                    <div class="input-group margin">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input class="form-control" id="firstName" name="firstName" type="text" placeholder="First Name">
 
-            <div class="input-group margin">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                <input class="form-control" id="lastName" name="lastName" type="text" placeholder="Last Name">
-            </div>
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input class="form-control" id="lastName" name="lastName" type="text" placeholder="Last Name">
+                    </div>
 
-            <div class="input-group margin">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                <input class="form-control" id="email" name="email" type="email" placeholder="Email">
-            </div>
+                    <div class="input-group margin">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                        <input class="form-control" id="email" name="email" type="email" placeholder="Email">
+                    </div>
 
-            <div class="input-group margin">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-phone-alt"></i></span>
-                <input class="form-control" id="phone" name="phone" type="text" placeholder="Phone Number">
-            </div>
+                    <div class="input-group margin">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-phone-alt"></i></span>
+                        <input class="form-control" id="phone" name="phone" type="text" placeholder="Phone Number">
+                    </div>
 
-            <div class="input-group margin">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                <input class="form-control" id="address" name="address" type="text" placeholder="Address">
-            </div>
+                    <div class="input-group margin">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                        <input class="form-control" id="address" name="address" type="text" placeholder="Address">
+                    </div>
 
-            <div class="checkbox alignLeftContent">
-                <label>
-                    <input type="checkbox" name="age" value="1"> Age 18+
-                </label><br>
+                    <div class="input-group margin">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                        <input class="form-control" id="age" name="age" type="text" placeholder="Age">
+                    </div>
 
-                <label>
-                    <input type="checkbox" name="agreement" value="1"> I have read and agree to the <a
-                    href="https://www.un.org/Depts/ptd/terms-and-conditions-agreement">Terms and Conditions</a>
-                </label><br>
+                    <div class="checkbox alignLeftContent">
+                        <label>
+                            <input type="checkbox" name="agreement" value="1"> I have read and agree to the <a
+                            href="https://www.un.org/Depts/ptd/terms-and-conditions-agreement">Terms and Conditions</a>
+                        </label><br>
+                        <label>
+                            <input type="checkbox" name="gdpr" value="1"> GDPR Agreement
+                        </label>
+                    </div>
 
-                <label>
-                    <input type="checkbox" name="gdpr" value="1"> GDPR Agreement
-                </label>
-            </div>
-
-            <button class="btn btn-lg btn-success btn-block" type="submit">Register</button>
-            <button class="btn btn-lg btn-secondary btn-block" type="reset">Clear</button>
-        </fieldset>
-    </form>
-    <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
-</div>
+                    <button class="btn btn-lg btn-success btn-block" type="submit">Register</button>
+                </fieldset>
+            </form>
+        </div>
+        <div class="col-sm-3"></div>
+  </div>
 
 </body>
 </html>
