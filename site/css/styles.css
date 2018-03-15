@@ -1,9 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:300);
 
 @import url(https://fonts.googleapis.com/css?family=Oswald:300);
- div .container{
-    background:gray;
-}
 nav {
     height: 200px;
     margin-bottom: 2px;
@@ -19,8 +16,11 @@ nav {
     overflow: hidden;
 
 }
+body{
+    margin : 0;
+    padding : 0;
+}
 nav a{
-    z-inder: -50px;
     float:left;
 }
 nav a img{
@@ -38,7 +38,6 @@ nav ul li {
     font-size:35px;
     font-family: 'Oswald', sans-serif;
     margin-top: 125px;
-<<<<<<< HEAD
     brder: 13px solid #333;
     text-shadow:
             -2px -2px 0 #fff,
@@ -46,15 +45,10 @@ nav ul li {
             -2px 2px 0 #fff,
             2px 2px 0 #fff;
 
-=======
     background: #333;
-<<<<<<< HEAD
     border: 13px solid #333;
-=======
     brder: 13px solid #333;
     position:relative;
->>>>>>> d4f7dbae9edd93854c246a18beb5c907fdb87783
->>>>>>> 541987a9d09a5441caab482b07a6eb994f99e51c
 }
 nav ul li a {
     color: black;
@@ -176,12 +170,28 @@ div .margin{
 .alignLeftContent{
     text-align: left;
 }
-<<<<<<< HEAD
 
-/**{*/
-    /*border: 2px solid black;*/
-=======
-/*#home_css{*/
-    /*background: #005cbf;*/
->>>>>>> 541987a9d09a5441caab482b07a6eb994f99e51c
-/*}*/
+footer{
+    background-color: #343434;
+    position: absolute;
+    left:0;
+    z-index: -1;
+    min-width:100%;
+    max-width:100%;
+
+}
+footer div{
+    color: #a56000;
+    font-size: 50px;
+    text-align: center;
+    width: 100%;
+    background-size: 100%;
+}
+footer div h2{
+    font-size: 40px;
+}
+footer h4{
+    color: #a56000;
+    float:left;
+    font-size: 15px;
+}
