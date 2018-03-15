@@ -25,7 +25,8 @@ nav a{
 }
 nav a img{
     position: absolute;
-    top: -25px;
+    top: 40px;
+    left: 15px;
 }
 nav ul {
     list-style: none;
