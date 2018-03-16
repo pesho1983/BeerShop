@@ -11,9 +11,9 @@
         <?php include_once "header.php"; ?>
     </header>
 
-    <div>
-        <img src="images/shano_shema.jpg">
-    </div>
+<!--    <div>-->
+<!--        <img src="images/shano_shema.jpg">-->
+<!--    </div>-->
 
     <footer class="container" style="bottom: 0">
         <?php include_once "footer.php"; ?>

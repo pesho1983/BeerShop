@@ -1,4 +1,4 @@
-<h1>Quality House Beer</h1>
+<h1 style="position: absolute; top: 20px; left: 650px">Quality House Beer</h1>
 <nav>
     <a href="#" class="navbar-left"><img src="images/logoNew_bubbles.png"></a>
     <ul>
