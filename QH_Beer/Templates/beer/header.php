@@ -1,13 +1,4 @@
 
-<!doctype html>
-<html lang="en">
-    <head>
-        <link type="text/css" rel="stylesheet" media="screen" href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="../../../Vendor/css/styles.css">
-    </head>
-    
-    <body>
-    <header>
         <h1>Quality House Beer</h1>
         <nav>
         <a href="http://localhost/Beershop/QH_Beer/Templates/homepage/index.php" class="navbar-left"><img src="../../../Vendor/images/logoNew_bubbles.png"></a>
@@ -22,7 +13,3 @@
                 <li><a href="#"><i class="fa fa-search"></i><input style="box-sizing: border-box; border: 2px solid; border-radius: 15px;" type="text" placeholder=" Search..." name="search"></a></li>
             </ul>
         </nav>
-    </header>
-    
-    </body>
-</html>
