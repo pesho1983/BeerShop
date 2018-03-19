@@ -28,10 +28,12 @@ nav ul {
     list-style: none;
     padding:0;
     float: none;
+    margin-left: 155px;
 }
 nav ul li {
     display: inline-block;
-    margin: 7px;
+    margin-left: 25px;
+    margin-right: 25px;
     font-size:35px;
     font-family: 'Oswald', sans-serif;
     margin-top: 125px;
@@ -43,6 +45,9 @@ nav ul li {
 
     position:relative;
 
+}
+nav ul li:last-of-type{
+    float: right;
 }
 nav ul li a {
     color: black;
