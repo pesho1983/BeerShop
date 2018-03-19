@@ -15,7 +15,7 @@
     </header>  
     
     <div class="main_info">
-        <h2 class="welcome">Welcome to Quality Hose Beer Website</h2>
+        <h2 class="welcome">Welcome to Quality House Beer Website</h2>
         <p>We are Quality House Beer Company and we started our beer production business in 2015. </p>
         <p>Our mission is to provide the customer with the desired pleasure of consuming quality beer. </p>
         <p>That's why we started this project with enthusiasm and over the years we have made efforts to improve the taste of our beer.</p>
