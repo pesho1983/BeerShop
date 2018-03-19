@@ -192,72 +192,56 @@ footer h4{
 }
 
 .main_info {
-    font-size: 40px;
-    position: relative;
     margin-top: 100px;
-    margin-left: 750px;
-    text-align: justify;
 }
 
-
-.welcome {
-    font-size: 40px;
-    position: relative;
-}
-
-.main_info p {
-    position: relative;
-    font-size: 15px;
-    padding-top: -10px;
-    text-align: justify;
-}
-
-.beers {
-    font-size: 40px;
-    position: relative;
-    margin-top: 30px;
-    margin-left: 750px;
-}
-
-.beers h2 {
-    font-size: 30px;
-}
 
 .best_beers {
     background-color: #eee;
-    width: 50%;
     text-align: center;
     border-radius: 25px;
     border: 2px solid #000;
+    margin-top: 25px;
 }
 
 
 .best_beers p {
     font-size: 10px;
+    text-align: center;
     margin-top: -10px;
     background-color: #eee;
 }
 
 .best_beers div {
     display: inline-block;
-    margin-top: 15px;
 }
 
-.col-sm-5 p {
-    font-size: 15px;
-}
-div .beers .separator{
+.last_sold {
+    background-color: #eee;
+    text-align: center;
+    border-radius: 25px;
+    border: 2px solid #000;
     margin-top: 25px;
-    margin-bottom: 25px;
-    min-height: 25px;
 }
-div .best_beers:last-of-type {
-    margin-top: 15px;
-    margin-bottom: 15px;
+
+
+.last_sold p {
+    font-size: 10px;
+    text-align: center;
+    margin-top: -10px;
+    background-color: #eee;
 }
-.main_text{
+
+.last_sold div {
+    display: inline-block;
+}
+
+.main_info p {
     text-align: justify;
-    text-justify: inter-word;
-    display: inline;
+}
+
+.beers {
+    display: inline-block;
+    margin-top: -15px;
 }
 /*css for required field*/
