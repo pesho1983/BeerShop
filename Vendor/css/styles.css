@@ -2,7 +2,7 @@
 
 @import url(https://fonts.googleapis.com/css?family=Oswald:300);
 nav {
-    height: 200px;
+    height: 130px;
     margin-bottom: 15px;
     text-align: center;
     background-image: url("../images/backgroundNew.png");
@@ -21,7 +21,7 @@ nav a{
 }
 nav a img{
     position: absolute;
-    top: 40px;
+    top: 5px;
     left: 15px;
 }
 nav ul {
@@ -36,7 +36,7 @@ nav ul li {
     margin-right: 25px;
     font-size:35px;
     font-family: 'Oswald', sans-serif;
-    margin-top: 125px;
+    margin-top: 60px;
     text-shadow:
             -2px -2px 0 #fff,
             2px -2px 0 #fff,
@@ -117,7 +117,6 @@ h1 {
     color: black;
     font-weight: bold;
     font-size: 50px;
-    margin-top: 44px;
     text-shadow:
             -2px -2px 0 #fff,
             2px -2px 0 #fff,
