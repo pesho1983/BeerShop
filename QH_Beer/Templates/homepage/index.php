@@ -16,14 +16,17 @@
     
     <div class="main_info">
         <h2 class="welcome">Welcome to Quality House Beer Website</h2>
-        <p>We are Quality House Beer Company and we started our beer production business in 2015. </p>
-        <p>Our mission is to provide the customer with the desired pleasure of consuming quality beer. </p>
-        <p>That's why we started this project with enthusiasm and over the years we have made efforts to improve the taste of our beer.</p>
+        <div class="main_text">
+            <p>We are Quality House Beer Company and we started our beer production business in 2015. </p>
+            <p>Our mission is to provide the customer with the desired pleasure of consuming quality beer. </p>
+            <p>That's why we started this project with enthusiasm and over the years we have made efforts <br> to improve the taste of our beer.</p>
+        </div>
     </div>
 
     <div class="beers">
-        <h2 class="welcome">BEST SELLING BEERS</h2>
         <div class="best_beers">
+            <h2 class="welcome"> BEST SELLING BEERS</h2>
+
             <div>
                 <p><img src="../../../Vendor/images/heineken.jpg" style="width:100px; height:100px"></p>
                 <p>Name 1</p>
@@ -51,9 +54,10 @@
             </div>
         </div>
 
-        
-        <h2 class="welcome">LAST 3 SOLD BEERS</h2>
+
+
         <div class="best_beers">
+            <h2 class="welcome"> LAST 3 SOLD BEERS</h2>
             <div>
                 <p><img src="../../../Vendor/images/heineken.jpg" style="width:100px; height:100px"></p>
                 <p>Name 1</p>
