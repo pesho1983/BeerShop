@@ -15,7 +15,7 @@
     
     <img src="../../../Vendor/images/page-is-under-construction.png"
 
-    <footer>
+    <footer class="container fixed-bottom">
       <?php include_once "../beer/footer.php"; ?>
     </footer> 
     

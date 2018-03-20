@@ -75,7 +75,7 @@
     
     
 
-    <footer>
+    <footer class="container fixed-bottom">
       <?php include_once "../beer/footer.php"; ?>
     </footer> 
     
