@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -16,6 +15,7 @@
       <link type="text/css" rel="stylesheet" media="screen" href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
     <link href="css/styles.css" rel="stylesheet">
 
+      https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js
   </head>
 
   <body class="text-center" style="background-color:#eee">
@@ -41,7 +41,7 @@
                         <input class="form-control" id="password" name="password" type="password" placeholder="Password *" maxlength="15" minlength="8">
 
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <input class="form-control"  name="confirmPass" type="password" placeholder="Confirm Password *">
+                        <input class="form-control"  name="confirmPass" type="password" placeholder="Confirm Password *" maxlength="15" minlength="8" >
 
                     </div>
 
