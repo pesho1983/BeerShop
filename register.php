@@ -90,6 +90,7 @@ VALUES (:username, :password,:email, :phone, :address, :firstName, :lastName, :a
 }
 
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -109,6 +110,7 @@ VALUES (:username, :password,:email, :phone, :address, :firstName, :lastName, :a
     <link type="text/css" rel="stylesheet" media="screen"
           href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
     <link href="css/styles.css" rel="stylesheet">
+
 
 </head>
 
@@ -201,4 +203,5 @@ VALUES (:username, :password,:email, :phone, :address, :firstName, :lastName, :a
 </script>
 
 </body>
+ 
 </html>

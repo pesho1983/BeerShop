@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -58,7 +57,7 @@
                         function init_map() {
                             var lat = 42.6810000;
                             var lng = 23.3107544;
-                            var textOfInfoWindow = "QH Beer Shop" + '<br>' + "„Balsha“ 1 Str., Dist. \"Ivan Vazov\"" + '<br>' + "Sofia 1408, Bulgaria";
+                            var textOfInfoWindow = "Quality House Beer" + '<br>' + "„Balsha“ 1 Str., Dist. \"Ivan Vazov\"" + '<br>' + "Sofia 1408, Bulgaria";
                             var myOptions = {
                                 zoom: 17,
                                 center: new google.maps.LatLng(lat, lng),
