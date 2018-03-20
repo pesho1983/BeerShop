@@ -140,7 +140,7 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
                            maxlength="15" minlength="8" required>
 
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                    <input class="form-control" name="confirmPass" type="password" placeholder="Confirm Password *" required>
+                    <input class="form-control" id="confirm_password" name="confirmPass" type="password" placeholder="Confirm Password *" required>
 
                 </div>
 
@@ -200,6 +200,23 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
     $(document).ready(function () {
         $("#register").addClass('text_shadow');
     });
+</script>
+
+<script type="text/javascript">
+    var password = document.getElementById("password")
+  , confirm_password = document.getElementById("confirm_password");
+
+function validatePassword(){
+  if(password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("Passwords Don't Match");
+  } else {
+    confirm_password.setCustomValidity('');
+  }
+}
+
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
+
 </script>
 
 </body>
