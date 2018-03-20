@@ -203,5 +203,5 @@ VALUES (:username, :password,:email, :phone, :address, :firstName, :lastName, :a
 </script>
 
 </body>
- 
+
 </html>
