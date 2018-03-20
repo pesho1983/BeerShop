@@ -244,4 +244,15 @@ footer h4{
     display: inline-block;
     margin-top: -15px;
 }
+
 /*css for required field*/
+div div .margin{
+    margin-top: 5px;
+}
+
+.text_shadow{
+    color: #E05151;
+    transition: all .5s;
+    border-bottom: 2px solid #E05151;
+
+}

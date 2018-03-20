@@ -4,14 +4,14 @@
     <head>
         <link type="text/css" rel="stylesheet" media="screen" href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link href="../../../Vendor/css/styles.css" rel="stylesheet">
+        <link href="css/styles.css" rel="stylesheet">
 
         <title>QH Beer</title>
     </head>
     
-    <body style="background:url(../../../Vendor/images/beer_background-Copy2.jpg); width: 100%; min-height:100%; background-size: cover;  overflow: hidden; ">
+    <body style="background:url(images/beer_background-Copy2.jpg); width: 100%; min-height:100%; background-size: cover;  overflow: hidden; ">
     <header>
-      <?php include_once "../beer/header.php"; ?>
+      <?php include_once "php_includes/header.php"; ?>
     </header>  
 
     <div class="container">   
@@ -30,23 +30,23 @@
                 <div class="col-lg-12 best_beers">
                     <h2 class="welcome">BEST SELLING BEERS</h2>
                     <div>
-                        <p><img src="../../../Vendor/images/heineken.png" ></p>
+                        <p><img src="images/heineken.png" ></p>
                         <p>Name 1: some info</p>
                     </div>
                     <div>
-                        <p><img src="../../../Vendor/images/heineken.png" ></p>
+                        <p><img src="images/heineken.png" ></p>
                         <p>Name 1: some info</p>
                     </div>
                     <div>
-                        <p><img src="../../../Vendor/images/heineken.png" ></p>
+                        <p><img src="images/heineken.png" ></p>
                         <p>Name 1: some info</p>
                     </div>
                     <div>
-                        <p><img src="../../../Vendor/images/heineken.png"></p>
+                        <p><img src="images/heineken.png"></p>
                         <p>Name 1: some info</p>
                     </div>
                     <div>
-                        <p><img src="../../../Vendor/images/heineken.png"></p>
+                        <p><img src="images/heineken.png"></p>
                         <p>Name 1: some info</p>
                     </div>
                 </div> 
@@ -54,15 +54,15 @@
                 <div class="col-lg-12 last_sold">
                     <h2 class="welcome">LAST 3 SOLD BEERS</h2>
                     <div>
-                        <p><img src="../../../Vendor/images/heineken.png" ></p>
+                        <p><img src="images/heineken.png" ></p>
                         <p>Name 1: some info</p>
                     </div>
                     <div>
-                        <p><img src="../../../Vendor/images/heineken.png"></p>
+                        <p><img src="images/heineken.png"></p>
                         <p>Name 1: some info</p>
                     </div>
                     <div>
-                        <p><img src="../../../Vendor/images/heineken.png"></p>
+                        <p><img src="images/heineken.png"></p>
                         <p>Name 1: some info</p>
                     </div>
                 </div>
@@ -76,9 +76,14 @@
     
 
     <footer class="container fixed-bottom">
-      <?php include_once "../beer/footer.php"; ?>
-    </footer> 
-    
+      <?php include_once "php_includes/footer.php"; ?>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            $("#home").addClass('text_shadow');
+        });
+    </script>
 
     </body>
 </html>

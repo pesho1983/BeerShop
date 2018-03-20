@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="icon" href="../../../favicon.ico">
 
     <title>Login</title>
 
@@ -14,12 +14,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
       <link type="text/css" rel="stylesheet" media="screen" href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-    <link href="../../../Vendor/css/styles.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
   </head>
 
   <body class="text-center" style="background-color:#eee">
     <header>
-      <?php include_once "../beer/header.php"; ?>
+      <?php include_once "php_includes/header.php"; ?>
     </header>    
 
     <article style="position: relative; margin-top: 250px">
@@ -51,8 +51,15 @@
         <div class="col-sm-5"></div>
     </article>
 
-    <footer>
-      <?php include_once "../beer/footer.php"; ?>
+    <footer class="container fixed-bottom">
+      <?php include_once "php_includes/footer.php"; ?>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            $("#login").addClass('text_shadow');
+        });
+    </script>
+
   </body>
 </html>
