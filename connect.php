@@ -16,7 +16,7 @@ define('MYSQL_PASSWORD', '');
 define('MYSQL_HOST', 'localhost');
 
 //The name of our database.
-define('MYSQL_DATABASE', 'beers');
+define('MYSQL_DATABASE', 'qh_beer_shop');
 
 /**
  * PDO options / configuration details.

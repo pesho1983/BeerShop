@@ -63,8 +63,8 @@ if (isset($_POST['register'])) {
 
 //Prepare our INSERT statement.
 //Remember: We are inserting a new row into our users table.
-    $sql = "INSERT INTO users (username, password, email, phone, address, firstName, lastName, age) 
-VALUES (:username, :password,:email, :phone, :address, :firstName, :lastName, :age)";
+    $sql = "INSERT INTO users (username, password, email, phone, address, first_name, last_name, age) 
+VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, :age)";
     $stmt = $pdo->prepare($sql);
 
 //Bind our variables.
@@ -73,8 +73,8 @@ VALUES (:username, :password,:email, :phone, :address, :firstName, :lastName, :a
     $stmt->bindValue(':email', $email);
     $stmt->bindValue(':phone', $phone);
     $stmt->bindValue(':address', $address);
-    $stmt->bindValue(':firstName', $firstName);
-    $stmt->bindValue(':lastName', $lastName);
+    $stmt->bindValue(':first_name', $firstName);
+    $stmt->bindValue(':last_name', $lastName);
     $stmt->bindValue(':age', $age);
 
 //Execute the statement and insert the new account.
