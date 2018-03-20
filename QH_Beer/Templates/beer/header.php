@@ -9,6 +9,6 @@
                 <li><a href="http://localhost/Beershop/QH_Beer/Templates/users/login.php"><i class="fa fa-user"></i>LOGIN</a></li>
                 <li><a href="http://localhost/Beershop/QH_Beer/Templates/basket/basket.php"><i class="fa fa-beer"></i> BASKET</a></li>
                 <li><a href="http://localhost/Beershop/QH_Beer/Templates/faq/faq.php"><i class="fa fa-question"></i> FAQ</a></li>
-                <li><a href="#"><i class="fa fa-search"></i><input style="box-sizing: border-box; border: 2px solid; border-radius: 15px;" type="text" placeholder=" Search..." name="search"></a></li>
+                <li><a href="#"><i class="fa fa-search"></i><input style="box-sizing: border-box; border: 2px solid; border-radius: 15px; height: 40px;" type="text" placeholder=" Search..." name="search"></a></li>
             </ul>
         </nav>
