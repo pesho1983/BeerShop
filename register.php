@@ -98,6 +98,7 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="shortcut icon" href="images/logoNew_bubbles.png"/>
 
 
     <title>Register</title>
@@ -158,8 +159,7 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
 
                 <div class="input-group margin col-lg-6">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-phone-alt"></i></span>
-                    <input class="form-control" id="phone" name="phone" type="text" placeholder="Phone Number *"
-                           maxlength="10" minlength="10">
+                    <input class="form-control" id="phone" name="phone" type="number" min="10" max="10" maxlength="10" placeholder="Phone Number *" />
                 </div>
 
                 <div class="input-group margin col-lg-6">
