@@ -9,6 +9,6 @@
                 <li><a id="login" href="login.php"><i class="fa fa-user"></i>LOGIN</a></li>
                 <li><a id="basket" href="basket.php"><i class="fa fa-beer"></i> BASKET</a></li>
                 <li><a id="faq" href="faq.php"><i class="fa fa-question"></i> FAQ</a></li>
-                <li><a href="#"><i class="fa fa-search"></i><input style="box-sizing: border-box; border: 2px solid; border-radius: 15px;" type="text" placeholder=" Search..." name="search"></a></li>
+				<li><a href="#"><i class="fa fa-search"></i><input style="box-sizing: border-box; border: 2px solid; border-radius: 15px; height: 40px;" type="text" placeholder=" Search..." name="search"></a></li>
             </ul>
         </nav>
