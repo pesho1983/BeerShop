@@ -23,7 +23,7 @@
       <?php include_once "php_includes/header.php"; ?>
     </header>
 
-    <article style="position: relative; margin-top: 200px">
+    <article style="position: relative; margin-top: 150px">
         <div class="col-sm-4"></div>
         <div class="col-sm-4">
             <form action="#">

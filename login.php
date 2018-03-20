@@ -44,7 +44,7 @@
                   <input type="checkbox" value="remember-me" name="remember"> Remember me
                 </label>
               </div>
-              <button class="btn btn-lg btn-success btn-block" type="submit">Sign in</button>
+              <button class="btn btn-md btn-success btn-block" type="submit">Sign in</button>
             </fieldset>
           </form>
         </div>
