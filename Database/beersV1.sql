@@ -12,39 +12,39 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 
--- Dumping database structure for beers
-CREATE DATABASE IF NOT EXISTS `beers` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `beers`;
+-- Dumping database structure for qh_beer_shop
+CREATE DATABASE IF NOT EXISTS `qh_beer_shop` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `qh_beer_shop`;
 
--- Dumping structure for table beers.orders
+-- Dumping structure for table qh_beer_shop.orders
 CREATE TABLE IF NOT EXISTS `orders` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) unsigned NOT NULL DEFAULT '0',
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `user_id` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `FK1_users_orders` (`user_id`),
   CONSTRAINT `FK1_users_orders` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
--- Dumping structure for table beers.order_detail
+-- Dumping structure for table qh_beer_shop.order_detail
 CREATE TABLE IF NOT EXISTS `order_detail` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `order_id` int(11) unsigned DEFAULT NULL,
-  `product_id` int(11) unsigned DEFAULT NULL,
-  `price` decimal(10,2) DEFAULT NULL,
-  `quantity` int(11) DEFAULT NULL,
+  `order_id` int(11) unsigned NOT NULL DEFAULT '0',
+  `product_id` int(11) unsigned NOT NULL DEFAULT '0',
+  `price` decimal(10,2) NOT NULL DEFAULT '0.00',
+  `quantity` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `FK1_orders_order_detail` (`order_id`),
-  KEY `FK2_products_order_detail` (`product_id`),
-  CONSTRAINT `FK1_orders_order_detail` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
-  CONSTRAINT `FK2_products_order_detail` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
+  KEY `FK1_product_id_order_detail` (`product_id`),
+  KEY `FK2_orders_order_detail` (`order_id`),
+  CONSTRAINT `FK1_product_id_order_detail` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
+  CONSTRAINT `FK2_orders_order_detail` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
--- Dumping structure for table beers.products
+-- Dumping structure for table qh_beer_shop.products
 CREATE TABLE IF NOT EXISTS `products` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL DEFAULT '0',
   `description` text NOT NULL,
   `price` decimal(10,2) NOT NULL DEFAULT '0.00',
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
--- Dumping structure for table beers.users
+-- Dumping structure for table qh_beer_shop.users
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL DEFAULT '0',
@@ -63,7 +63,10 @@ CREATE TABLE IF NOT EXISTS `users` (
   `address` varchar(50) NOT NULL DEFAULT '0',
   `first_name` varchar(50) NOT NULL DEFAULT '0',
   `last_name` varchar(50) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  `age` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`),
+  UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
