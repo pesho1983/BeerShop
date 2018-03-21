@@ -204,28 +204,11 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
         // active page shadow
         $("#register").addClass('text_shadow');
     $(function() {
-        // Initialize form validation on the registration form.
-        // It has the name attribute "registration"
-        $("form[name='registration']").validate({
-            // Specify validation rules
-
-        //jquery validator
-
         $.validator.setDefaults({
             submitHandler: function () { alert("submitted!"); }
         });
 
-        $('#register_submit').click(function(e){
-
-            if ($("#registration").valid()) {
-                alert ('valid!');
-            } else {
-                alert ('invalid!');
-            }
-        });
-
         $('#registration').validate({
->>>>>>> be932354fb86c6c342979c7ffc37aa8f8e61c347
             rules: {
                 firstName: "required",
                 lastName: "required",
