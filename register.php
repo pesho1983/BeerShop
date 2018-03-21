@@ -104,16 +104,18 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
     <title>Register</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link type="text/css" rel="stylesheet" media="screen"
-          href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-    <link href="css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <link type="text/css" rel="stylesheet" media="screen" href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link href="css/styles.css" rel="stylesheet" >
+<!--      <style type="text/css" rel="stylesheet">-->
+<!--          placeholder: after {-->
+<!--              content:"*";-->
+<!--              color:red;-->
+<!--          }-->
+<!--      </style>-->
+ </head>
 
-
-</head>
 
 <body class="text-center" style="background-color:#eee">
 <header>
@@ -123,7 +125,7 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
 <article style="position: relative; margin-top: 200px">
     <div class="col-sm-4"></div>
     <div class="col-sm-4">
-        <form action="#" method="post">
+        <form id="registration" action="#" method="post">
             <fieldset>
                 <legend class="extraPlace">Register</legend>
 
@@ -184,7 +186,7 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
                     <div class="margin"><span>* &nbsp;&nbsp; Mandatory fields</span></div>
                 </div>
 
-                <button class="btn btn-success " type="submit" name="register">Register</button>
+                <button class="btn btn-success " type="submit" name="register" formmethod="post">Register</button>
             </fieldset>
         </form>
     </div>
@@ -194,30 +196,89 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
 <footer class="container fixed-bottom">
     <?php include_once "php_includes/footer.php"; ?>
 </footer>
-<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-        crossorigin="anonymous"></script>
-<script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
+
+<script type="text/javascript">
     $(document).ready(function () {
+        // active page shadow
         $("#register").addClass('text_shadow');
+    $(function() {
+        // Initialize form validation on the registration form.
+        // It has the name attribute "registration"
+        $("form[name='registration']").validate({
+            // Specify validation rules
+
+        //jquery validator
+
+        $.validator.setDefaults({
+            submitHandler: function () { alert("submitted!"); }
+        });
+        $('#registration').validate({
+>>>>>>> be932354fb86c6c342979c7ffc37aa8f8e61c347
+            rules: {
+                firstName: "required",
+                lastName: "required",
+                email: {
+                    required: true,
+                    email: true
+                },
+                password: {
+                    required: true,
+                    length: {
+                        minimum: 8,
+                        maximum: 15
+                    }
+
+                }
+                username: {
+                    alphanumeric: true,
+                    length: {
+                        minimum: 4,
+                        maximum: 8
+                    }
+
+                }
+                phone: {
+                    length: {
+                        minimum: 10,
+                        maximum: 10
+                    }
+                },
+
+            messages: {
+                username: "Your username must be between 4 and 8 symbols"
+                firstName: "Please enter your firstname",
+                lastName: "Please enter your lastname",
+                password: {
+                    required: "Please provide a password",
+                    minlength: "Your password must be at least 5 characters long"
+                },
+                email: "Please enter a valid email address"
+            },
+            submitHandler: function(form) {
+                form.submit();
+            }
+        });
     });
 </script>
 
-<script type="text/javascript">
-    var password = document.getElementById("password")
-  , confirm_password = document.getElementById("confirm_password");
-
-function validatePassword(){
-  if(password.value != confirm_password.value) {
-    confirm_password.setCustomValidity("Passwords Don't Match");
-  } else {
-    confirm_password.setCustomValidity('');
-  }
-}
-
-password.onchange = validatePassword;
-confirm_password.onkeyup = validatePassword;
-
-</script>
+<!--<script type="text/javascript">-->
+<!--    var password = document.getElementById("password")-->
+<!--  , confirm_password = document.getElementById("confirm_password");-->
+<!---->
+<!--function validatePassword(){-->
+<!--  if(password.value != confirm_password.value) {-->
+<!--    confirm_password.setCustomValidity("Passwords Don't Match");-->
+<!--  } else {-->
+<!--    confirm_password.setCustomValidity('');-->
+<!--  }-->
+<!--}-->
+<!---->
+<!--password.onchange = validatePassword;-->
+<!--confirm_password.onkeyup = validatePassword;-->
+<!---->
+<!--</script>-->
 
 </body>
 
