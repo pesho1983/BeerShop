@@ -125,7 +125,7 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
 <article style="position: relative; margin-top: 200px">
     <div class="col-sm-4"></div>
     <div class="col-sm-4">
-        <form id="registration" action="#" method="post">
+        <form id="registration" action="#" method="post" novalidate="novalidate">
             <fieldset>
                 <legend class="extraPlace">Register</legend>
 
@@ -186,7 +186,7 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
                     <div class="margin"><span>* &nbsp;&nbsp; Mandatory fields</span></div>
                 </div>
 
-                <button class="btn btn-success " type="submit" name="register" formmethod="post">Register</button>
+                <button id="register_submit" class="btn btn-success " type="submit" name="register">Register</button>
             </fieldset>
         </form>
     </div>
@@ -210,10 +210,22 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
         $.validator.setDefaults({
             submitHandler: function () { alert("submitted!"); }
         });
+
+        $('#register_submit').click(function(e){
+
+            if ($("#registration").valid()) {
+                alert ('valid!');
+            } else {
+                alert ('invalid!');
+            }
+        });
+
         $('#registration').validate({
             rules: {
                 firstName: "required",
                 lastName: "required",
+                age: "required",
+                address: "required",
                 email: {
                     required: true,
                     email: true
@@ -225,7 +237,13 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
                         maximum: 15
                     }
 
-                }
+                },
+
+                confirm_password: {
+                    required: true,
+                    equalTo: "password"
+                },
+
                 username: {
                     alphanumeric: true,
                     length: {
@@ -233,26 +251,39 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
                         maximum: 8
                     }
 
-                }
+                },
                 phone: {
+                    required: true,
                     length: {
                         minimum: 10,
                         maximum: 10
                     }
-                },
-
+                }
+            },
             messages: {
-                username: "Your username must be between 4 and 8 symbols"
+                username: {
+                    alphanumeric: "Cannot contain special symbols",
+                    length: {
+                        minimum: "At least 4 symbols required",
+                        maximum: "No more than 8 symbols allowed"
+                    }
+
+                },
                 firstName: "Please enter your firstname",
                 lastName: "Please enter your lastname",
+                age: "Please enter your age",
+                phone: "Pleae enter your phone",
+                address: "Please enter your address",
                 password: {
                     required: "Please provide a password",
-                    minlength: "Your password must be at least 5 characters long"
+                    length: "Your password must be between 8 and 15 characters long"
                 },
                 email: "Please enter a valid email address"
             },
+
             submitHandler: function(form) {
-                form.submit();
+                    $(form).submit();
+
             }
         });
     });
