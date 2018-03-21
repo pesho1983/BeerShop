@@ -13,9 +13,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
       <link type="text/css" rel="stylesheet" media="screen" href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-    <link href="css/styles.css" rel="stylesheet">
-
-      https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js
+    <link href="css/styles.css" rel="stylesheet" >
+<!--      <style type="text/css" rel="stylesheet">-->
+<!--          placeholder: after {-->
+<!--              content:"*";-->
+<!--              color:red;-->
+<!--          }-->
+<!--      </style>-->
   </head>
 
   <body class="text-center" style="background-color:#eee">
@@ -26,13 +30,14 @@
     <article style="position: relative; margin-top: 150px">
         <div class="col-sm-4"></div>
         <div class="col-sm-4">
-            <form action="#">
+            <form id="registerForm" action="#">
                 <fieldset>
                     <legend class="extraPlace">Register</legend>
-
-                    <div class="input-group margin col-lg-6">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input class="form-control" id="username" name="username" type="text" placeholder="Username *" maxlength="8" minlength="4">
+<!-- classes {has-success} {has-feedback} gives additional color to the glyphicon and sth more -->
+                    <div class="input-group margin col-lg-6 ">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user" ></i></span>
+                        <input class="form-control" id="username" name="username" type="text" placeholder="Username *" maxlength="8" minlength="4" required>
+<!--                        <span class="glyphicon glyphicon-ok form-control-feedback "></span>-->
 
                     </div>
 
@@ -95,9 +100,12 @@
       <?php include_once "php_includes/footer.php"; ?>
     </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
+
     <script>
         $(document).ready(function() {
             $("#register").addClass('text_shadow');
+            // $("#registerForm").validate();
         });
     </script>
 
