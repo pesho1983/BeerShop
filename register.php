@@ -123,7 +123,7 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
 <article style="position: relative; margin-top: 200px">
     <div class="col-sm-4"></div>
     <div class="col-sm-4">
-        <form action="#" method="post">
+        <form name="registration" action="#" method="post">
             <fieldset>
                 <legend class="extraPlace">Register</legend>
 
@@ -194,14 +194,54 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
 <footer class="container fixed-bottom">
     <?php include_once "php_includes/footer.php"; ?>
 </footer>
-<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
+
 <script>
     $(document).ready(function () {
         $("#register").addClass('text_shadow');
     });
 </script>
+<script>
+    $(function() {
+        // Initialize form validation on the registration form.
+        // It has the name attribute "registration"
+        $("form[name='registration']").validate({
+            // Specify validation rules
+            rules: {
+                // The key name on the left side is the name attribute
+                // of an input field. Validation rules are defined
+                // on the right side
+                firstName: "required",
+                lastName: "required",
+                email: {
+                    required: true,
+                    email: true
+                },
+                password: {
+                    required: true,
+                    minlength: 5
+                }
+            },
+            // Specify validation error messages
+            messages: {
+                firstName: "Please enter your firstname",
+                lastName: "Please enter your lastname",
+                password: {
+                    required: "Please provide a password",
+                    minlength: "Your password must be at least 5 characters long"
+                },
+                email: "Please enter a valid email address"
+            },
+            // Make sure the form is submitted to the destination defined
+            // in the "action" attribute of the form when valid
+            submitHandler: function(form) {
+                form.submit();
+            }
+        });
+    });
 
+</script>
 <script type="text/javascript">
     var password = document.getElementById("password")
   , confirm_password = document.getElementById("confirm_password");
