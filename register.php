@@ -125,7 +125,7 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
 <article style="position: relative; margin-top: 200px">
     <div class="col-sm-4"></div>
     <div class="col-sm-4">
-        <form name="registration" action="#" method="post">
+        <form id="registration" action="#" method="post">
             <fieldset>
                 <legend class="extraPlace">Register</legend>
 
@@ -186,7 +186,7 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
                     <div class="margin"><span>* &nbsp;&nbsp; Mandatory fields</span></div>
                 </div>
 
-                <button class="btn btn-success " type="submit" name="register">Register</button>
+                <button class="btn btn-success " type="submit" name="register" formmethod="post">Register</button>
             </fieldset>
         </form>
     </div>
@@ -196,24 +196,27 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
 <footer class="container fixed-bottom">
     <?php include_once "php_includes/footer.php"; ?>
 </footer>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
 
 <script type="text/javascript">
     $(document).ready(function () {
+        // active page shadow
         $("#register").addClass('text_shadow');
-    });
-</script>
-<script type="text/javascript">
     $(function() {
         // Initialize form validation on the registration form.
         // It has the name attribute "registration"
         $("form[name='registration']").validate({
             // Specify validation rules
+
+        //jquery validator
+
+        $.validator.setDefaults({
+            submitHandler: function () { alert("submitted!"); }
+        });
+        $('#registration').validate({
+>>>>>>> be932354fb86c6c342979c7ffc37aa8f8e61c347
             rules: {
-                // The key name on the left side is the name attribute
-                // of an input field. Validation rules are defined
-                // on the right side
                 firstName: "required",
                 lastName: "required",
                 email: {
@@ -222,11 +225,29 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
                 },
                 password: {
                     required: true,
-                    minlength: 5
+                    length: {
+                        minimum: 8,
+                        maximum: 15
+                    }
+
                 }
-            },
-            // Specify validation error messages
+                username: {
+                    alphanumeric: true,
+                    length: {
+                        minimum: 4,
+                        maximum: 8
+                    }
+
+                }
+                phone: {
+                    length: {
+                        minimum: 10,
+                        maximum: 10
+                    }
+                },
+
             messages: {
+                username: "Your username must be between 4 and 8 symbols"
                 firstName: "Please enter your firstname",
                 lastName: "Please enter your lastname",
                 password: {
@@ -235,31 +256,29 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
                 },
                 email: "Please enter a valid email address"
             },
-            // Make sure the form is submitted to the destination defined
-            // in the "action" attribute of the form when valid
             submitHandler: function(form) {
                 form.submit();
             }
         });
     });
-
 </script>
-<script type="text/javascript">
-    var password = document.getElementById("password")
-  , confirm_password = document.getElementById("confirm_password");
 
-function validatePassword(){
-  if(password.value != confirm_password.value) {
-    confirm_password.setCustomValidity("Passwords Don't Match");
-  } else {
-    confirm_password.setCustomValidity('');
-  }
-}
-
-password.onchange = validatePassword;
-confirm_password.onkeyup = validatePassword;
-
-</script>
+<!--<script type="text/javascript">-->
+<!--    var password = document.getElementById("password")-->
+<!--  , confirm_password = document.getElementById("confirm_password");-->
+<!---->
+<!--function validatePassword(){-->
+<!--  if(password.value != confirm_password.value) {-->
+<!--    confirm_password.setCustomValidity("Passwords Don't Match");-->
+<!--  } else {-->
+<!--    confirm_password.setCustomValidity('');-->
+<!--  }-->
+<!--}-->
+<!---->
+<!--password.onchange = validatePassword;-->
+<!--confirm_password.onkeyup = validatePassword;-->
+<!---->
+<!--</script>-->
 
 </body>
 
