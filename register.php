@@ -203,76 +203,79 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
     $(document).ready(function () {
         // active page shadow
         $("#register").addClass('text_shadow');
-    $(function() {
-        $.validator.setDefaults({
-            submitHandler: function () { alert("submitted!"); }
-        });
-
-        $('#registration').validate({
-            rules: {
-                firstName: "required",
-                lastName: "required",
-                age: "required",
-                address: "required",
-                email: {
-                    required: true,
-                    email: true
-                },
-                password: {
-                    required: true,
-                    length: {
-                        minimum: 8,
-                        maximum: 15
-                    }
-
-                },
-
-                confirm_password: {
-                    required: true,
-                    equalTo: "password"
-                },
-
-                username: {
-                    alphanumeric: true,
-                    length: {
-                        minimum: 4,
-                        maximum: 8
-                    }
-
-                },
-                phone: {
-                    required: true,
-                    length: {
-                        minimum: 10,
-                        maximum: 10
-                    }
+        $(function () {
+            $.validator.setDefaults({
+                submitHandler: function () {
+                    alert("submitted!");
                 }
-            },
-            messages: {
-                username: {
-                    alphanumeric: "Cannot contain special symbols",
-                    length: {
-                        minimum: "At least 4 symbols required",
-                        maximum: "No more than 8 symbols allowed"
+            });
+
+            $('#registration').validate({
+                rules: {
+                    firstName: "required",
+                    lastName: "required",
+                    age: "required",
+                    address: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    password: {
+                        required: true,
+                        length: {
+                            minimum: 8,
+                            maximum: 15
+                        }
+
+                    },
+
+                    confirm_password: {
+                        required: true,
+                        equalTo: "password"
+                    },
+
+                    username: {
+                        alphanumeric: true,
+                        length: {
+                            minimum: 4,
+                            maximum: 8
+                        }
+
+                    },
+                    phone: {
+                        required: true,
+                        length: {
+                            minimum: 10,
+                            maximum: 10
+                        }
                     }
-
                 },
-                firstName: "Please enter your firstname",
-                lastName: "Please enter your lastname",
-                age: "Please enter your age",
-                phone: "Pleae enter your phone",
-                address: "Please enter your address",
-                password: {
-                    required: "Please provide a password",
-                    length: "Your password must be between 8 and 15 characters long"
-                },
-                email: "Please enter a valid email address"
-            },
+                messages: {
+                    username: {
+                        alphanumeric: "Cannot contain special symbols",
+                        length: {
+                            minimum: "At least 4 symbols required",
+                            maximum: "No more than 8 symbols allowed"
+                        }
 
-            submitHandler: function(form) {
+                    },
+                    firstName: "Please enter your firstname",
+                    lastName: "Please enter your lastname",
+                    age: "Please enter your age",
+                    phone: "Pleae enter your phone",
+                    address: "Please enter your address",
+                    password: {
+                        required: "Please provide a password",
+                        length: "Your password must be between 8 and 15 characters long"
+                    },
+                    email: "Please enter a valid email address"
+                },
+
+                submitHandler: function (form) {
                     $(form).submit();
 
-            }
+                }
+            });
         });
     });
 </script>
