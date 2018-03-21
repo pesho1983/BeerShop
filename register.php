@@ -199,12 +199,12 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
 
-<script>
+<script type="text/javascript">
     $(document).ready(function () {
         $("#register").addClass('text_shadow');
     });
 </script>
-<script>
+<script type="text/javascript">
     $(function() {
         // Initialize form validation on the registration form.
         // It has the name attribute "registration"
@@ -240,7 +240,6 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
             submitHandler: function(form) {
                 form.submit();
             }
->>>>>>> a6fc477eb65f1fcd5b05ee14e3ca087adf38bfe0
         });
     });
 
