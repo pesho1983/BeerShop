@@ -104,7 +104,7 @@ $(document).ready(function () {
                 confirmPass:{
                     equalTo: "Enter same password again"
                 },
-                age: "Please enter your age",
+                age: "Please enter your age"
             }
 
             // submitHandler: function (form) {
