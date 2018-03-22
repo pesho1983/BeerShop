@@ -47,16 +47,32 @@ try {
         if ($password != $confirmPass) {
             throw new Exception("Password do not match.");
         }
+
          $patern = '#^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$#';
          //Validation email
          if (!preg_match($patern, $email)) {
              throw new Exception("Please fill valid email.");
          }
 
-
         if (strlen($phone) != 10) {
             throw new Exception("Phone must be 10 numbers.");
         }
+
+        if($_POST('age') > 18){
+             throw new Exception("You must be at least 18 years old");
+        }
+
+        if(!isset($_POST['gdpr']))
+        {
+            throw new Exception("You must agree with GDPR.");
+        }
+
+        if(!isset($_POST['agreement']))
+        {
+            throw new Exception("You must agree with the terms and conditions.");
+        }
+
+
 //Now, we need to check if the supplied username already exists.
 
 //Construct the SQL statement and prepare it.
