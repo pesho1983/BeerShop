@@ -147,16 +147,18 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
     <title>Register</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link type="text/css" rel="stylesheet" media="screen"
-          href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-    <link href="css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <link type="text/css" rel="stylesheet" media="screen" href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link href="css/styles.css" rel="stylesheet" >
+<!--      <style type="text/css" rel="stylesheet">-->
+<!--          placeholder: after {-->
+<!--              content:"*";-->
+<!--              color:red;-->
+<!--          }-->
+<!--      </style>-->
+ </head>
 
-
-</head>
 
 <body class="text-center" style="background-color:#eee">
 <header>
@@ -166,7 +168,7 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
 <article style="position: relative; margin-top: 200px">
     <div class="col-sm-4"></div>
     <div class="col-sm-4">
-        <form name="registration" action="#" method="post">
+        <form id="registration" action="#" method="post" novalidate="novalidate">
             <fieldset>
                 <legend class="extraPlace center">Register</legend>
                 <?php if ($error) : ?>
@@ -235,7 +237,7 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
                     <div class="margin"><span>* &nbsp;&nbsp; Mandatory fields</span></div>
                 </div>
 
-                <button class="btn btn-success " type="submit" name="register">Register</button>
+                <button id="register_submit" class="btn btn-success " type="submit" name="register">Register</button>
             </fieldset>
         </form>
     </div>
@@ -245,7 +247,7 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
 <footer class="container fixed-bottom">
     <?php include_once "php_includes/footer.php"; ?>
 </footer>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
 
 
