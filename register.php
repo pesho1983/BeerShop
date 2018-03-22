@@ -181,7 +181,7 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
     <?php include_once "php_includes/header.php"; ?>
 </header>
 
-<article style="position: relative; margin-top: 200px">
+<article style="position: relative; margin-top: 100px">
     <div class="col-sm-4"></div>
     <div class="col-sm-4">
         <form id="registration" action="#" method="post" novalidate="novalidate">
