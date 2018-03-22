@@ -257,3 +257,12 @@ div div .margin{
     border-bottom: 2px solid #E05151;
 
 }
+
+.simple-linear {
+    background-image: url("../images/heart.png");
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    margin-left: 13px;
+    margin-top: 10px;
+}
