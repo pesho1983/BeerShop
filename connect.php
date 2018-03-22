@@ -1,11 +1,6 @@
 <?php
-/**
- * This script connects to MySQL using the PDO object.
- * This can be included in web pages where a database connection is needed.
- * Customize these to match your MySQL database connection details.
- * This info should be available from within your hosting panel.
- */
 
+session_start();
 //Our MySQL user account.
 define('MYSQL_USER', 'root');
 
