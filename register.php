@@ -48,8 +48,8 @@ try {
             throw new Exception("Password must be between 8 an 15 symbols.");
         }
         $patern = '#^(?=(.*\d){2,})(?=.*[A-Z]{1,})(?=.*[a-zA-Z]{2,})(?=.*[!@~#$%^&?]{1,})[0-9a-zA-Z!@~#?$^%&`]+$#';
-        if (preg_match($patern, $password)) {
-            throw new Exception("Password must contains at least 1 special symbol at least 1 uppercase letter at least 2 numbers at least 3 letters.");
+        if (!preg_match($patern, $password)) {
+            throw new Exception("Password must contains at least 1 special symbol, 1 uppercase letter, 2 numbers and 3 letters.");
         }
         if ($password != $confirmPass) {
             throw new Exception("Password do not match.");
