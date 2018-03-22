@@ -184,7 +184,7 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
 <article style="position: relative; margin-top: 150px">
     <div class="col-sm-4"></div>
     <div class="col-sm-4">
-        <form id="registration" action="#" method="post" novalidate="novalidate">
+        <form id="registration" novalidate="novalidate">
             <fieldset>
                 <legend class="extraPlace center">Register</legend>
                 <?php if ($error) : ?>
@@ -196,7 +196,10 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
                     <input class="form-control" id="username" name="username" type="text" placeholder="Username"
                            maxlength="8" minlength="4" required>
                     <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
-                </div>
+                    <div class="input-group margin">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input class="form-control" id="password" name="password" type="password" placeholder="Password *"
+                               maxlength="15" minlength="8" required>
 
                 <div class="container col-md-12">
                 <div class="row">
@@ -204,16 +207,21 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                     <input class="form-control" id="password" name="password" type="password" placeholder="Password"
                            maxlength="15" minlength="8" required>
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input class="form-control" id="confirmPass" name="confirmPass" type="password" placeholder="Confirm Password *" required>
                     <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
                     </div>
-
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                     <div class="input-group margin col-md-6">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                     <input class="form-control" id="confirm_password" name="confirmPass" type="password" placeholder="Confirm Password" maxlength="15" minlength="8" required>
+                    </div>
                     <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
                     </div>
 
-                </div>
+                    <div class="input-group margin">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input class="form-control" id="firstName" name="firstName" type="text" placeholder="First Name *" required>
                 </div>
 
                 <div class="container col-md-12">
@@ -221,9 +229,12 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
                     <div class="input-group margin col-md-6">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                     <input class="form-control" id="firstName" name="firstName" type="text" placeholder="First Name" required>
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input class="form-control" id="lastName" name="lastName" type="text" placeholder="Last Name *" required>
+                    </div>
                     <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
                     </div>
-
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                     <div class="input-group margin col-md-6">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                     <input class="form-control" id="lastName" name="lastName" type="text" placeholder="Last Name" required>
@@ -231,6 +242,10 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
                     </div>
 
                 </div>
+                    <div class="input-group margin col-lg-6">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                        <input class="form-control" id="email" name="email" type="email" placeholder="Email *" required>
+                    </div>
                 </div>
 
                 <div class="input-group margin col-lg-6">
@@ -238,24 +253,47 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
                     <input class="form-control" id="email" name="email" type="email" placeholder="Email" required>
                     <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
                 </div>
+                    <div class="input-group margin col-lg-6">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-phone-alt"></i></span>
+                        <input class="form-control" id="phone" name="phone" type="text" maxlength="10" placeholder="Phone Number *" required>
+                    </div>
 
                 <div class="input-group margin col-lg-6">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-phone-alt"></i></span>
                     <input class="form-control" id="phone" name="phone" type="number" maxlength="10" placeholder="Phone Number" required>
                     <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
                 </div>
+                    <div class="input-group margin col-lg-6">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                        <input class="form-control" id="address" name="address" type="text" placeholder="Address *" required>
+                    </div>
 
                 <div class="input-group margin col-lg-6">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
                     <input class="form-control" id="address" name="address" type="text" placeholder="Address" required>
                     <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
                 </div>
+                    <div class="input-group margin col-lg-6">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                        <input class="form-control" id="age" name="age" type="number" placeholder="Age *" min="18" required>
+                    </div>
 
                 <div class="input-group margin col-lg-6">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
                     <input class="form-control" id="age" name="age" type="number" placeholder="Age" min="18" required>
                     <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
                 </div>
+                    <div class="checkbox alignLeftContent">
+                        <label>
+                            <input type="checkbox" name="agreement" id="agreement" value="1" > I have read and agree to the <a
+                                    href="https://www.un.org/Depts/ptd/terms-and-conditions-agreement">Terms and Conditions
+                                *</a>
+                        </label><br>
+                        <label>
+                            <input type="checkbox" name="gdpr" id="gdpr" value="1" > GDPR Agreement *
+                        </label>
+                        <div class="margin"><span>* &nbsp;&nbsp; Mandatory fields</span></div>
+                    </div>
 
                 <div class="checkbox alignLeftContent">
                     <label>
@@ -267,9 +305,9 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
                         <input type="checkbox" name="gdpr" value="1" required> GDPR Agreement <img src="images/heart.png"></img>
                     </label>
                     <div class="margin"><img src="images/heart.png"></img> Mandatory field</div>
+                    <input id="register_submit" class="btn btn-success " type="submit" name="register" value="Register">
                 </div>
-
-                <button id="register_submit" class="btn btn-success " type="submit" name="register">Register</button>
+                <div ></div>
             </fieldset>
         </form>
     </div>
@@ -281,7 +319,135 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
 </footer>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/additional-methods.min.js"></script>
 
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        // active page shadow
+        $("#register").addClass('text_shadow');
+
+
+        // Initialize form validation on the registration form.
+        // It has the name attribute "registration"
+
+
+        // $('#register_submit').click(function (e) {
+        //     e.preventDefault();
+        //     if ($("#registration").valid()) {
+        //         alert('valid!');
+        //     } else {
+        //         alert('invalid!');
+        //     }
+        // });
+
+
+        // Custom Method for pass validation, only number of chars
+        $.validator.addMethod('strongPass', function(value, element){
+                return this.optional(element) || value.length >= 8 && value.length <= 15;
+        }, 'Your password must be between 8 and 15 characters');
+
+        // Custom method for phone validation
+        $.validator.addMethod('telephone', function(value, element){
+            return this.optional(element) || value.length === 8;
+        }, 'Your phone number must be 10 digits');
+
+        //
+        $.validator.setDefaults({
+            highlight: function (element) {
+                $(element).closest('.input-group').addClass('has-error');
+            },
+            unhighlight: function (element) {
+                $(element).closest('.input-group').removeClass('has-error');
+            }
+
+        });
+
+        $('#registration').validate({
+            rules: {
+                firstName: {
+                    required: true,
+                    nowhitespace: true,
+                    lettersonly: true
+                },
+
+                lastName: {
+                    required: true,
+                    nowhitespace: true,
+                    lettersonly: true
+                },
+
+                age: {
+                    required: true
+                },
+
+                address: {
+                    required: true
+                },
+
+                email: {
+                    required: true,
+                    email: true
+                },
+
+                password: {
+                    required: true,
+                    strongPass: true
+                },
+
+                confirmPass: {
+                    required: true,
+                    equalTo: "#password"
+                },
+
+                username: {
+                    alphanumeric: true,
+                    length: {
+                        minimum: 4,
+                        maximum: 8
+                    }
+
+                },
+
+                phone: {
+                    required: true,
+                    telephone: true
+                }
+
+            },
+
+            messages: {
+                username: {
+                    alphanumeric: "Cannot contain special symbols",
+                    length: {
+                        minimum: "At least 4 symbols required",
+                        maximum: "No more than 8 symbols allowed"
+                    }
+
+                },
+                // firstName: "Please enter your firstname",
+                // lastName: "Please enter your lastname",
+                age: "Please enter your age",
+                // phone: "Pleae enter your phone",
+                address: "Please enter your address",
+                password: {
+                    required: "Please provide a password"
+                },
+                email:{
+                    required: "Please enter an email address",
+                    email: "Please enter a <i>valid email</i> address"
+                }
+
+
+            },
+
+            submitHandler: function (form) {
+                $(form).submit();
+
+            }
+        });
+    })
+</script>
 
 </body>
 
