@@ -24,7 +24,7 @@ $(document).ready(function () {
 
         // Custom method for phone validation
         $.validator.addMethod('telephone', function(value, element){
-            return this.optional(element) || value.length === 8;
+            return this.optional(element) || value.length === 10;
         }, 'Your phone number must be 10 digits');
 
         //
@@ -38,31 +38,15 @@ $(document).ready(function () {
 
         });
 
+        $.validator.addMethod('mailRegEx', function(value, element){
+            return this.optional(element) || /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/.test(value);
+        }, 'Please enter a <i>valid email</i> address');
+
         $('#registration').validate({
             rules: {
-                firstName: {
+                username: {
                     required: true,
-                    nowhitespace: true,
-                    lettersonly: true
-                },
-
-                lastName: {
-                    required: true,
-                    nowhitespace: true,
-                    lettersonly: true
-                },
-
-                age: {
-                    required: true
-                },
-
-                address: {
-                    required: true
-                },
-
-                email: {
-                    required: true,
-                    email: true
+                    alphanumeric: true
                 },
 
                 password: {
@@ -75,50 +59,57 @@ $(document).ready(function () {
                     equalTo: "#password"
                 },
 
-                username: {
-                    alphanumeric: true,
-                    length: {
-                        minimum: 4,
-                        maximum: 8
-                    }
+                firstName: {
+                    required: true,
+                    nowhitespace: true,
+                    lettersonly: true
+                },
 
+                lastName: {
+                    required: true,
+                    nowhitespace: true,
+                    lettersonly: true
+                },
+
+                email: {
+                    required: true,
+                    mailRegEx: true
                 },
 
                 phone: {
                     required: true,
                     telephone: true
-                }
+                },
 
+                address: {
+                    required: true
+                },
+
+                age: {
+                    required: true
+                }
             },
 
             messages: {
                 username: {
                     alphanumeric: "Cannot contain special symbols",
-                    length: {
-                        minimum: "At least 4 symbols required",
-                        maximum: "No more than 8 symbols allowed"
-                    }
-
                 },
-                // firstName: "Please enter your firstname",
-                // lastName: "Please enter your lastname",
-                age: "Please enter your age",
-                // phone: "Pleae enter your phone",
-                address: "Please enter your address",
                 password: {
                     required: "Please provide a password"
                 },
+                address: "Please enter your address",
                 email:{
-                    required: "Please enter an email address",
-                    email: "Please enter a <i>valid email</i> address"
-                }
-
-
-            },
-
-            submitHandler: function (form) {
-                $(form).submit();
-
+                    required: "Please enter an email address"
+                },
+                confirmPass:{
+                    equalTo: "Enter same password again"
+                },
+                age: "Please enter your age",
             }
+
+            // submitHandler: function (form) {
+            //     $(form).submit();
+            //
+            // }
         });
     });
