@@ -181,7 +181,7 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
     <?php include_once "php_includes/header.php"; ?>
 </header>
 
-<article style="position: relative; margin-top: 100px">
+<article style="position: relative; margin-top: 150px">
     <div class="col-sm-4"></div>
     <div class="col-sm-4">
         <form id="registration" action="#" method="post" novalidate="novalidate">
@@ -209,7 +209,7 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
 
                     <div class="input-group margin col-md-6">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                    <input class="form-control" id="confirm_password" name="confirmPass" type="password" placeholder="Confirm Password" required>
+                    <input class="form-control" id="confirm_password" name="confirmPass" type="password" placeholder="Confirm Password" maxlength="15" minlength="8" required>
                     <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
                     </div>
 
