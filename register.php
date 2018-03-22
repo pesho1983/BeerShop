@@ -193,7 +193,7 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
                 <?php $error = ''; ?>
                 <div class="input-group margin col-lg-6">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                    <input class="form-control" id="username" name="username" type="text" placeholder="Username *"
+                    <input class="form-control" id="username" name="username" type="text" placeholder="Username"
                            maxlength="8" minlength="4" required>
                     <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
                 </div>
@@ -202,14 +202,14 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
                 <div class="row">
                     <div class="input-group margin col-md-6">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                    <input class="form-control" id="password" name="password" type="password" placeholder="Password *"
+                    <input class="form-control" id="password" name="password" type="password" placeholder="Password"
                            maxlength="15" minlength="8" required>
                     <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
                     </div>
 
                     <div class="input-group margin col-md-6">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                    <input class="form-control" id="confirm_password" name="confirmPass" type="password" placeholder="Confirm Password *" required>
+                    <input class="form-control" id="confirm_password" name="confirmPass" type="password" placeholder="Confirm Password" required>
                     <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
                     </div>
 
@@ -220,13 +220,13 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
                 <div class="row">
                     <div class="input-group margin col-md-6">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                    <input class="form-control" id="firstName" name="firstName" type="text" placeholder="First Name *" required>
+                    <input class="form-control" id="firstName" name="firstName" type="text" placeholder="First Name" required>
                     <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
                     </div>
 
                     <div class="input-group margin col-md-6">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                    <input class="form-control" id="lastName" name="lastName" type="text" placeholder="Last Name *" required>
+                    <input class="form-control" id="lastName" name="lastName" type="text" placeholder="Last Name" required>
                     <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
                     </div>
 
@@ -235,25 +235,25 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
 
                 <div class="input-group margin col-lg-6">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                    <input class="form-control" id="email" name="email" type="email" placeholder="Email *" required>
+                    <input class="form-control" id="email" name="email" type="email" placeholder="Email" required>
                     <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
                 </div>
 
                 <div class="input-group margin col-lg-6">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-phone-alt"></i></span>
-                    <input class="form-control" id="phone" name="phone" type="number" maxlength="10" placeholder="Phone Number *" required>
+                    <input class="form-control" id="phone" name="phone" type="number" maxlength="10" placeholder="Phone Number" required>
                     <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
                 </div>
 
                 <div class="input-group margin col-lg-6">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                    <input class="form-control" id="address" name="address" type="text" placeholder="Address *" required>
+                    <input class="form-control" id="address" name="address" type="text" placeholder="Address" required>
                     <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
                 </div>
 
                 <div class="input-group margin col-lg-6">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-                    <input class="form-control" id="age" name="age" type="number" placeholder="Age *" min="18" required>
+                    <input class="form-control" id="age" name="age" type="number" placeholder="Age" min="18" required>
                     <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
                 </div>
 
