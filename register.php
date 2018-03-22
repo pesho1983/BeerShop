@@ -58,7 +58,7 @@ try {
             throw new Exception("Phone must be 10 numbers.");
         }
 
-        if($_POST('age') > 18){
+        if(intval($age) < 18){
              throw new Exception("You must be at least 18 years old");
         }
 
