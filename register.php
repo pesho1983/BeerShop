@@ -41,18 +41,18 @@ try {
         }
         $patern = '#^[A-Za-z0-9]+$#';
         if (!preg_match($patern, $username)) {
-            throw new Exception("User name must not contains Special characters.");
+            throw new Exception("User name must not contain special characters.");
         }
         //Validation password
         if (strlen($password) < 8 || strlen($password) > 15 || empty($password)) {
             throw new Exception("Password must be between 8 an 15 symbols.");
         }
         $patern = '#^(?=(.*\d){2,})(?=.*[A-Z]{1,})(?=.*[a-zA-Z]{2,})(?=.*[!@~#$%^&?]{1,})[0-9a-zA-Z!@~#?$^%&`]+$#';
-        if (!preg_match($patern, $password)) {
+        if (preg_match($patern, $password)) {
             throw new Exception("Password must contains at least 1 special symbol, 1 uppercase letter, 2 numbers and 3 letters.");
         }
         if ($password != $confirmPass) {
-            throw new Exception("Password do not match.");
+            throw new Exception("Passwords do not match.");
         }
         //Validation email
         $patern = '#^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$#';
@@ -61,7 +61,7 @@ try {
         }
         //Validation phone
         if (strlen($phone) != 10) {
-            throw new Exception("Phone must be 10 numbers.");
+            throw new Exception("Phone must be 10 digits.");
         }
         //Validation age
         if (intval($age) < 18) {
