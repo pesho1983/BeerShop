@@ -30,12 +30,6 @@ try {
 //Retrieve the field values from our registration form.
         $username = !empty($_POST['username']) ? trim($_POST['username']) : null;
         $password = !empty($_POST['password']) ? trim($_POST['password']) : null;
-        $firstName = !empty($_POST['$firstName']) ? trim($_POST['$firstName']) : null;
-        $lastName = !empty($_POST['$lastName']) ? trim($_POST['$lastName']) : null;
-        $address = !empty($_POST['$address']) ? trim($_POST['$address']) : null;
-        $email = !empty($_POST['$email']) ? trim($_POST['$email']) : null;
-        $age = !empty($_POST['$age']) ? trim($_POST['$age']) : null;
-        $phone = !empty($_POST['$phone']) ? trim($_POST['$phone']) : null;
 
 //TO ADD: Error checking (username characters, password length, etc).
 //Basically, you will need to add your own error checking BEFORE
