@@ -29,7 +29,7 @@ require 'connect.php';
 
 <article style="position: relative; margin-top: 250px">
     <?php if (isset($_SESSION['username'])): ?>
-        <h2 style="color:green">Welcome, <?= htmlspecialchars($_SESSION['username']); ?>. Please Login in and buy some beer. :)</h2>
+        <h2 style="color:green">Welcome, <?= htmlspecialchars($_SESSION['username']); ?>.  Please Login in and buy some beer. :)</h2>
     <?php endif; ?>
     <?php unset($_SESSION['username']); ?>
 

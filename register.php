@@ -30,6 +30,12 @@ try {
 //Retrieve the field values from our registration form.
         $username = !empty($_POST['username']) ? trim($_POST['username']) : null;
         $password = !empty($_POST['password']) ? trim($_POST['password']) : null;
+        $firstName = !empty($_POST['$firstName']) ? trim($_POST['$firstName']) : null;
+        $lastName = !empty($_POST['$lastName']) ? trim($_POST['$lastName']) : null;
+        $address = !empty($_POST['$address']) ? trim($_POST['$address']) : null;
+        $email = !empty($_POST['$email']) ? trim($_POST['$email']) : null;
+        $age = !empty($_POST['$age']) ? trim($_POST['$age']) : null;
+        $phone = !empty($_POST['$phone']) ? trim($_POST['$phone']) : null;
 
 //TO ADD: Error checking (username characters, password length, etc).
 //Basically, you will need to add your own error checking BEFORE
@@ -47,8 +53,8 @@ try {
         if (strlen($password) < 8 || strlen($password) > 15 || empty($password)) {
             throw new Exception("Password must be between 8 an 15 symbols.");
         }
-        $patern = '#^(?=(.*\d){2,})(?=.*[A-Z]{1,})(?=.*[a-zA-Z]{2,})(?=.*[!@~#$%^&?]{1,})[0-9a-zA-Z!@~#?$^%&`]+$#';
-        if (preg_match($patern, $password)) {
+        $patern = '#^(?=(.*\d){2,})(?=.*[A-Z]{1,})(?=.*[a-zA-Z]{2,})(?=.*[!@~\#$%^&?]{1,})[0-9a-zA-Z!@~\#?$^%&`]+$#';
+        if (!preg_match($patern, $password)) {
             throw new Exception("Password must contains at least 1 special symbol, 1 uppercase letter, 2 numbers and 3 letters.");
         }
         if ($password != $confirmPass) {
@@ -60,7 +66,8 @@ try {
             throw new Exception("Please fill valid email.");
         }
         //Validation phone
-        if (strlen($phone) != 10) {
+        $patern = '#^[0-9]+$#';
+        if (strlen($phone) != 10 && preg_match($patern, $phone)) {
             throw new Exception("Phone must be 10 digits.");
         }
         //Validation age
@@ -142,7 +149,7 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
 
 //If the signup process is successful.
         if ($result) {
-            $_SESSION['username'] = $firstName;
+            $_SESSION['username'] = $username;
 
             header('Location: login.php');
 
@@ -215,7 +222,7 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
 
                         <div class="input-group margin col-md-6">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input class="form-control" id="confirmPass" name="confirmPass" type="password" placeholder="Confirm Password" required>
+                            <input class="form-control" id="confirmPass" name="confirmPass" type="password" placeholder="Confirm Password" maxlength="15" minlength="8" required>
                             <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
                         </div>
                     </div>
