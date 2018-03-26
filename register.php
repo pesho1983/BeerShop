@@ -62,8 +62,8 @@ try {
         //Validation phone
 
         $patern = '^[0-9]{10,10}$';
- 
-        if (strlen($phone) != 10 || !preg_match($patern, $phone)) {
+
+        if (strlen($phone) != 10 || preg_match($patern, $phone)) {
             throw new Exception("Phone must be 10 digits.");
         }
         //Validation age
