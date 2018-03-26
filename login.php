@@ -1,6 +1,62 @@
 <?php
-require 'connect.php';
+require_once 'connect.php';
+
+$error = '';
+
+try {
+//If the POST var "register" exists (our submit button), then we can
+//assume that the user has submitted the registration form.
+    if (isset($_POST['login'])) {
+
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
+        //Retrieve the field values from our registration form.
+        // $username = !empty($_POST['username']) ? trim($_POST['username']) : null;
+        // $password = !empty($_POST['password']) ? trim($_POST['password']) : null;
+
+
+//Construct the SQL statement and prepare it.
+        $sql = "SELECT 
+                id AS id,
+                username AS username,
+                password AS password,
+                email AS email,
+                phone AS phone,
+                address AS address,
+                first_name AS first_name,
+                last_name AS last_name,
+                age AS age             
+            FROM
+                users
+            WHERE
+                 username = ?
+             ";
+        $stmt = $pdo->prepare($sql);
+
+
+        $stmt->execute([$username]);
+
+
+
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+
+        $passwordHash = $user['password'];
+        if (!password_verify($password, $passwordHash)) {
+            throw new Exception("Wrong username or password!");
+        }
+
+        $_SESSION['id'] = $user['id'];
+        header('Location: profile.php');
+
+    }
+} catch (Exception $exception) {
+    $error = $exception->getMessage();
+}
 ?>
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -28,27 +84,41 @@ require 'connect.php';
 </header>
 
 <article style="position: relative; margin-top: 250px">
-    <?php if (isset($_SESSION['username'])): ?>
-        <h2 style="color:green">Welcome, <?= htmlspecialchars($_SESSION['username']); ?>.  Please Login in and buy some beer. :)</h2>
-    <?php endif; ?>
-    <?php unset($_SESSION['username']); ?>
 
     <div class="col-sm-5">
     </div>
     <div class="col-sm-2">
 
-        <form action="#">
+        <?php if (isset($_SESSION['username'])): ?>
+            <div class="alert alert-success">
+                <strong>Registration success.</strong> Please Login and buy some beer. :)
+            </div>
+
+        <?php endif; ?>
+        <?php unset($_SESSION['username']); ?>
+
+        <?php if ($error) : ?>
+            <div class="alert alert-danger">
+                <strong> <?= $error ?></strong>
+            </div>
+
+        <?php endif; ?>
+        <?php $error = ''; ?>
+
+        <form action="#" method="post">
             <fieldset>
                 <legend class="extraPlace"> Please sign in</legend>
 
                 <div class="input-group margin">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                    <input type="text" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
+                    <input type="text" id="inputEmail" name="username" class="form-control" placeholder="Username"
+                           required autofocus>
                 </div>
 
                 <div class="input-group margin">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                    <input type="password" id="inputPassword" name="password" class="form-control"
+                           placeholder="Password" required>
                 </div>
 
                 <div class="checkbox alignLeftContent">
@@ -56,7 +126,7 @@ require 'connect.php';
                         <input type="checkbox" value="remember-me" name="remember"> Remember me
                     </label>
                 </div>
-                <button class="btn btn-md btn-success btn-block" type="submit">Sign in</button>
+                <button class="btn btn-md btn-success btn-block" type="submit" name="login">Sign in</button>
             </fieldset>
         </form>
     </div>
