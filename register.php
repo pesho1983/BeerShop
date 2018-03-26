@@ -41,18 +41,18 @@ try {
         }
         $patern = '#^[A-Za-z0-9]+$#';
         if (!preg_match($patern, $username)) {
-            throw new Exception("User name must not contains Special characters.");
+            throw new Exception("User name must not contain special characters.");
         }
         //Validation password
         if (strlen($password) < 8 || strlen($password) > 15 || empty($password)) {
             throw new Exception("Password must be between 8 an 15 symbols.");
         }
-        $patern = '#^(?=(.*\d){2,})(?=.*[A-Z]{1,})(?=.*[a-zA-Z]{2,})(?=.*[!@~#$%^&?]{1,})[0-9a-zA-Z!@~#?$^%&`]+$#';
+        $patern = '#^(?=(.*\d){2,})(?=.*[A-Z]{1,})(?=.*[a-zA-Z]{2,})(?=.*[!@~\#$%^&?]{1,})[0-9a-zA-Z!@~\#?$^%&`]+$#';
         if (!preg_match($patern, $password)) {
             throw new Exception("Password must contains at least 1 special symbol, 1 uppercase letter, 2 numbers and 3 letters.");
         }
         if ($password != $confirmPass) {
-            throw new Exception("Password do not match.");
+            throw new Exception("Passwords do not match.");
         }
         //Validation email
         $patern = '#^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$#';
@@ -60,8 +60,9 @@ try {
             throw new Exception("Please fill valid email.");
         }
         //Validation phone
-        if (strlen($phone) != 10) {
-            throw new Exception("Phone must be 10 numbers.");
+        $patern = '^[0-9]{10,10}$';
+        if (strlen($phone) != 10 || !preg_match($patern, $phone)) {
+            throw new Exception("Phone must be 10 digits.");
         }
         //Validation age
         if (intval($age) < 18) {
@@ -142,7 +143,7 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
 
 //If the signup process is successful.
         if ($result) {
-            $_SESSION['username'] = $firstName;
+            $_SESSION['username'] = $username;
 
             header('Location: login.php');
 
@@ -215,7 +216,7 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
 
                         <div class="input-group margin col-md-6">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input class="form-control" id="confirmPass" name="confirmPass" type="password" placeholder="Confirm Password" required>
+                            <input class="form-control" id="confirmPass" name="confirmPass" type="password" placeholder="Confirm Password" maxlength="15" minlength="8" required>
                             <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
                         </div>
                     </div>
