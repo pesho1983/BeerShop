@@ -92,7 +92,7 @@ $(document).ready(function () {
 
             messages: {
                 username: {
-                    alphanumeric: "Cannot contain special symbols",
+                    alphanumeric: "Cannot contain special symbols"
                 },
                 password: {
                     required: "Please provide a password"
