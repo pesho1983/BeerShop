@@ -23,13 +23,13 @@
 
 <body class="text-center" style="background-color:#eee">
 
-<header>
+<header class="fixed-top">
     <?php include_once "php_includes/header.php"; ?>
 </header>
 
-<div class="container" style="margin-top: 100px">
-<div class="col-sm-4"></div>
-<div class="col-sm-4" style="text-align:center;">
+<div class="container" style="margin-top: 100px; margin-bottom: 150px;">
+<div class="col-sm-3"></div>
+<div class="col-sm-6" style="text-align:center;">
     <div>
         <p>Profile</p>
         <p><img src="images/avatar.jpg" alt="Avatar" width="10%" height="10%"></p>
@@ -110,12 +110,12 @@
         </div>
     </div>
 </div>
-<div class="col-sm-4"></div>
+<div class="col-sm-3"></div>
 </div>
 
-<header>
+<footer class="container fixed-bottom">
     <?php include_once "php_includes/footer.php"; ?>
-</header>
+</footer>
 
 <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
