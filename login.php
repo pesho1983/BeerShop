@@ -69,12 +69,9 @@ try {
     <title>Login</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link type="text/css" rel="stylesheet" media="screen"
-          href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" media="screen" href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
     <link href="css/styles.css" rel="stylesheet">
 </head>
 
@@ -85,8 +82,7 @@ try {
 
 <article style="position: relative; margin-top: 250px">
 
-    <div class="col-sm-5">
-    </div>
+    <div class="col-sm-5"></div>
     <div class="col-sm-2">
 
         <?php if (isset($_SESSION['username'])): ?>
@@ -105,20 +101,18 @@ try {
         <?php endif; ?>
         <?php $error = ''; ?>
 
-        <form action="#" method="post">
+        <form id="loginForm" action="#" method="post" novalidate="novalidate">
             <fieldset>
                 <legend class="extraPlace"> Please sign in</legend>
 
                 <div class="input-group margin">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                    <input type="text" id="inputEmail" name="username" class="form-control" placeholder="Username"
-                           required autofocus>
+                    <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
                 </div>
 
                 <div class="input-group margin">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                    <input type="password" id="inputPassword" name="password" class="form-control"
-                           placeholder="Password" required>
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
                 </div>
 
                 <div class="checkbox alignLeftContent">
@@ -126,7 +120,7 @@ try {
                         <input type="checkbox" value="remember-me" name="remember"> Remember me
                     </label>
                 </div>
-                <button class="btn btn-md btn-success btn-block" type="submit" name="login">Sign in</button>
+                <input class="btn btn-md btn-success btn-block" type="submit" name="login" value="Sign in">
             </fieldset>
         </form>
     </div>
@@ -136,13 +130,11 @@ try {
 <footer class="container fixed-bottom">
     <?php include_once "php_includes/footer.php"; ?>
 </footer>
-<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-        crossorigin="anonymous"></script>
-<script>
-    $(document).ready(function () {
-        $("#login").addClass('text_shadow');
-    });
-</script>
 
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/additional-methods.min.js"></script>
+<!--<script rel="script" type="text/javascript" src="js/validationFE.js"></script>-->
+<script rel="script" type="text/javascript" src="js/JSValidationLogin.js"></script>
 </body>
 </html>
