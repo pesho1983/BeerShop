@@ -3,7 +3,7 @@
 /**
  * Include our MySQL connection.
  */
-require 'connect.php';
+require_once 'connect.php';
 $username = '';
 $firstName = '';
 $lastName = '';
@@ -60,8 +60,10 @@ try {
             throw new Exception("Please fill valid email.");
         }
         //Validation phone
+
         $patern = '^[0-9]{10,10}$';
-        if (strlen($phone) != 10 || !preg_match($patern, $phone)) {
+
+        if (strlen($phone) != 10 || preg_match($patern, $phone)) {
             throw new Exception("Phone must be 10 digits.");
         }
         //Validation age
@@ -120,7 +122,7 @@ try {
             throw new Exception('That email already exists!');
         }
 //Hash the password as we do NOT want to store our passwords in plain text.
-        $passwordHash = password_hash($password, PASSWORD_BCRYPT, array("cost" => 12));
+        $passwordHash = password_hash($password, PASSWORD_BCRYPT);
 
 //Prepare our INSERT statement.
 //Remember: We are inserting a new row into our users table.
@@ -197,12 +199,16 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
                 <legend class="extraPlace center">Register</legend>
             </fieldset>
                 <?php if ($error) : ?>
-                    <h2 style="color:red">   <?= $error ?></h2>
+                    <div class="alert alert-danger">
+                        <strong> <?= $error ?></strong>
+                    </div>
+
                 <?php endif; ?>
                 <?php $error = ''; ?>
                 <div class="input-group margin col-lg-6">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                    <input class="form-control" id="username" name="username" type="text" value="<?= $username != null ? $username : ""; ?>" placeholder="Username"
+                    <input class="form-control" id="username" name="username" type="text"
+                           value="<?= $username != null ? $username : ""; ?>" placeholder="Username"
                            maxlength="8" minlength="4" required>
                     <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback "><div class="simple-linear"> </div></i></span>
                 </div>
@@ -211,16 +217,20 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
                     <div class="row">
                         <div class="input-group  col-md-6">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input class="form-control" id="password" name="password" type="password" placeholder="Password"  maxlength="15" minlength="8" required>
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
+                            <input class="form-control" id="password" name="password" type="password"
+                                   placeholder="Password" maxlength="15" minlength="8" required>
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div
+                                            class="simple-linear"> </div></i></span>
                         </div>
 
 
 
                         <div class="input-group col-md-6">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input class="form-control" id="confirmPass" name="confirmPass" type="password" placeholder="Confirm Password" maxlength="15" minlength="8" required>
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
+                            <input class="form-control" id="confirmPass" name="confirmPass" type="password"
+                                   placeholder="Confirm Password" maxlength="15" minlength="8" required>
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div
+                                            class="simple-linear"> </div></i></span>
 
                         </div>
 
@@ -231,14 +241,19 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
                     <div class="row">
                         <div class="input-group col-md-6">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input class="form-control" id="firstName" name="firstName" type="text" value="<?= $firstName != null ? $firstName : ""; ?>" placeholder="First Name" required>
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
+                            <input class="form-control" id="firstName" name="firstName" type="text"
+                                   value="<?= $firstName != null ? $firstName : ""; ?>" placeholder="First Name"
+                                   required>
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div
+                                            class="simple-linear"> </div></i></span>
                         </div>
 
                         <div class="input-group col-md-6">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input class="form-control" id="lastName" name="lastName" type="text" value="<?= $lastName != null ? $lastName : ""; ?>" placeholder="Last Name " required>
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
+                            <input class="form-control" id="lastName" name="lastName" type="text"
+                                   value="<?= $lastName != null ? $lastName : ""; ?>" placeholder="Last Name " required>
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div
+                                            class="simple-linear"> </div></i></span>
                         </div>
                     </div>
                 </div>
@@ -247,24 +262,36 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
                         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
                         <input class="form-control" id="email" name="email" type="email" value="<?= $email != null ? $email : ""; ?>" placeholder="Email" required>
                         <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                    <input class="form-control" id="email" name="email" type="email"
+                           value="<?= $email != null ? $email : ""; ?>" placeholder="Email" required>
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div
+                                    class="simple-linear"> </div></i></span>
                 </div>
 
                 <div class="input-group margin col-lg-6">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-phone-alt"></i></span>
-                    <input class="form-control" id="phone" name="phone" type="number" value="<?= $phone != null ? $phone : ""; ?>" maxlength="10" placeholder="Phone Number" required>
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
+                    <input class="form-control" id="phone" name="phone" type="number"
+                           value="<?= $phone != null ? $phone : ""; ?>" maxlength="10" placeholder="Phone Number"
+                           required>
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div
+                                    class="simple-linear"> </div></i></span>
                 </div>
 
                 <div class="input-group margin col-lg-6">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                    <input class="form-control" id="address" name="address" type="text" value="<?= $address != null ? $address : ""; ?>" placeholder="Address" required>
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
+                    <input class="form-control" id="address" name="address" type="text"
+                           value="<?= $address != null ? $address : ""; ?>" placeholder="Address" required>
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div
+                                    class="simple-linear"> </div></i></span>
                 </div>
 
                 <div class="input-group margin col-lg-6">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-                    <input class="form-control" id="age" name="age" type="number" value="<?= $age != null ? $age : ""; ?>" placeholder="Age" min="18" required>
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
+                    <input class="form-control" id="age" name="age" type="number"
+                           value="<?= $age != null ? $age : ""; ?>" placeholder="Age" min="18" required>
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div
+                                    class="simple-linear"> </div></i></span>
                 </div>
 
                 <div class="  checkbox alignLeftContent">
