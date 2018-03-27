@@ -57,9 +57,9 @@ CREATE TABLE IF NOT EXISTS `products` (
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL DEFAULT '0',
-  `password` varchar(50) NOT NULL DEFAULT '0',
+  `password` varchar(255) NOT NULL DEFAULT '0',
   `email` varchar(50) NOT NULL DEFAULT '0',
-  `phone` varchar(50) NOT NULL DEFAULT '0',
+  `phone` int(10) unsigned NOT NULL DEFAULT '0',
   `address` varchar(50) NOT NULL DEFAULT '0',
   `first_name` varchar(50) NOT NULL DEFAULT '0',
   `last_name` varchar(50) NOT NULL DEFAULT '0',
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
