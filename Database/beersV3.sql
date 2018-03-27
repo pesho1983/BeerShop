@@ -64,10 +64,12 @@ CREATE TABLE IF NOT EXISTS `users` (
   `first_name` varchar(50) NOT NULL DEFAULT '0',
   `last_name` varchar(50) NOT NULL DEFAULT '0',
   `age` int(10) unsigned NOT NULL,
+  `info` text,
+  `picture` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
