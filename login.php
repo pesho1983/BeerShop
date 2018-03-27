@@ -48,6 +48,7 @@ try {
         }
 
         $_SESSION['id'] = $user['id'];
+        $_SESSION['user'] = $user['username'];
         header('Location: profile.php');
 
     }
