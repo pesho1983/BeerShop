@@ -267,3 +267,10 @@ div div .margin{
     margin-left: 13px;
     margin-top: 10px;
 }
+
+p {
+    display: inline-block;
+}
+input #avatar{
+    width: 50px;
+}
