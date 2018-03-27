@@ -129,7 +129,7 @@ try {
                 <div class="input-group margin">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                     <input type="text" id="inputEmail" name="username" class="form-control" placeholder="Username"
-                            name="username" maxlength="40" value="<?php if(isset($_COOKIE['remember_me'])){
+                             maxlength="40" value="<?php if(isset($_COOKIE['remember_me'])){
                          echo $_COOKIE['remember_me'];
                      }
                      else{
