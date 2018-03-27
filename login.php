@@ -46,6 +46,22 @@ try {
         if (!password_verify($password, $passwordHash)) {
             throw new Exception("Wrong username or password!");
         }
+        $hour = time() + 3600;
+        setcookie('ID_my_site', $_POST['username'], $hour);
+
+        if($_POST['remember']) {
+            $month = time() + 3600 * 24 * 30;
+            setcookie('remember_me', $_POST['username'], $month);
+        }
+        elseif(!$_POST['remember']) {
+            if(isset($_COOKIE['remember_me'])) {
+                $past = time() - 100;
+                setcookie('remember_me', '', $past);
+            }
+        }
+
+
+
 
         $_SESSION['id'] = $user['id'];
         $_SESSION['user'] = $user['username'];
@@ -113,7 +129,8 @@ try {
                 <div class="input-group margin">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                     <input type="text" id="inputEmail" name="username" class="form-control" placeholder="Username"
-                           required autofocus>
+                           value="<input type="text" name="username" maxlength="40" value="<?php
+                    echo $_COOKIE['remember_me']; ?>" required autofocus>
                 </div>
 
                 <div class="input-group margin">
@@ -124,7 +141,13 @@ try {
 
                 <div class="checkbox alignLeftContent">
                     <label>
-                        <input type="checkbox" value="remember-me" name="remember"> Remember me
+                        <input type="checkbox" value="remember-me" name="remember"  <?php if(isset($_COOKIE['remember_me'])) {
+                            echo 'checked="checked"';
+                        }
+                        else {
+                            echo '';
+                        }
+                        ?>> Remember me
                     </label>
                 </div>
                 <button class="btn btn-md btn-success btn-block" type="submit" name="login">Sign in</button>
