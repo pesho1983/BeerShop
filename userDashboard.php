@@ -36,7 +36,7 @@
         <div >
             <form action="upload.php" method="post" enctype="multipart/form-data">
 
-                <p><input type="file" name="avatar" id="avatar"></p>
+                <p><input type="file" name="file" id="avatar"></p>
                 <p><input type="submit" value="Upload Image" name="submit"></p>
             </form>
 
