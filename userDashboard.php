@@ -26,6 +26,7 @@
 </header>
 
 <article style="position: relative; margin-top: 100px">
+
     <div class="col-sm-4"></div>
     <div class="col-sm-4" style="text-align:center;">
         <div >
@@ -111,9 +112,5 @@
     </div>
         <div class="col-sm-4"></div>
 </article>
-
-
-
 </body>
-
 </html>

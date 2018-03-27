@@ -5,16 +5,103 @@
     <link type="text/css" rel="stylesheet" media="screen" href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/test.css">
+
 
     <title>Catalog</title>
 </head>
 
-<body style="background:url(images/beer_background-Copy2.jpg); width: 100%; min-height:100%; background-size: cover;  overflow: hidden; ">
+<body class="text-center">
 <header>
     <?php include_once "php_includes/header.php"; ?>
 </header>
 
-<img src="images/page-is-under-construction.png">
+<div class="container" style="margin-top: 100px">
+<div class="col-sm-4"></div>
+<div class="col-sm-4" style="text-align:center;">
+    <div>
+        <p>Profile</p>
+        <p><img src="images/avatar.jpg" alt="Avatar" width="10%" height="10%"></p>
+
+    </div>
+    <div >
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+
+            <p><input type="file" name="file" id="avatar"></p>
+            <p><input type="submit" value="Upload Image" name="submit"></p>
+        </form>
+
+    </div>
+    <div>
+        <p>
+            <input class="text" type="text"  placeholder="Self description" >
+        </p>
+    </div>
+
+    <div>
+        <form>
+            <textarea class="text">Info about me ...</textarea>
+        </form>
+    </div>
+    <div>
+        <div class="dropdown">
+            <button class=" btn btn-warning">My Favorite Beers</button>
+            <div class="dropdown-content">
+                <p><img src="images/staropramen.jpg" width="100p" height="150p"></img></p>
+                <p><img src="images/staropramen.jpg" width="100p" height="150p"></img></p>
+                <p><img src="images/staropramen.jpg" width="100p" height="150p"></img></p>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h2 class="welcome">My Favorite Beers</h2>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="polaroid">
+                <img src="images/heineken.png" >
+                <p>Beer 1</p>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="polaroid">
+                <img src="images/heineken.png" >
+                <p>Beer 2</p>
+
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="polaroid">
+                <img src="images/heineken.png" >
+                <p>Beer 3</p>
+            </div>
+        </div>
+    </div>
+
+    <h1>My Favorite Beers</h1>
+    <div>
+        <div class="btn-group">
+            <button><img src="images/heineken.png" ></button>
+            <button><img src="images/heineken.png" ></button>
+            <button><img src="images/heineken.png" ></button>
+        </div>
+    </div>
+    <div>
+        <div class="btn-group row">
+            <button class="btn btn-warning shanoClass">Change info</button>
+            <button class="btn btn-warning shanoClass">My orders</button>
+        </div>
+    </div>
+    <div>
+        <div class="btn-group">
+            <button class="btn btn-warning shanoClass" >My wallet</button>
+            <button class="btn btn-warning shanoClass">Basket</button>
+        </div>
+    </div>
+</div>
+<div class="col-sm-4"></div>
+</div>
+
 
 <footer class="container fixed-bottom">
     <?php include_once "php_includes/footer.php"; ?>

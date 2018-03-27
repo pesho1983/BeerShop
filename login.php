@@ -1,6 +1,9 @@
 <?php
 require_once 'connect.php';
-
+if(isset($_COOKIE['ID_my_site'])) {
+    header("Location: index.php");
+    exit;
+}
 $error = '';
 
 try {
@@ -46,6 +49,7 @@ try {
         if (!password_verify($password, $passwordHash)) {
             throw new Exception("Wrong username or password!");
         }
+
         $hour = time() + 3600;
         setcookie('ID_my_site', $_POST['username'], $hour);
 
