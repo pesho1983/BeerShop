@@ -8,7 +8,7 @@ define('MYSQL_USER', 'qh-beer');
 define('MYSQL_PASSWORD', 'pass');
 
 //The server that MySQL is located on.
-define('MYSQL_HOST', 'localhost');
+define('MYSQL_HOST', '%192.168.10.158');
 
 //The name of our database.
 define('MYSQL_DATABASE', 'qh_beer_shop');
