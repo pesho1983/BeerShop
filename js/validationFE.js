@@ -29,11 +29,20 @@ $(document).ready(function () {
 
         //
         $.validator.setDefaults({
+            errorClass: 'help-block',
             highlight: function (element) {
                 $(element).closest('.input-group').addClass('has-error');
             },
             unhighlight: function (element) {
                 $(element).closest('.input-group').removeClass('has-error');
+            },
+            errorPlacement: function (error, element) {
+                if (element.prop('type')=== 'checkbox'){
+                    error.insertAfter(element.parent());
+                }else {
+                    error.insertAfter(element);
+                }
+                
             }
 
         });
@@ -94,9 +103,9 @@ $(document).ready(function () {
                 username: {
                     alphanumeric: "Cannot contain special symbols"
                 },
-                password: {
-                    required: "Please provide a password"
-                },
+                // password: {
+                //     required: "Please provide a password"
+                // },
                 address: "Please enter your address",
                 email:{
                     required: "Please enter an email address"

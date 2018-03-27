@@ -195,7 +195,6 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
         <form id="registration" action="#" method="post" novalidate="novalidate">
             <fieldset>
                 <legend class="extraPlace center">Register</legend>
-            </fieldset>
                 <?php if ($error) : ?>
                     <h2 style="color:red">   <?= $error ?></h2>
                 <?php endif; ?>
@@ -204,38 +203,37 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                     <input class="form-control" id="username" name="username" type="text" value="<?= $username != null ? $username : ""; ?>" placeholder="Username"
                            maxlength="8" minlength="4" required>
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback "><div class="simple-linear"> </div></i></span>
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
                 </div>
 
-                <div class="container col-md-12 margin">
+                <div class="container col-md-12">
                     <div class="row">
-                        <div class="input-group  col-md-6">
+                        <div class="input-group margin col-md-6">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                             <input class="form-control" id="password" name="password" type="password" placeholder="Password"  maxlength="15" minlength="8" required>
                             <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
                         </div>
 
 
-
-                        <div class="input-group col-md-6">
+                        <div class="input-group margin col-md-6">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                             <input class="form-control" id="confirmPass" name="confirmPass" type="password" placeholder="Confirm Password" maxlength="15" minlength="8" required>
                             <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
-
                         </div>
-
+                        <label id="password-error" class="error col-md-6" for="password">Please enter at least 8 characters.</label>
+                        <label id="password-error" class="error col-md-6" for="password">Please enter at least 8 characters.</label>
                     </div>
                 </div>
 
-                <div class="container col-md-12 margin">
+                <div class="container col-md-12">
                     <div class="row">
-                        <div class="input-group col-md-6">
+                        <div class="input-group margin col-md-6">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                             <input class="form-control" id="firstName" name="firstName" type="text" value="<?= $firstName != null ? $firstName : ""; ?>" placeholder="First Name" required>
                             <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
                         </div>
 
-                        <div class="input-group col-md-6">
+                        <div class="input-group margin col-md-6">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                             <input class="form-control" id="lastName" name="lastName" type="text" value="<?= $lastName != null ? $lastName : ""; ?>" placeholder="Last Name " required>
                             <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
@@ -244,9 +242,9 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
                 </div>
 
                 <div class="input-group margin col-lg-6">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                        <input class="form-control" id="email" name="email" type="email" value="<?= $email != null ? $email : ""; ?>" placeholder="Email" required>
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                    <input class="form-control" id="email" name="email" type="email" value="<?= $email != null ? $email : ""; ?>" placeholder="Email" required>
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
                 </div>
 
                 <div class="input-group margin col-lg-6">
@@ -267,15 +265,15 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
                     <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
                 </div>
 
-                <div class="  checkbox alignLeftContent">
-                    <div class="input-group">
+                <div class="checkbox alignLeftContent">
+                    <div>
                         <label>
                             <input type="checkbox" name="agreement" value="1" required> I have read and agree to the <a href="https://www.un.org/Depts/ptd/terms-and-conditions-agreement">Terms and Conditions
                                 <img src="images/heart.png"></a>
                         </label>
                     </div>
 
-                    <div class="input-group">
+                    <div>
                         <label>
                             <input type="checkbox" name="gdpr" value="1" required> GDPR Agreement <img src="images/heart.png">
                         </label>
@@ -285,7 +283,7 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
                 </div>
 
                 <input id="register_submit" class="btn btn-success " type="submit" name="register" value="Register">
-
+            </fieldset>
         </form>
     </div>
     <div class="col-sm-4"></div>

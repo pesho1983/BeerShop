@@ -248,6 +248,9 @@ footer h4{
 }
 
 /*css for required field*/
+.marginForForm{
+    margin-top: 100px;
+}
 div div .margin{
     margin-top: 5px;
 }
