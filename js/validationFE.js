@@ -113,7 +113,7 @@ $(document).ready(function () {
                 confirmPass:{
                     equalTo: "Enter same password again"
                 },
-                age: "Please enter your age"
+                age: "Your age must be 18+"
             }
 
         });
