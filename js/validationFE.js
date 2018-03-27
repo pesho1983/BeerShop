@@ -116,9 +116,18 @@ $(document).ready(function () {
                 age: "Please enter your age"
             }
 
-            // submitHandler: function (form) {
-            //     $(form).submit();
-            //
-            // }
         });
-    });
+
+        // $('#login').validate({
+        //     rules: {
+        //         username:{
+        //             required: true
+        //         },
+        //
+        //         password: {
+        //             required: true
+        //         }
+        //     }
+        // })
+
+});
