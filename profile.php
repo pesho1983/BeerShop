@@ -93,20 +93,14 @@
                 <button class="btn btn-warning shanoClass">Save Changes</button>
             </div>
         </div>
-
-
-            <div class="btn-group row my-3">
-                <button class="btn btn-warning mx-3">Change info</button>
-                <button class="btn btn-warning mx-3">My orders</button>
-            </div>
-
-
-
-            <div class="btn-group row my-3">
-                <button class="btn btn-warning mx-3">My wallet</button>
-                <button class="btn btn-warning mx-3">Basket</button>
-            </div>
-
+        <div class="justify-content-md-center row my-3">
+            <button class="btn btn-warning mx-3">Change info</button>
+            <button class="btn btn-warning mx-3">My orders</button>
+        </div>
+        <div class="justify-content-md-center row my-3">
+            <button class="btn btn-warning mx-3">My wallet</button>
+            <button class="btn btn-warning mx-3">Basket</button>
+        </div>
     </div>
     <div class="col-sm-1"></div>
 </div>
