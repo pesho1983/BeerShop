@@ -146,9 +146,7 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
 //If the signup process is successful.
         if ($result) {
             $_SESSION['username'] = $username;
-
             header('Location: login.php');
-
         }
 
     }

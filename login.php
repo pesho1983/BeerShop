@@ -47,6 +47,7 @@ try {
 
         $passwordHash = $user['password'];
         if (!password_verify($password, $passwordHash)) {
+            setcookie('remember_me', '', time() - 100000);
             throw new Exception("Wrong username or password!");
         }
 
