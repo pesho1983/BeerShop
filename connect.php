@@ -1,6 +1,7 @@
 <?php
 ini_set('session.cookie_lifetime', 60 * 60 * 24 * 30);
 session_start();
+
 //Our MySQL user account.
 define('MYSQL_USER', 'root');
 
@@ -30,5 +31,6 @@ $pdo = new PDO(
     "mysql:host=" . MYSQL_HOST . ";dbname=" . MYSQL_DATABASE, //DSN
     MYSQL_USER, //Username
     MYSQL_PASSWORD, //Password
-    $pdoOptions //Options
+     $pdoOptions //Options
 );
+$pdo->query('SET NAMES utf8');
