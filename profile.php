@@ -1,3 +1,9 @@
+<?php
+require_once 'connect.php';
+if(!isset($_SESSION['user'])) {
+    header('Location: login.php');
+    exit;
+}?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -32,7 +38,7 @@
 <div class="col-sm-6" style="text-align:center;">
     <div>
         <p>Profile</p>
-        <p><img src="images/avatar.jpg" alt="Avatar" width="10%" height="10%"></p>
+        <p><img src="images/avatar.jpg" alt="Avatar" width="25%" height="25%"></p>
 
     </div>
     <div >

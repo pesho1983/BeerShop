@@ -21,7 +21,7 @@ require_once 'connect.php'; ?>
             <li><a id="home" href="index.php"><i class="fa fa-home"></i> HOME</a></li>
             <li><a id="catalog" href="catalog.php"><i class="fa fa-list"></i> CATALOG</a></li>
 
-            <li><a id="addBeer" href="addBeer.php"><i class="fa fa-beer"></i> Add Beer</a></li>
+            <li><a id="addBeer" href="create.php"><i class="fa fa-beer"></i> Add Beer</a></li>
             <li><a id="settings" href="addBeer.php"><i class="fa fa-beer"></i> SETTINGS</a></li>
             <li><a id="logout" href="logout.php"><i class="fa fa-sign-out"></i> LOGOUT</a></li>
             <li><a href="#"><i class="fa fa-search"></i> <input
