@@ -37,7 +37,7 @@ require_once 'connect.php'; ?>
             <li><a id="profile" href="profile.php"><i class="fa fa-user"></i> PROFILE</a></li>
             <li><a id="logout" href="logout.php"><i class="fa fa-sign-out"></i> LOGOUT</a></li>
             <li><a href="#"><i class="fa fa-search"></i> <input
-                            style="box-sizing: border-box; border: 2px solid; border-radius: 15px; height: 40px;width: 220px;"
+                            style="box-sizing: border-box; border: 2px solid; border-radius: 15px; height: 40px;width: 180px;"
                             type="text" placeholder=" Search..." name="search"></a></li>
             <li><a id="profile" href="profile.php"><i class="fa fa-user"></i> <?= $_SESSION['user'] ?></a></li>
         <?php endif; ?>
