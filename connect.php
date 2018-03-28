@@ -32,4 +32,3 @@ $pdo = new PDO(
     MYSQL_PASSWORD, //Password
     $pdoOptions //Options
 );
-
