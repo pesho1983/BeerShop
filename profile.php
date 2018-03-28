@@ -105,7 +105,9 @@
     <div class="col-sm-1"></div>
 </div>
 
+
 <footer class="container fixed-bottom">
+
     <?php include_once "php_includes/footer.php"; ?>
 </footer>
 
