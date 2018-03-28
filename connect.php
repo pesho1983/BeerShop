@@ -30,6 +30,7 @@ $pdo = new PDO(
     "mysql:host=" . MYSQL_HOST . ";dbname=" . MYSQL_DATABASE, //DSN
     MYSQL_USER, //Username
     MYSQL_PASSWORD, //Password
-    $pdoOptions //Options
+     $pdoOptions //Options
 );
+$pdo->query('SET NAMES utf8');
 
