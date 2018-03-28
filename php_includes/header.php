@@ -11,7 +11,6 @@ require_once 'connect.php'; ?>
             <li><a id="about" href="about.php"><i class="fa fa-pencil"></i> ABOUT</a></li>
             <li><a id="register" href="register.php"><i class="fa fa-user"></i> REGISTER</a></li>
             <li><a id="login" href="login.php"><i class="fa fa-sign-in"></i> LOGIN</a></li>
-            <li><a id="basket" href="basket.php"><i class="fa fa-beer"></i> BASKET</a></li>
             <li><a id="faq" href="faq.php"><i class="fa fa-question"></i> FAQ</a></li>
             <li><a href="#"><i class="fa fa-search"></i> <input
                             style="box-sizing: border-box; border: 2px solid; border-radius: 15px; height: 40px;"
@@ -34,10 +33,9 @@ require_once 'connect.php'; ?>
             <li><a id="about" href="about.php"><i class="fa fa-pencil"></i> ABOUT</a></li>
             <li><a id="basket" href="basket.php"><i class="fa fa-beer"></i> BASKET</a></li>
             <li><a id="faq" href="faq.php"><i class="fa fa-question"></i> FAQ</a></li>
-            <li><a id="profile" href="profile.php"><i class="fa fa-user"></i> PROFILE</a></li>
             <li><a id="logout" href="logout.php"><i class="fa fa-sign-out"></i> LOGOUT</a></li>
             <li><a href="#"><i class="fa fa-search"></i> <input
-                            style="box-sizing: border-box; border: 2px solid; border-radius: 15px; height: 40px;width: 180px;"
+                            style="box-sizing: border-box; border: 2px solid; border-radius: 15px; height: 40px;width: 300px;"
                             type="text" placeholder=" Search..." name="search"></a></li>
             <li><a id="profile" href="profile.php"><i class="fa fa-user"></i> <?= $_SESSION['user'] ?></a></li>
         <?php endif; ?>
