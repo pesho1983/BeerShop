@@ -29,41 +29,41 @@
             <div class="col-lg-12 beers">           
                 <div class="col-lg-12 best_beers">
                     <h2 class="welcome">BEST SELLING BEERS</h2>
-                    <div>
-                        <p><img src="images/heineken.png" ></p>
-                        <p>Name 1: some info</p>
+                    <div class="fron_beer">
+                        <p><img src="images/qh_beer.png" ></p>
+                        <p>QH beer: amber beer</p>
                     </div>
-                    <div>
+                    <div class="fron_beer">
                         <p><img src="images/heineken.png" ></p>
-                        <p>Name 1: some info</p>
+                        <p>Heineken: regular beer</p>
                     </div>
-                    <div>
-                        <p><img src="images/heineken.png" ></p>
-                        <p>Name 1: some info</p>
+                    <div class="fron_beer">
+                        <p><img src="images/qh_beer.png" ></p>
+                        <p>QH beer: amber beer</p>
                     </div>
-                    <div>
+                    <div class="fron_beer">
                         <p><img src="images/heineken.png"></p>
-                        <p>Name 1: some info</p>
+                        <p>Heineken: regular beer</p>
                     </div>
-                    <div>
-                        <p><img src="images/heineken.png"></p>
-                        <p>Name 1: some info</p>
+                    <div class="fron_beer">
+                        <p><img src="images/qh_beer.png"></p>
+                        <p>QH beer: amber beer</p>
                     </div>
                 </div> 
 
                 <div class="col-lg-12 last_sold">
                     <h2 class="welcome">LAST 3 SOLD BEERS</h2>
-                    <div>
-                        <p><img src="images/heineken.png" ></p>
-                        <p>Name 1: some info</p>
+                    <div class="fron_beer">
+                        <p><img src="images/qh_beer.png" ></p>
+                        <p>QH beer: amber beer</p>
                     </div>
-                    <div>
+                    <div class="fron_beer">
                         <p><img src="images/heineken.png"></p>
-                        <p>Name 1: some info</p>
+                        <p>Heineken: regular beer</p>
                     </div>
-                    <div>
-                        <p><img src="images/heineken.png"></p>
-                        <p>Name 1: some info</p>
+                    <div class="fron_beer">
+                        <p><img src="images/qh_beer.png"></p>
+                        <p>QH beer: amber beer</p>
                     </div>
                 </div>
             </div>

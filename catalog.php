@@ -9,7 +9,7 @@
         <title>Catalog</title>
     </head>
     
-    <body style="background:url(images/beer_background-Copy2.jpg); width: 100%; min-height:100%; background-size: cover;  overflow: hidden; ">
+    <body style="background:url(images/Metalhead_Brewery.png); background-position-y: 8.5rem; background-size: 37%; background-repeat: no-repeat;  overflow: hidden; ">
     <header>
       <?php include_once "php_includes/header.php"; ?>
     </header>  
