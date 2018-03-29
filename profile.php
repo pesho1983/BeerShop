@@ -47,11 +47,13 @@ if(!isset($_SESSION['user'])) {
         <div>
             <form action="upload.php" method="post" enctype="multipart/form-data">
                 <div class="row justify-content-md-center mb-1">
-                    <div class="col-md-3">tr</div>
+<!--                    <div class="col-md-3">tr</div>-->
                     <div class=" col-md-auto">
-                        <input class="form-control-file" type="file" name="file" id="file">
+                        <label class="btn btn-warning btn-md justify-content-md-center">
+                            Browse<input type="file" name="file" id="file" style="display: none">
+                        </label>
                     </div>
-                    <div class="col-md-1">ty</div>
+<!--                    <div class="col-md-1">ty</div>-->
                 </div>
 <!--                <input class="btn btn-success mb-1" type="submit" value="Upload Image" name="submit">-->
                 <div class="border rounded my-5 py-3" >
@@ -71,24 +73,24 @@ if(!isset($_SESSION['user'])) {
 
         </div>
         <div>
-            <h2 class="welcome mt-5 ">My Favorite Beers</h2>
+            <h3 class="welcome mt-5 ">My Favorite Beers</h3>
         </div>
         <div class="row justify-content-md-center my-3 py-3">
             <div class="polaroid rounded col-sm-4">
-                <div class="col-md">
+                <div class="col-md py-4">
                     <img src="images/heineken.png">
                     <p>Beer 1</p>
                 </div>
             </div>
             <div class="polaroid rounded col-sm-4">
-                <div class="col-md">
+                <div class="col-md py-4">
                     <img src="images/heineken.png">
                     <p>Beer 2</p>
 
                 </div>
             </div>
             <div class="polaroid rounded col-sm-4 ">
-                <div class="col-md">
+                <div class="col-md py-4">
                     <img src="images/heineken.png">
                     <p>Beer 3</p>
                 </div>
@@ -96,7 +98,7 @@ if(!isset($_SESSION['user'])) {
         </div>
         <div>
             <div class="row my-3">
-                <button class="btn btn-warning shanoClass">Save Changes</button>
+                <button class="btn btn-warning ">Save Changes</button>
             </div>
         </div>
         <div class="justify-content-md-center row my-3">
