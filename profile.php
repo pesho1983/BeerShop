@@ -47,14 +47,16 @@ if(!isset($_SESSION['user'])) {
         <div>
             <form action="upload.php" method="post" enctype="multipart/form-data">
                 <div class="row justify-content-md-center mb-1">
-                    <div class="col-md-3">tr</div>
+<!--                    <div class="col-md-3">tr</div>-->
                     <div class=" col-md-auto">
-                        <input class="form-control-file" type="file" name="file" id="file">
+                        <label class="btn btn-warning btn-md justify-content-md-center">
+                            Browse<input type="file" name="file" id="file" style="display: none">
+                        </label>
                     </div>
-                    <div class="col-md-1">ty</div>
+<!--                    <div class="col-md-1">ty</div>-->
                 </div>
 <!--                <input class="btn btn-success mb-1" type="submit" value="Upload Image" name="submit">-->
-                <div class="border rounded my-5 py-3 ">
+                <div class="border rounded my-5 py-3" >
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when
                     an unknown printer took a galley of type and scrambled it to make a type specimen book.
@@ -62,7 +64,7 @@ if(!isset($_SESSION['user'])) {
                 </div>
                 <div class="form-group">
                     <label> Info about me </label>
-                    <textarea id="infoAboutMe" name="infoAboutMe" class="form-control" rows="5"></textarea>
+                    <textarea id="infoAboutMe" name="infoAboutMe" class="form-control" rows="3" maxlength="200" style="resize: none"></textarea>
                 </div>
 
 
@@ -71,24 +73,24 @@ if(!isset($_SESSION['user'])) {
 
         </div>
         <div>
-            <h2 class="welcome mt-5 ">My Favorite Beers</h2>
+            <h3 class="welcome mt-5 ">My Favorite Beers</h3>
         </div>
         <div class="row justify-content-md-center my-3 py-3">
             <div class="polaroid rounded col-sm-4">
-                <div class="col-md">
+                <div class="col-md py-4">
                     <img src="images/heineken.png">
                     <p>Beer 1</p>
                 </div>
             </div>
             <div class="polaroid rounded col-sm-4">
-                <div class="col-md">
+                <div class="col-md py-4">
                     <img src="images/heineken.png">
                     <p>Beer 2</p>
 
                 </div>
             </div>
             <div class="polaroid rounded col-sm-4 ">
-                <div class="col-md">
+                <div class="col-md py-4">
                     <img src="images/heineken.png">
                     <p>Beer 3</p>
                 </div>
@@ -96,16 +98,16 @@ if(!isset($_SESSION['user'])) {
         </div>
         <div>
             <div class="row my-3">
-                <button class="btn btn-warning shanoClass">Save Changes</button>
+                <button class="btn btn-warning ">Save Changes</button>
             </div>
         </div>
         <div class="justify-content-md-center row my-3">
-            <button class="btn btn-warning mx-3">Change info</button>
-            <button class="btn btn-warning mx-3">My orders</button>
+            <a href="#" class="btn btn-warning mx-3 col-lg-2">Change info</a>
+            <a href="#" class="btn btn-warning mx-3 col-lg-2">My orders</a>
         </div>
         <div class="justify-content-md-center row my-3">
-            <button class="btn btn-warning mx-3">My wallet</button>
-            <button class="btn btn-warning mx-3">Basket</button>
+            <a href="#" class="btn btn-warning mx-3 col-lg-2">My wallet</a>
+            <a href="#" class="btn btn-warning mx-3 col-lg-2">Basket</a>
         </div>
     </div>
     <div class="col-sm-1"></div>
