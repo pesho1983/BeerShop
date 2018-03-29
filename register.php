@@ -191,7 +191,7 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
 <article style="position: relative; margin-top: 100px">
     <div class="col-sm-4"></div>
     <div class="col-sm-4">
-        <form id="registration" action="#" method="post" novalidate="novalidate">
+        <form id="registration" action="#" method="post" >
             <fieldset>
                 <legend class="extraPlace center">Register</legend>
             </fieldset>
@@ -253,9 +253,7 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
 
                 <div class="input-group margin col-lg-6">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-phone-alt"></i></span>
-                    <input class="form-control" id="phone" name="phone" type="number"
-                           value="<?= $phone != null ? $phone : ""; ?>" maxlength="10" placeholder="Phone Number"
-                           required>
+                    <input class="form-control" id="phone" name="phone" type="number"  value="<?= $phone != null ? $phone : ""; ?>" max="10" placeholder="Phone Number" required>
                     <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
                 </div>
 

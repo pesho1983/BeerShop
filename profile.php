@@ -78,20 +78,20 @@ if(!isset($_SESSION['user'])) {
         <div class="row justify-content-md-center my-3 py-3">
             <div class="polaroid rounded col-sm-4">
                 <div class="col-md py-4">
-                    <img src="images/heineken.png">
+                    <img src="images/qh_beer.png">
                     <p>Beer 1</p>
                 </div>
             </div>
             <div class="polaroid rounded col-sm-4">
                 <div class="col-md py-4">
-                    <img src="images/heineken.png">
+                    <img src="images/qh_beer.png">
                     <p>Beer 2</p>
 
                 </div>
             </div>
             <div class="polaroid rounded col-sm-4 ">
                 <div class="col-md py-4">
-                    <img src="images/heineken.png">
+                    <img src="images/qh_beer.png">
                     <p>Beer 3</p>
                 </div>
             </div>
