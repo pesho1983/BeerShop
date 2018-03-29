@@ -64,7 +64,7 @@ if(!isset($_SESSION['user'])) {
                 </div>
                 <div class="form-group">
                     <label> Info about me </label>
-                    <textarea id="infoAboutMe" name="infoAboutMe" class="form-control" rows="3" maxlength="200"></textarea>
+                    <textarea id="infoAboutMe" name="infoAboutMe" class="form-control" rows="3" maxlength="200" style="resize: none"></textarea>
                 </div>
 
 
