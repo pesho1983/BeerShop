@@ -3,7 +3,7 @@ ini_set('session.cookie_lifetime', 0);
 session_start();
 
 //Our MySQL user account.
-define('MYSQL_USER', 'hq-beer');
+define('MYSQL_USER', 'qh-beer');
 
 //Our MySQL password.
 define('MYSQL_PASSWORD', 'pass');
