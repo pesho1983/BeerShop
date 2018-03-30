@@ -279,7 +279,7 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
                             <input type="checkbox" name="agreement" value="1" required> I have read and agree to the <a href="uploads/terms-and-conditions-template.pdf" target="_blank">Terms and Conditions
                                 <img src="images/heart.png"></a>
 
-                        </label>
+                       </label>
                     </div>
 
                     <div class="input-group">
