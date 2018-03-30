@@ -40,8 +40,8 @@ if(!isset($_SESSION['user'])) {
     <div class="col-sm-10" style="text-align:center; margin-top: 50px">
         <div class="row">
             <div class="col-lg-12">
-                <h2>Profile</h2>
-                <p><img src="images/avatar.jpg" alt="Avatar" width="10%" height="10%"></p>
+                <h2 class="font-weight-bold">Profile</h2>
+                <p><img src="images/2790-1.jpg" alt="Avatar" width="15%" height="15%"></p>
             </div>
         </div>
         <div>
@@ -56,42 +56,59 @@ if(!isset($_SESSION['user'])) {
 <!--                    <div class="col-md-1">ty</div>-->
                 </div>
 <!--                <input class="btn btn-success mb-1" type="submit" value="Upload Image" name="submit">-->
-                <div class="border rounded my-5 py-3" >
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when
-                    an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                    It has survived not only five centuries,
+                <div class="border rounded my-5 py-3 " style="width: 100%">
+                    <div class="row justify-content-md-center ">
+                        <p class="col-lg-6 text-right px-2 font-weight-bold"> User name: </p>
+                        <p class="col-lg-6 text-left px-2"> sexyKote </p>
+                    </div>
+                    <div class="row justify-content-md-center">
+                        <p class="col-lg-6 text-right px-2"> First name: </p>
+                        <p class="col-lg-6 text-left px-2"> Sexy </p>
+                    </div>
+                    <div class="row justify-content-md-center">
+                        <p class="col-lg-6 text-right px-2"> Last name: </p>
+                        <p class="col-lg-6 text-left px-2"> Kote </p>
+                    </div>
+                    <div class="row justify-content-md-center">
+                        <p class="col-lg-6 text-right px-2"> Address: </p>
+                        <p class="col-lg-6 text-left px-2"> Sexy Landiya 69 </p>
+                    </div>
+                    <div class="row justify-content-md-center">
+                        <p class="col-lg-6 text-right px-2"> Tel: </p>
+                        <p class="col-lg-6 text-left px-2"> 69696969 </p>
+                    </div>
+                    <div class="row justify-content-md-center">
+                        <p class="col-lg-6 text-right px-2"> Age: </p>
+                        <p class="col-lg-6 text-left px-2"> 21 </p>
+                    </div>
+
                 </div>
                 <div class="form-group">
                     <label> Info about me </label>
                     <textarea id="infoAboutMe" name="infoAboutMe" class="form-control" rows="3" maxlength="200" style="resize: none"></textarea>
                 </div>
-
-
-
             </form>
-
         </div>
         <div>
-            <h3 class="welcome mt-5 ">My Favorite Beers</h3>
+            <h3 class="welcome mt-5 font-weight-bold">My Favorite Beers</h3>
         </div>
         <div class="row justify-content-md-center my-3 py-3">
             <div class="polaroid rounded col-sm-4">
                 <div class="col-md py-4">
-                    <img src="images/heineken.png">
+                    <img src="images/qh_beer.png">
                     <p>Beer 1</p>
                 </div>
             </div>
             <div class="polaroid rounded col-sm-4">
                 <div class="col-md py-4">
-                    <img src="images/heineken.png">
+                    <img src="images/qh_beer.png">
                     <p>Beer 2</p>
 
                 </div>
             </div>
             <div class="polaroid rounded col-sm-4 ">
                 <div class="col-md py-4">
-                    <img src="images/heineken.png">
+                    <img src="images/qh_beer.png">
                     <p>Beer 3</p>
                 </div>
             </div>

@@ -191,7 +191,7 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
 <article style="position: relative; margin-top: 100px">
     <div class="col-sm-4"></div>
     <div class="col-sm-4">
-        <form id="registration" action="#" method="post" novalidate="novalidate">
+        <form id="registration" action="#" method="post" >
             <fieldset>
                 <legend class="extraPlace center">Register</legend>
             </fieldset>
