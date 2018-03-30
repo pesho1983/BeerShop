@@ -40,7 +40,7 @@ if(!isset($_SESSION['user'])) {
     <div class="col-sm-10" style="text-align:center; margin-top: 50px">
         <div class="row">
             <div class="col-lg-12">
-                <h2 class="font-weight-bold">Profile</h2>
+                <h3 class="font-weight-bold">Profile</h3>
                 <p><img src="images/2790-1.jpg" alt="Avatar" width="15%" height="15%"></p>
             </div>
         </div>
@@ -56,9 +56,9 @@ if(!isset($_SESSION['user'])) {
 <!--                    <div class="col-md-1">ty</div>-->
                 </div>
 <!--                <input class="btn btn-success mb-1" type="submit" value="Upload Image" name="submit">-->
-                <div class="border rounded my-5 py-3 " style="width: 100%">
+                <div class="border rounded my-5 pt-4 pb-3" style="width: 100%">
                     <div class="row justify-content-md-center ">
-                        <p class="col-lg-6 text-right px-2 font-weight-bold"> User name: </p>
+                        <p class="col-lg-6 text-right px-2"> User name: </p>
                         <p class="col-lg-6 text-left px-2"> sexyKote </p>
                     </div>
                     <div class="row justify-content-md-center">
@@ -81,7 +81,6 @@ if(!isset($_SESSION['user'])) {
                         <p class="col-lg-6 text-right px-2"> Age: </p>
                         <p class="col-lg-6 text-left px-2"> 21 </p>
                     </div>
-
                 </div>
                 <div class="form-group">
                     <label> Info about me </label>
@@ -99,11 +98,10 @@ if(!isset($_SESSION['user'])) {
                     <p>Beer 1</p>
                 </div>
             </div>
-            <div class="polaroid rounded col-sm-4">
-                <div class="col-md py-4">
+            <div class="polaroid  col-sm-4">
+                <div class=" col-md py-4">
                     <img src="images/qh_beer.png">
                     <p>Beer 2</p>
-
                 </div>
             </div>
             <div class="polaroid rounded col-sm-4 ">
@@ -118,6 +116,7 @@ if(!isset($_SESSION['user'])) {
                 <button class="btn btn-warning ">Save Changes</button>
             </div>
         </div>
+
         <div class="justify-content-md-center row my-3">
             <a href="#" class="btn btn-warning mx-3 col-lg-2">Change info</a>
             <a href="#" class="btn btn-warning mx-3 col-lg-2">My orders</a>
