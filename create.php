@@ -87,7 +87,7 @@ else{
 
 
                 if ($_FILES['picture']['size'] > (5048000)) {
-                    $file_upload_error_messages .= "<div>Image must be less than 2 MB in size.</div>";
+                    $file_upload_error_messages .= "<div>Image must be less than 5 MB in size.</div>";
                 }
 
                 if (!is_dir($target_directory)) {
@@ -130,15 +130,15 @@ else{
         <table class='table table-hover table-responsive table-bordered'>
             <tr>
                 <td>Name</td>
-                <td><input type='text' name='name' class='form-control' /></td>
+                <td><input type='text' name='name' class='form-control' required/></td>
             </tr>
             <tr>
                 <td>Description</td>
-                <td><textarea name='description' class='form-control'></textarea></td>
+                <td><textarea name='description' class='form-control' required></textarea></td>
             </tr>
             <tr>
                 <td>Price</td>
-                <td><input type='text' name='price' class='form-control' /></td>
+                <td><input type='text' name='price' class='form-control'  required/></td>
             </tr>
             <tr>
                 <td>Photo</td>
