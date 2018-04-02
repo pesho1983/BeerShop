@@ -27,7 +27,7 @@ $stmt->execute([$username]);
 $user = $stmt->fetch();
 
 ?>
- 
+
 <!doctype html>
 <html lang="en">
 <head>
