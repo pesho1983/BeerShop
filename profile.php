@@ -9,14 +9,11 @@ if(!isset($_SESSION['user'])) {
 <head>
 
     <link rel="shortcut icon" href="images/logoNew_bubbles.png"/>
-    <link type="text/css" rel="stylesheet" media="screen"
-          href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!--    <link type="text/css" rel="stylesheet" media="screen" href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="css/styles.css" rel="stylesheet">
     <link rel="stylesheet" href="css/test.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -39,9 +36,9 @@ if(!isset($_SESSION['user'])) {
     <div class="col-sm-1"></div>
     <div class="col-sm-10" style="text-align:center; margin-top: 50px">
         <div class="row">
-            <div class="col-lg-12">
+            <div id="avatarDiv" class="col-lg-12">
                 <h3 class="font-weight-bold">Profile</h3>
-                <p><img src="images/2790-1.jpg" alt="Avatar" width="15%" height="15%"></p>
+                <p><img id="avatar" src="images/2790-1.jpg" alt="Avatar" width="15%" height="15%"></p>
             </div>
         </div>
         <div>
@@ -92,19 +89,19 @@ if(!isset($_SESSION['user'])) {
             <h3 class="welcome mt-5 font-weight-bold">My Favorite Beers</h3>
         </div>
         <div class="row justify-content-md-center my-3 py-3">
-            <div class="polaroid rounded col-sm-4">
+            <div class="polaroid rounded col-sm-4 border" style="box-shadow: 3px 3px 3px rgba(0,0,0,0.38)">
                 <div class="col-md py-4">
                     <img src="images/qh_beer.png">
                     <p>Beer 1</p>
                 </div>
             </div>
-            <div class="polaroid  col-sm-4">
+            <div class="polaroid rounded col-sm-4 border " style="box-shadow: 3px 3px 3px rgba(0,0,0,0.38)">
                 <div class=" col-md py-4">
                     <img src="images/qh_beer.png">
                     <p>Beer 2</p>
                 </div>
             </div>
-            <div class="polaroid rounded col-sm-4 ">
+            <div class=" polaroid rounded col-sm-4 border" style="box-shadow: 3px 3px 3px rgba(0,0,0,0.38)">
                 <div class="col-md py-4">
                     <img src="images/qh_beer.png">
                     <p>Beer 3</p>
@@ -135,7 +132,7 @@ if(!isset($_SESSION['user'])) {
     <?php include_once "php_includes/footer.php"; ?>
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
     $(document).ready(function () {
         $("#profile").addClass('text_shadow');
