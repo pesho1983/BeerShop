@@ -62,7 +62,7 @@ if(!isset($_SESSION['user'])) {
                         <p class="col-lg-6 text-right px-2"> First name: </p>
                         <p class="col-lg-6 text-left px-2"> Sexy </p>
                     </div>
-                    <div class="row justify-content-md-center">
+                    <!-- <div class="row justify-content-md-center">
                         <p class="col-lg-6 text-right px-2"> Last name: </p>
                         <p class="col-lg-6 text-left px-2"> Kote </p>
                     </div>
@@ -73,7 +73,7 @@ if(!isset($_SESSION['user'])) {
                     <div class="row justify-content-md-center">
                         <p class="col-lg-6 text-right px-2"> Tel: </p>
                         <p class="col-lg-6 text-left px-2"> 69696969 </p>
-                    </div>
+                    </div> -->
                     <div class="row justify-content-md-center">
                         <p class="col-lg-6 text-right px-2"> Age: </p>
                         <p class="col-lg-6 text-left px-2"> 21 </p>

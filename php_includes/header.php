@@ -1,11 +1,17 @@
 <?php
-require_once 'connect.php'; ?>
 
+require_once 'connect.php';
+
+if( isset($_COOKIE['remember_me']) AND trim($_COOKIE['remember_me'] ) != "" ) {
+
+    $_SESSION['user']  = $_COOKIE['remember_me'];
+
+}?>
 <h1 style="width:50%; margin:0 auto;">Quality House Beer</h1>
 <nav>
     <a href="index.php"><img src="images/logoNew_bubbles.png"></a>
     <ul>
-        <?php if (!isset($_SESSION['user'])): ?>
+        <?php if (!isset($_SESSION['user']) OR trim( $_SESSION['user'] ) == ""): ?>
             <li><a id="home" href="index.php"><i class="fa fa-home"></i> HOME</a></li>
             <li><a id="catalog" href="catalog.php"><i class="fa fa-list"></i> CATALOG</a></li>
             <li><a id="about" href="about.php"><i class="fa fa-pencil"></i> ABOUT</a></li>

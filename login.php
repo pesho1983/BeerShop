@@ -1,82 +1,115 @@
 <?php
+
 require_once 'connect.php';
-if(isset($_COOKIE['ID_my_site'])) {
-    header("Location: index.php");
+
+if ((isset($_SESSION['user']) AND trim($_SESSION['user']) != "") OR (isset($_COOKIE['remember_me']) AND trim($_COOKIE['remember_me']) != "")) {
+
+    if (isset($_COOKIE['remember_me']) AND trim($_COOKIE['remember_me']) != "") {
+
+        $_SESSION['user'] = $_COOKIE['remember_me'];
+
+    }
+    header('Location: profile.php');
+
     exit;
+
 }
+
 $error = '';
-
 try {
-//If the POST var "register" exists (our submit button), then we can
-//assume that the user has submitted the registration form.
+
     if (isset($_POST['login'])) {
-
         $username = $_POST['username'];
-        $password = $_POST['password'];
 
-        //Retrieve the field values from our registration form.
+        $password = $_POST['password'];       //Retrieve the field values from our registration form.
+
         // $username = !empty($_POST['username']) ? trim($_POST['username']) : null;
-        // $password = !empty($_POST['password']) ? trim($_POST['password']) : null;
 
+        // $password = !empty($_POST['password']) ? trim($_POST['password']) : null;//Construct the SQL statement and prepare it.
 
-//Construct the SQL statement and prepare it.
-        $sql = "SELECT 
-                id AS id,
-                username AS username,
-                password AS password,
-                email AS email,
-                phone AS phone,
-                address AS address,
-                first_name AS first_name,
-                last_name AS last_name,
-                age AS age             
-            FROM
-                users
-            WHERE
-                 username = ?
-             ";
+        $sql = "SELECT
+
+            id AS id,
+
+            username AS username,
+
+            password AS password,
+
+            email AS email,
+
+            phone AS phone,
+
+            address AS address,
+
+            first_name AS first_name,
+
+            last_name AS last_name,
+
+            age AS age            
+
+        FROM
+
+            users
+
+        WHERE
+
+             username = ?
+
+         ";
+
         $stmt = $pdo->prepare($sql);
-
 
         $stmt->execute([$username]);
 
-
-
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-
         $passwordHash = $user['password'];
+
         if (!password_verify($password, $passwordHash)) {
+
             setcookie('remember_me', '', time() - 100000);
+
             throw new Exception("Wrong username or password!");
-        }
 
-        $hour = time() + 3600;
-        setcookie('ID_my_site', $_POST['username'], $hour);
+        } else {
 
-        if($_POST['remember']) {
-            $month = time() + 3600 * 24 * 30;
-            setcookie('remember_me', $_POST['username'], $month);
-        }
-        elseif(!$_POST['remember']) {
-            if(isset($_COOKIE['remember_me'])) {
+            if (isset($_POST['remember'])) {
+
+                $month = time() + ((3600 * 24) * 30);
+
+                setcookie('remember_me', $_POST['username'], $month);
+
+            } else {
+
                 $past = time() - 100;
+
                 setcookie('remember_me', '', $past);
+
             }
+            $hour = time() + 3600;
+
+            setcookie('ID_my_site', $_POST['username'], $hour);
+            $_SESSION['id'] = $user['id'];
+
+            $_SESSION['user'] = $user['username'];
+
+            header('Location: profile.php');
+            exit();
+
         }
+        $_SESSION['id'] = '';
 
+        $_SESSION['user'] = '';
 
+        header('Location: login.php');
 
-
-        $_SESSION['id'] = $user['id'];
-        $_SESSION['user'] = $user['username'];
-        header('Location: profile.php');
-
+        exit;
     }
+
 } catch (Exception $exception) {
+
     $error = $exception->getMessage();
-}
-?>
+
+} ?>
 
 
 <!doctype html>
@@ -91,9 +124,12 @@ try {
     <title>Login</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link type="text/css" rel="stylesheet" media="screen" href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" media="screen"
+          href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
     <link href="css/styles.css" rel="stylesheet">
 </head>
 
@@ -130,28 +166,18 @@ try {
                 <div class="input-group margin">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                     <input type="text" id="inputEmail" name="username" class="form-control" placeholder="Username"
-                             maxlength="40" value="<?php if(isset($_COOKIE['remember_me'])){
-                         echo $_COOKIE['remember_me'];
-                     }
-                     else{
-                         echo '';
-                     }?>" required autofocus>
+                           maxlength="40" required autofocus>
                 </div>
 
                 <div class="input-group margin">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Password"
+                           required>
                 </div>
 
                 <div class="checkbox alignLeftContent">
                     <label>
-                        <input type="checkbox" value="remember-me" name="remember"  <?php if(isset($_COOKIE['remember_me'])) {
-                            echo 'checked="checked"';
-                        }
-                        else {
-                            echo '';
-                        }
-                        ?>> Remember me
+                        <input type="checkbox" value="remember-me" name="remember"> Remember me
                     </label>
                 </div>
                 <input class="btn btn-md btn-success btn-block" type="submit" name="login" value="Sign in">
