@@ -26,7 +26,93 @@ $stmt->execute([$username]);
 
 $user = $stmt->fetch();
 
-?>
+if(isset($_POST['submit'])) {
+    $query = "UPDATE users
+            SET picture=:picture
+            WHERE username = '$username'";
+
+    $stmt = $pdo->prepare($query);
+
+    $picture = !empty($_FILES["picture"]["name"])
+        ? sha1_file($_FILES['picture']['tmp_name']) . "-" . basename($_FILES["picture"]["name"])
+        : "";
+    $picture = htmlspecialchars(strip_tags($picture));
+
+    $stmt->bindParam(':picture', $picture);
+    if ($picture) {
+
+        // sha1_file() function is used to make a unique file name
+        $target_directory = "uploads/";
+        $target_file = $target_directory . $picture;
+        $file_type = pathinfo($target_file, PATHINFO_EXTENSION);
+
+        // error message is empty
+        $file_upload_error_messages = "";
+
+        $check = getimagesize($_FILES["picture"]["tmp_name"]);
+        if ($check !== false) {
+
+        } else {
+            $file_upload_error_messages .= "<div>Submitted file is not an image.</div>";
+        }
+
+        $allowed_file_types = array("jpg", "jpeg", "png");
+        if (!in_array($file_type, $allowed_file_types)) {
+            $file_upload_error_messages .= "<div>Only JPG, JPEG, PNG files are allowed.</div>";
+        }
+        if (file_exists($target_file)) {
+            $file_upload_error_messages .= "<div>Image already exists. Try to change file name.</div>";
+        }
+
+        if ($_FILES['picture']['size'] > (2048000)) {
+            $file_upload_error_messages .= "<div>Image must be less than 2 MB in size.</div>";
+        }
+
+        if (!is_dir($target_directory)) {
+            mkdir($target_directory, 0777, true);
+        }
+
+        if (empty($file_upload_error_messages)) {
+            // it means there are no errors, so try to upload the file
+            if (move_uploaded_file($_FILES["picture"]["tmp_name"], $target_file)) {
+                // it means photo was uploaded
+            } else {
+                echo "<div class='alert alert-danger'>";
+                echo "<div>Unable to upload photo.</div>";
+                echo "<div>Update the record to upload photo.</div>";
+                echo "</div>";
+            }
+        } // if $file_upload_error_messages is NOT empty
+        else {
+            // it means there are some errors, so show them to user
+            echo "<div class='alert alert-danger'>";
+            echo "<div>{$file_upload_error_messages}</div>";
+            echo "<div>Update the record to upload photo.</div>";
+            echo "</div>";
+        }
+
+
+        $stmt->execute();
+        header("Refresh:1");
+
+
+    }
+}
+else{
+
+    $avatarQuery = "SELECT id, username, picture FROM users WHERE username = '$username'";
+    $avatarStmt = $pdo->prepare( $avatarQuery );
+
+    //$stmt->bindParam(1, $id);
+
+    $avatarStmt->execute();
+
+    // store retrieved row to a variable
+    $row = $avatarStmt->fetch(PDO::FETCH_ASSOC);
+    $avatar = htmlspecialchars($row['picture'], ENT_QUOTES);
+
+}
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -64,21 +150,20 @@ $user = $stmt->fetch();
         <div class="row">
             <div id="avatarDiv" class="col-lg-12">
                 <h3 class="font-weight-bold">Profile</h3>
-                <p><img id="avatar" src="<?= $user['picture'] != null ? $user['picture'] : "images/avatar.jpg"; ?>" alt="Avatar"  "></p>
+                <p><?php echo $avatar ? "<img src='uploads/{$avatar}' style='width:150px; height:150px;' />" : "<img src='images/avatar.jpg' style='width:300px; height:25%;';>"  ?></p>
             </div>
         </div>
         <div>
-            <form action="upload.php" method="post" enctype="multipart/form-data">
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">
                 <div class="row justify-content-md-center mb-1">
-                    <!--                    <div class="col-md-3">tr</div>-->
+                    <div class="col-md-3"></div>
                     <div class=" col-md-auto">
-                        <label class="btn btn-warning btn-md justify-content-md-center">
-                            Browse<input type="file" name="file" id="file" style="display: none">
-                        </label>
+                        <input class="form-control-file" type="file" name="picture" id="image">
                     </div>
-                    <!--                    <div class="col-md-1">ty</div>-->
+                    <div class="col-md-1"></div>
                 </div>
-                <!--                <input class="btn btn-success mb-1" type="submit" value="Upload Image" name="submit">-->
+                <input class="btn btn-success mb-1" type="submit" value="Upload Image" name="submit">
+            </form>
                 <div class="border rounded my-5 pt-4 pb-3" style="width: 100%">
                     <div class="row justify-content-md-center ">
                         <p class="col-lg-6 text-right px-2"> User name: </p>
@@ -98,8 +183,8 @@ $user = $stmt->fetch();
                     <textarea id="infoAboutMe" name="infoAboutMe" class="form-control" rows="3" maxlength="200"
                               style="resize: none"></textarea>
                 </div>
-            </form>
-        </div>
+
+
         <div>
             <h3 class="welcome mt-5 font-weight-bold">My Favorite Beers</h3>
         </div>
@@ -125,10 +210,11 @@ $user = $stmt->fetch();
         </div>
         <div>
             <div class="row my-3">
-                <button class="btn btn-warning ">Save Changes</button>
+                <button class="btn btn-warning" type="submit" name="submit">Save Changes</button>
             </div>
         </div>
-
+        </form>
+        </div>
         <div class="justify-content-md-center row my-3">
             <a href="#" class="btn btn-warning mx-3 col-lg-2">Change info</a>
             <a href="#" class="btn btn-warning mx-3 col-lg-2">My orders</a>
