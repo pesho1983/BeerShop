@@ -52,21 +52,19 @@ else{
                 : "";
             $picture=htmlspecialchars(strip_tags($picture));
 
+
             $stmt->bindParam(':name', $name);
             $stmt->bindParam(':description', $description);
             $stmt->bindParam(':price', $price);
             $stmt->bindParam(':picture', $picture);
 
-
-
-
-
-            if($stmt->execute()){
-                echo "<div class='alert alert-success'>Record was saved.</div>";
+            if($picture){
+                // echo "<div class='alert alert-success'>Record was saved.</div>";
                 // sha1_file() function is used to make a unique file name
                 $target_directory = "beers/";
                 $target_file = $target_directory . $picture;
                 $file_type = pathinfo($target_file, PATHINFO_EXTENSION);
+
 
                 // error message is empty
                 $file_upload_error_messages = "";
@@ -82,11 +80,13 @@ else{
                 if (!in_array($file_type, $allowed_file_types)) {
                     $file_upload_error_messages .= "<div>Only JPG, JPEG, PNG files are allowed.</div>";
                 }
-                if (file_exists($target_file)) {
-                    $file_upload_error_messages .= "<div>Image already exists. Try to change file name.</div>";
-                }
 
-                if ($_FILES['picture']['size'] > (2048000)) {
+               if (file_exists($target_file)) {
+                   $file_upload_error_messages .= "<div>Image already exists. Try to change file name.</div>";
+               }
+
+
+                if ($_FILES['picture']['size'] > (5048000)) {
                     $file_upload_error_messages .= "<div>Image must be less than 2 MB in size.</div>";
                 }
 
@@ -95,9 +95,8 @@ else{
                 }
 
                 if (empty($file_upload_error_messages)) {
-                    // it means there are no errors, so try to upload the file
-                    if (move_uploaded_file($_FILES["picture"]["tmp_name"], $target_file)) {
-                        // it means photo was uploaded
+                    if(move_uploaded_file($_FILES["picture"]["tmp_name"], $target_file)){
+                        $stmt->execute();
                     } else {
                         echo "<div class='alert alert-danger'>";
                         echo "<div>Unable to upload photo.</div>";
