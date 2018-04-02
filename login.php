@@ -91,18 +91,16 @@ try {
             $_SESSION['id'] = $user['id'];
 
             $_SESSION['user'] = $user['username'];
-
-            header('Location: profile.php');
-            exit();
+            if($_SESSION['user'] == 'admin'){
+                header('Location: adminProfile.php');
+                exit();
+            }
+            else {
+                header('Location: profile.php');
+                exit();
+            }
 
         }
-        $_SESSION['id'] = '';
-
-        $_SESSION['user'] = '';
-
-        header('Location: login.php');
-
-        exit;
     }
 
 } catch (Exception $exception) {
