@@ -9,13 +9,78 @@
         <title>FAQ</title>
     </head>
     
-    <body style="background:url(images/beer_background-Copy2.jpg); width: 100%; min-height:100%; background-size: cover;  overflow: hidden; ">
+    <body style="background-color:#eee">
     <header>
       <?php include_once "php_includes/header.php"; ?>
     </header>  
-    
-    <img src="images/page-is-under-construction.png">
 
+    <p></br></p>
+    <p></br></p>
+
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+            <ul>
+                <li>
+                    <p style="color: orangered;">Is it necessary to be registered to buy a beer?</p>
+                    <ul style="color: darkgreen;">
+                        <li>Yes, it is.</li>
+                    </ul>
+                </li>
+                <p></p>
+                <li>
+                    <p style="color: orangered;">How do I sign up?</p>
+                    <ol style="color: darkgreen;">
+                        <li>Go to Register form.</li>
+                        <li>Register with valid data.</li>
+                        <li>Accept agreement with Terms and Condition and GDPR.</li>
+                        <li>Press Register button.</li>
+                    </ol>
+                </li>
+                <p></p>
+                <li>
+                    <p style="color: orangered;">What are my payment methods?</p>
+                    <ul style="color: darkgreen;">
+                        <li>...</li>
+                    </ul>
+                </li>
+                <p></p>
+                <li>
+                    <p style="color: orangered;">Can I place an order by phone?</p>
+                    <ul style="color: darkgreen;">
+                        <li>...</li>
+                    </ul>
+                </li>
+                <p></p>
+                <li>
+                    <p style="color: orangered;">How save is it to order online?</p>
+                    <ul style="color: darkgreen;">
+                        <li>...</li>
+                    </ul>
+                </li>
+                <p></p>
+                <li>
+                    <p style="color: orangered;">How long it will take to get my order?</p>
+                    <ul style="color: darkgreen;">
+                        <li>...</li>
+                    </ul>
+                </li>
+                <p></p>
+                <li>
+                    <p style="color: orangered;">What shipping carriers do you use?</p>
+                    <ul style="color: darkgreen;">
+                        <li>...</li>
+                    </ul>
+                </li>
+                <p></p>
+                <li>
+                    <p style="color: orangered;">How can I track my order?</p>
+                    <ul style="color: darkgreen;">
+                        <li>...</li>
+                    </ul>
+                </li>
+            </ul>
+    </div>
+    <div class="col-sm-4"></div>
     <footer class="container fixed-bottom">
       <?php include_once "php_includes/footer.php"; ?>
     </footer>
