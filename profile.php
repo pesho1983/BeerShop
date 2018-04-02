@@ -1,26 +1,51 @@
 <?php
 require_once 'connect.php';
-if(!isset($_SESSION['user'])) {
+
+if (!isset($_SESSION['user'])) {
     header('Location: login.php');
     exit;
-}?>
+} ?>
+<?php
+$username = $_SESSION['user'];
+
+$sql = "SELECT
+            username,
+            first_name,
+            age,
+            picture
+        FROM
+            users
+        WHERE
+             username = ?
+
+         ";
+
+$stmt = $pdo->prepare($sql);
+
+$stmt->execute([$username]);
+
+$user = $stmt->fetch();
+
+?>
+?>
 <!doctype html>
 <html lang="en">
 <head>
 
     <link rel="shortcut icon" href="images/logoNew_bubbles.png"/>
-<!--    <link type="text/css" rel="stylesheet" media="screen" href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--    <link type="text/css" rel="stylesheet" media="screen" href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="css/styles.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/test.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>User Dashboard</title>
+    <title>User Profile</title>
 
 
 </head>
@@ -38,50 +63,39 @@ if(!isset($_SESSION['user'])) {
         <div class="row">
             <div id="avatarDiv" class="col-lg-12">
                 <h3 class="font-weight-bold">Profile</h3>
-                <p><img id="avatar" src="images/2790-1.jpg" alt="Avatar" width="15%" height="15%"></p>
+                <p><img id="avatar" src="<?= $user['picture'] != null ? $user['picture'] : "images/avatar.jpg"; ?>" alt="Avatar"  "></p>
             </div>
         </div>
         <div>
             <form action="upload.php" method="post" enctype="multipart/form-data">
                 <div class="row justify-content-md-center mb-1">
-<!--                    <div class="col-md-3">tr</div>-->
+                    <!--                    <div class="col-md-3">tr</div>-->
                     <div class=" col-md-auto">
                         <label class="btn btn-warning btn-md justify-content-md-center">
                             Browse<input type="file" name="file" id="file" style="display: none">
                         </label>
                     </div>
-<!--                    <div class="col-md-1">ty</div>-->
+                    <!--                    <div class="col-md-1">ty</div>-->
                 </div>
-<!--                <input class="btn btn-success mb-1" type="submit" value="Upload Image" name="submit">-->
+                <!--                <input class="btn btn-success mb-1" type="submit" value="Upload Image" name="submit">-->
                 <div class="border rounded my-5 pt-4 pb-3" style="width: 100%">
                     <div class="row justify-content-md-center ">
                         <p class="col-lg-6 text-right px-2"> User name: </p>
-                        <p class="col-lg-6 text-left px-2"> sexyKote </p>
+                        <p class="col-lg-6 text-left px-2"> <?= $user['username'] ?> </p>
                     </div>
                     <div class="row justify-content-md-center">
                         <p class="col-lg-6 text-right px-2"> First name: </p>
-                        <p class="col-lg-6 text-left px-2"> Sexy </p>
+                        <p class="col-lg-6 text-left px-2"> <?= $user['first_name'] ?> </p>
                     </div>
-                    <!-- <div class="row justify-content-md-center">
-                        <p class="col-lg-6 text-right px-2"> Last name: </p>
-                        <p class="col-lg-6 text-left px-2"> Kote </p>
-                    </div>
-                    <div class="row justify-content-md-center">
-                        <p class="col-lg-6 text-right px-2"> Address: </p>
-                        <p class="col-lg-6 text-left px-2"> Sexy Landiya 69 </p>
-                    </div>
-                    <div class="row justify-content-md-center">
-                        <p class="col-lg-6 text-right px-2"> Tel: </p>
-                        <p class="col-lg-6 text-left px-2"> 69696969 </p>
-                    </div> -->
                     <div class="row justify-content-md-center">
                         <p class="col-lg-6 text-right px-2"> Age: </p>
-                        <p class="col-lg-6 text-left px-2"> 21 </p>
+                        <p class="col-lg-6 text-left px-2"> <?= $user['age'] ?> </p>
                     </div>
                 </div>
                 <div class="form-group">
                     <label> Info about me </label>
-                    <textarea id="infoAboutMe" name="infoAboutMe" class="form-control" rows="3" maxlength="200" style="resize: none"></textarea>
+                    <textarea id="infoAboutMe" name="infoAboutMe" class="form-control" rows="3" maxlength="200"
+                              style="resize: none"></textarea>
                 </div>
             </form>
         </div>
