@@ -26,14 +26,12 @@ if( isset($_COOKIE['remember_me']) AND trim($_COOKIE['remember_me'] ) != "" ) {
         <?php elseif (isset($_SESSION['user']) && $_SESSION['user'] == 'admin'): ?>
             <li><a id="home" href="index.php"><i class="fa fa-home"></i> HOME</a></li>
             <li><a id="catalog" href="catalog.php"><i class="fa fa-list"></i> CATALOG</a></li>
-            <li><a id="addBeer" href="create.php"><i class="fa fa-beer"></i> Add Beer</a></li>
-            <li><a id="settings" href="addBeer.php"><i class="fa fa-beer"></i> SETTINGS</a></li>
             <li><a id="logout" href="logout.php"><i class="fa fa-sign-out"></i> LOGOUT</a></li>
             <li><a href="#"><i class="fa fa-search"></i>
                     <input style="box-sizing: border-box; border: 2px solid; border-radius: 15px; height: 40px;width: 220px;" type="text" placeholder=" Search..." name="search">
                 </a>
             </li>
-            <li><a id="profile" href="profile.php"><i class="fa fa-user"></i> <?= $_SESSION['user'] ?></a></li>
+            <li><a id="profile" href="adminProfile.php"><i class="fa fa-user"></i> <?= $_SESSION['user'] ?></a></li>
 
         <?php else :; ?>
             <li><a id="home" href="index.php"><i class="fa fa-home"></i> HOME</a></li>
