@@ -16,7 +16,7 @@
 
     <p></br></p>
     <p></br></p>
-
+<div class="container col-sm-8">
     <div class="col-sm-4"></div>
     <div class="col-sm-4">
             <ul>
@@ -81,6 +81,7 @@
             </ul>
     </div>
     <div class="col-sm-4"></div>
+</div>
     <footer class="container fixed-bottom">
       <?php include_once "php_includes/footer.php"; ?>
     </footer>

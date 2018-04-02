@@ -23,6 +23,13 @@
     </div>
 
     <?php
+    $action = isset($_GET['action']) ? $_GET['action'] : "";
+
+    // if it was redirected from delete.php
+    if($action=='deleted'){
+        echo "<div class='alert alert-success'>Record was deleted.</div>";
+    }
+
     $query = "SELECT id, name, description, price FROM products ORDER BY id ASC";
     $stmt = $pdo->prepare($query);
     $stmt->execute();
@@ -76,5 +83,15 @@
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type='text/javascript'>
+    // confirm record deletion
+    function delete_user( id ){
+        var answer = confirm('Are you sure?');
+        if (answer){
+            window.location = 'delete.php?id=' + id;
+        }
+    }
+</script>
+
 </body>
 </html>
