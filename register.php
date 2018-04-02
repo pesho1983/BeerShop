@@ -301,11 +301,11 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
 <footer class="container fixed-bottom">
     <?php include_once "php_includes/footer.php"; ?>
 </footer>
+
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/additional-methods.min.js"></script>
 <script rel="script" type="text/javascript" src="js/validationFE.js"></script>
-
 </body>
 
 </html>

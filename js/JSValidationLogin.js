@@ -20,8 +20,7 @@ $(document).ready(function () {
     $('#loginForm').validate({
         rules: {
             username: {
-                required: true,
-                alphanumeric: true
+                required: true
             },
 
             password: {
