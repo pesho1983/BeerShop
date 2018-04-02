@@ -3,17 +3,10 @@
 <head>
     <title>Beers Index</title>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link type="text/css" rel="stylesheet" media="screen" href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="css/styles.css" rel="stylesheet">
 
-
-    <style>
-        .m-r-1em{ margin-right:1em; }
-        .m-b-1em{ margin-bottom:1em; }
-        .m-l-1em{ margin-left:1em; }
-        .mt0{ margin-top:0; }
-    </style>
 
 </head>
 <body>
@@ -22,7 +15,8 @@
 </header>
 
 <!-- container -->
-<div class="container" style="margin-top: 150px;">
+<div class="col-sm-2"></div>
+<div class="container col-sm-8" style="margin-top: 150px;">
 
     <div class="page-header">
         <h1>Beers</h1>
@@ -41,14 +35,14 @@
 
 
     if($num>0){
-        echo "<div class='col-sm-12'>";
+        echo "<div class='col-12'>";
         echo "<table class='table table-hover table-responsive table-bordered col-sm-12'>";
-        echo "<tr class='col-sm-4'>";
-        echo "<th class='col-sm-2'>ID</th>";
+        echo "<tr>";
+        echo "<th class='col-sm-1'>ID</th>";
         echo "<th class='col-sm-2'>Name</th>";
-        echo "<th class='col-sm-2'>Description</th>";
-        echo "<th class='col-sm-2'>Price</th>";
-        echo "<th class='col-sm-4'>Action</th>";
+        echo "<th class='col-sm-5'>Description</th>";
+        echo "<th class='col-sm-1'>Price</th>";
+        echo "<th class='col-sm-3'>Action</th>";
         echo "</tr>";
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
             extract($row);
@@ -76,7 +70,7 @@
     ?>
 
 </div>
-<footer class="container fixed-bottom">
+<footer class="footer navbar-fixed-bottom">
     <?php include_once "php_includes/footer.php"; ?>
 </footer>
 
