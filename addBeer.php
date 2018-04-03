@@ -86,9 +86,10 @@ else{
                }
 
 
-                if ($_FILES['picture']['size'] > (5048000)) {
+                if (($_FILES['picture']['size'] >= (5048000)) || ($_FILES["picture"]["size"] == 0)) {
                     $file_upload_error_messages .= "<div>Image must be less than 5 MB in size.</div>";
                 }
+
 
                 if (!is_dir($target_directory)) {
                     mkdir($target_directory, 0777, true);
@@ -138,17 +139,21 @@ else{
             </tr>
             <tr>
                 <td>Price</td>
-                <td><input type='text' name='price' class='form-control'  required/></td>
+                <td><input type='number' min=1 name='price' class='form-control'  required/></td>
+            </tr>
+            <tr>
+                <td>Quantity</td>
+                <td><input type='number' min=1 name='price' class='form-control'  required/></td>
             </tr>
             <tr>
                 <td>Photo</td>
-                <td><input class="btn btn-default" type="file" name="picture" /></td>
+                <td><input class="btn btn-default" type="file" name="picture" required /></td>
             </tr>
             <tr>
                 <td></td>
                 <td>
                     <input type='submit' value='Save' class='btn btn-primary' />
-                    <a href='index.php' class='btn btn-danger'>Back to read products</a>
+                    <a href='listAllBeers.php' class='btn btn-danger'>Back to read products</a>
                 </td>
             </tr>
         </table>

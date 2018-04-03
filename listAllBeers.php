@@ -43,7 +43,7 @@
     echo "    
            <div class='row'>
             <div class='col-lg-1'></div>
-            <a href='create.php' class='btn btn-primary mb-3 ml-4'>Create New Product</a>
+            <a href='addBeer.php' class='btn btn-primary mb-3 ml-4'>Create New Product</a>
           </div>";
 
 
