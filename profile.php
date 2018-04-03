@@ -27,7 +27,7 @@ $stmt->execute([$username]);
 $user = $stmt->fetch();
 
 
-if(isset($_POST['submit'])) {
+if (isset($_POST['submit'])) {
     $query = "UPDATE users
             SET picture=:picture
             WHERE username = '$username'";
@@ -94,15 +94,13 @@ if(isset($_POST['submit'])) {
 
 
         $stmt->execute();
-        header("Refresh:1");
 
-
+        header("Location: profile.php");
     }
-}
-else{
+} else {
 
     $avatarQuery = "SELECT id, username, picture FROM users WHERE username = '$username'";
-    $avatarStmt = $pdo->prepare( $avatarQuery );
+    $avatarStmt = $pdo->prepare($avatarQuery);
 
     //$stmt->bindParam(1, $id);
 
@@ -115,6 +113,7 @@ else{
 }
 
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -149,11 +148,12 @@ else{
         <div class="row">
             <div id="avatarDiv" class="col-lg-12">
                 <h3 class="font-weight-bold">Profile</h3>
-                <p><?php echo $avatar ? "<img src='uploads/{$avatar}' style='width:150px; height:150px;' />" : "<img src='images/avatar.jpg' style='width:300px; height:25%;';>"  ?></p>
+                <p><?php echo $avatar ? "<img src='uploads/{$avatar}' style='width:150px; height:150px;' />" : "<img src='images/avatar.jpg' style='width:300px; height:25%;';>" ?></p>
             </div>
         </div>
         <div>
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"
+                  enctype="multipart/form-data">
                 <div class="row justify-content-md-center mb-1">
                     <div class="col-md-3"></div>
                     <div class=" col-md-auto">
@@ -163,81 +163,81 @@ else{
                 </div>
                 <input class="btn btn-success mb-1" type="submit" value="Upload Image" name="submit">
             </form>
+
+            <form>
                 <div class="border rounded my-5 pt-4 pb-3" style="width: 100%">
                     <div class="row justify-content-md-center ">
-                        <p class="col-lg-6 text-right px-2"> User name: </p>
-                        <p class="col-lg-6 text-left px-2"> <?= $user['username'] ?> </p>
+                        <p class="col-lg-6 text-center px-2"> User name: <?= $user['username'] ?></p>
                     </div>
                     <div class="row justify-content-md-center">
-                        <p class="col-lg-6 text-right px-2"> First name: </p>
-                        <p class="col-lg-6 text-left px-2"> <?= $user['first_name'] ?> </p>
+                        <p class="col-lg-6 text-center px-2"> First name: <?= $user['first_name'] ?> </p>
                     </div>
                     <div class="row justify-content-md-center">
-                        <p class="col-lg-6 text-right px-2"> Age: </p>
-                        <p class="col-lg-6 text-left px-2"> <?= $user['age'] ?> </p>
+                        <p class="col-lg-6 text-center px-2"> Age: <?= $user['age'] ?></p>
                     </div>
                 </div>
+            </form>
+
+            <form class="well well lg">
                 <div class="form-group">
                     <label> Info about me </label>
                     <textarea id="infoAboutMe" name="infoAboutMe" class="form-control" rows="3" maxlength="200"
                               style="resize: none"></textarea>
                 </div>
+                <div>
+                    <h3 class="welcome mt-5 font-weight-bold">My Favorite Beers</h3>
+                </div>
+                <div class="row justify-content-md-center my-3 py-3">
+                    <div class="polaroid rounded col-sm-4 border" style="box-shadow: 3px 3px 3px rgba(0,0,0,0.38)">
+                        <div class="col-md py-4">
+                            <img src="images/qh_beer.png">
+                            <p>Beer 1</p>
+                        </div>
+                    </div>
+                    <div class="polaroid rounded col-sm-4 border " style="box-shadow: 3px 3px 3px rgba(0,0,0,0.38)">
+                        <div class=" col-md py-4">
+                            <img src="images/qh_beer.png">
+                            <p>Beer 2</p>
+                        </div>
+                    </div>
+                    <div class=" polaroid rounded col-sm-4 border" style="box-shadow: 3px 3px 3px rgba(0,0,0,0.38)">
+                        <div class="col-md py-4">
+                            <img src="images/qh_beer.png">
+                            <p>Beer 3</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="row my-3">
+                        <button class="btn btn-warning" type="submit" name="submit">Save Changes</button>
+                    </div>
+                </div>
+            </form>
 
-
-        <div>
-            <h3 class="welcome mt-5 font-weight-bold">My Favorite Beers</h3>
-        </div>
-        <div class="row justify-content-md-center my-3 py-3">
-            <div class="polaroid rounded col-sm-4 border" style="box-shadow: 3px 3px 3px rgba(0,0,0,0.38)">
-                <div class="col-md py-4">
-                    <img src="images/qh_beer.png">
-                    <p>Beer 1</p>
-                </div>
+            <div class="justify-content-md-center row my-3">
+                <a href="#" class="btn btn-warning mx-3 col-lg-2">Change info</a>
+                <a href="#" class="btn btn-warning mx-3 col-lg-2">My orders</a>
             </div>
-            <div class="polaroid rounded col-sm-4 border " style="box-shadow: 3px 3px 3px rgba(0,0,0,0.38)">
-                <div class=" col-md py-4">
-                    <img src="images/qh_beer.png">
-                    <p>Beer 2</p>
-                </div>
-            </div>
-            <div class=" polaroid rounded col-sm-4 border" style="box-shadow: 3px 3px 3px rgba(0,0,0,0.38)">
-                <div class="col-md py-4">
-                    <img src="images/qh_beer.png">
-                    <p>Beer 3</p>
-                </div>
+            <div class="justify-content-md-center row my-3">
+                <a href="#" class="btn btn-warning mx-3 col-lg-2">My wallet</a>
+                <a href="#" class="btn btn-warning mx-3 col-lg-2">Basket</a>
             </div>
         </div>
-        <div>
-            <div class="row my-3">
-                <button class="btn btn-warning" type="submit" name="submit">Save Changes</button>
-            </div>
-        </div>
-        </form>
-        </div>
-        <div class="justify-content-md-center row my-3">
-            <a href="#" class="btn btn-warning mx-3 col-lg-2">Change info</a>
-            <a href="#" class="btn btn-warning mx-3 col-lg-2">My orders</a>
-        </div>
-        <div class="justify-content-md-center row my-3">
-            <a href="#" class="btn btn-warning mx-3 col-lg-2">My wallet</a>
-            <a href="#" class="btn btn-warning mx-3 col-lg-2">Basket</a>
-        </div>
+        <div class="col-sm-1"></div>
     </div>
-    <div class="col-sm-1"></div>
-</div>
 
 
-<footer class="container fixed-bottom">
+    <footer class="container fixed-bottom">
 
-    <?php include_once "php_includes/footer.php"; ?>
-</footer>
+        <?php include_once "php_includes/footer.php"; ?>
+    </footer>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $("#profile").addClass('text_shadow');
-    });
-</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#profile").addClass('text_shadow');
+        });
+    </script>
 
 
 </body>

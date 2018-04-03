@@ -3,6 +3,8 @@
 
 # User-specific stuff:
 .idea
+.uploads
+.Temp
 
 ## File-based project format:
 *.iws
