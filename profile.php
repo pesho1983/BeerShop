@@ -27,7 +27,7 @@ $stmt->execute([$username]);
 $user = $stmt->fetch();
 
 
-if(isset($_POST['submit'])) {
+if (isset($_POST['submit'])) {
     $query = "UPDATE users
             SET picture=:picture
             WHERE username = '$username'";
@@ -97,11 +97,10 @@ if(isset($_POST['submit'])) {
 
         header("Location: profile.php");
     }
-}
-else{
+} else {
 
     $avatarQuery = "SELECT id, username, picture FROM users WHERE username = '$username'";
-    $avatarStmt = $pdo->prepare( $avatarQuery );
+    $avatarStmt = $pdo->prepare($avatarQuery);
 
     //$stmt->bindParam(1, $id);
 
@@ -127,9 +126,12 @@ else{
     <title>User Profile</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link type="text/css" rel="stylesheet" media="screen" href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" media="screen"
+          href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
     <link href="css/styles.css" rel="stylesheet">
 </head>
 
@@ -146,11 +148,12 @@ else{
         <div class="row">
             <div id="avatarDiv" class="col-lg-12">
                 <h3 class="font-weight-bold">Profile</h3>
-                <p><?php echo $avatar ? "<img src='uploads/{$avatar}' style='width:150px; height:150px;' />" : "<img src='images/avatar.jpg' style='width:300px; height:25%;';>"  ?></p>
+                <p><?php echo $avatar ? "<img src='uploads/{$avatar}' style='width:150px; height:150px;' />" : "<img src='images/avatar.jpg' style='width:300px; height:25%;';>" ?></p>
             </div>
         </div>
         <div>
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"
+                  enctype="multipart/form-data">
                 <div class="row justify-content-md-center mb-1">
                     <div class="col-md-3"></div>
                     <div class=" col-md-auto">
@@ -164,16 +167,13 @@ else{
             <form>
                 <div class="border rounded my-5 pt-4 pb-3" style="width: 100%">
                     <div class="row justify-content-md-center ">
-                        <p class="col-lg-6 text-right px-2"> User name: </p>
-                        <p class="col-lg-6 text-left px-2"> <?= $user['username'] ?> </p>
+                        <p class="col-lg-6 text-center px-2"> User name: <?= $user['username'] ?></p>
                     </div>
                     <div class="row justify-content-md-center">
-                        <p class="col-lg-6 text-right px-2"> First name: </p>
-                        <p class="col-lg-6 text-left px-2"> <?= $user['first_name'] ?> </p>
+                        <p class="col-lg-6 text-center px-2"> First name: <?= $user['first_name'] ?> </p>
                     </div>
                     <div class="row justify-content-md-center">
-                        <p class="col-lg-6 text-right px-2"> Age: </p>
-                        <p class="col-lg-6 text-left px-2"> <?= $user['age'] ?> </p>
+                        <p class="col-lg-6 text-center px-2"> Age: <?= $user['age'] ?></p>
                     </div>
                 </div>
             </form>
@@ -223,21 +223,21 @@ else{
                 <a href="#" class="btn btn-warning mx-3 col-lg-2">Basket</a>
             </div>
         </div>
-    <div class="col-sm-1"></div>
-</div>
+        <div class="col-sm-1"></div>
+    </div>
 
 
-<footer class="container fixed-bottom" >
+    <footer class="container fixed-bottom">
 
-    <?php include_once "php_includes/footer.php"; ?>
-</footer>
+        <?php include_once "php_includes/footer.php"; ?>
+    </footer>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $("#profile").addClass('text_shadow');
-    });
-</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#profile").addClass('text_shadow');
+        });
+    </script>
 
 
 </body>
