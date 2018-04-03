@@ -14,9 +14,7 @@
       <?php include_once "php_includes/header.php"; ?>
     </header>  
 
-    <p></br></p>
-    <p></br></p>
-<div class="container col-sm-8">
+<div class="row" style="margin-top: 100px">
     <div class="col-sm-4"></div>
     <div class="col-sm-4">
             <ul>

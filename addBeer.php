@@ -39,16 +39,17 @@ else{
 
             $query = "INSERT INTO products
             SET name=:name, description=:description,
-                price=:price, picture=:picture";
+                price=:price, quantity=:quantity, picture=:picture";
 
             $stmt = $pdo->prepare($query);
 
             $name=htmlspecialchars(strip_tags($_POST['name']));
             $description=htmlspecialchars(strip_tags($_POST['description']));
             $price=htmlspecialchars(strip_tags($_POST['price']));
+            $quantity=htmlspecialchars(strip_tags($_POST['quantity']));
 
             $picture=!empty($_FILES["picture"]["name"])
-                ? sha1_file($_FILES['picture']['tmp_name']) . "-" . basename($_FILES["picture"]["name"])
+                ? sha1_file($_FILES["picture"]["tmp_name"]) . "-" . basename($_FILES["picture"]["name"])
                 : "";
             $picture=htmlspecialchars(strip_tags($picture));
 
@@ -56,11 +57,10 @@ else{
             $stmt->bindParam(':name', $name);
             $stmt->bindParam(':description', $description);
             $stmt->bindParam(':price', $price);
+            $stmt->bindParam(':quantity', $quantity);
             $stmt->bindParam(':picture', $picture);
 
             if($picture){
-                // echo "<div class='alert alert-success'>Record was saved.</div>";
-                // sha1_file() function is used to make a unique file name
                 $target_directory = "beers/";
                 $target_file = $target_directory . $picture;
                 $file_type = pathinfo($target_file, PATHINFO_EXTENSION);
@@ -69,12 +69,12 @@ else{
                 // error message is empty
                 $file_upload_error_messages = "";
 
-                $check = getimagesize($_FILES["picture"]["tmp_name"]);
-                if ($check !== false) {
-
-                } else {
-                    $file_upload_error_messages .= "<div>Submitted file is not an image.</div>";
-                }
+//                $check = getimagesize($_FILES["picture"]["tmp_name"]);
+//                if ($check !== false) {
+//
+//                } else {
+//                    $file_upload_error_messages .= "<div>Submitted file is not an image.</div>";
+//                }
 
                 $allowed_file_types = array("jpg", "jpeg", "png");
                 if (!in_array($file_type, $allowed_file_types)) {
@@ -86,9 +86,10 @@ else{
                }
 
 
-                if ($_FILES['picture']['size'] > (5048000)) {
+                if (($_FILES['picture']['size'] >= (5242880)) || ($_FILES["picture"]["size"] == 0)) {
                     $file_upload_error_messages .= "<div>Image must be less than 5 MB in size.</div>";
                 }
+
 
                 if (!is_dir($target_directory)) {
                     mkdir($target_directory, 0777, true);
@@ -97,6 +98,9 @@ else{
                 if (empty($file_upload_error_messages)) {
                     if(move_uploaded_file($_FILES["picture"]["tmp_name"], $target_file)){
                         $stmt->execute();
+                        echo "<div class='alert alert-success'>";
+                        echo "<div>Uploaded successfully.</div>";
+                        echo "</div>";
                     } else {
                         echo "<div class='alert alert-danger'>";
                         echo "<div>Unable to upload photo.</div>";
@@ -119,7 +123,11 @@ else{
 
             // show error
         catch(PDOException $exception){
-            die('ERROR: ' . $exception->getMessage());
+            echo "<div class='alert alert-danger'>";
+            echo "<div>There is a beer with that name in the database. Name must be unique.</div>";
+            echo "</div>";
+            //$error = $exception->getMessage();
+            //die('ERROR: ' . $exception->getMessage());
         }
     }
     ?>
@@ -138,17 +146,21 @@ else{
             </tr>
             <tr>
                 <td>Price</td>
-                <td><input type='text' name='price' class='form-control'  required/></td>
+                <td><input type='number' step="0.01" min=0 name='price' class='form-control'  required/></td>
+            </tr>
+            <tr>
+                <td>Quantity</td>
+                <td><input type='number' min=0 name='quantity' class='form-control'  required/></td>
             </tr>
             <tr>
                 <td>Photo</td>
-                <td><input class="btn btn-default" type="file" name="picture" /></td>
+                <td><input class="btn btn-default" type="file" name="picture" required /></td>
             </tr>
             <tr>
                 <td></td>
                 <td>
                     <input type='submit' value='Save' class='btn btn-success' />
-                    <a href='index.php' class='btn btn-danger'>Back to read products</a>
+                    <a href='listAllBeers.php' class='btn btn-danger'>Back to read products</a>
                 </td>
             </tr>
         </table>
@@ -166,11 +178,5 @@ else{
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $("#addBeer").addClass('text_shadow');
-    });
-</script>
-
 </body>
 </html>

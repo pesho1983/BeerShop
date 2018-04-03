@@ -1,3 +1,14 @@
+<?php
+require_once 'connect.php';
+if (isset($_SESSION['user']) && $_SESSION['user'] == 'admin') {
+
+}
+else{
+    header('HTTP/1.0 401 Unauthorized');
+    echo 'You are not authorized to be here!';
+    exit;
+}
+?>
 <!doctype html>
 <html lang="en">
 <head>
