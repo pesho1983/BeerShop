@@ -49,7 +49,7 @@ else{
             $quantity=htmlspecialchars(strip_tags($_POST['quantity']));
 
             $picture=!empty($_FILES["picture"]["name"])
-                ? sha1_file($_FILES['picture']['tmp_name']) . "-" . basename($_FILES["picture"]["name"])
+                ? sha1_file($_FILES["picture"]["tmp_name"]) . "-" . basename($_FILES["picture"]["name"])
                 : "";
             $picture=htmlspecialchars(strip_tags($picture));
 
@@ -61,8 +61,6 @@ else{
             $stmt->bindParam(':picture', $picture);
 
             if($picture){
-                // echo "<div class='alert alert-success'>Record was saved.</div>";
-                // sha1_file() function is used to make a unique file name
                 $target_directory = "beers/";
                 $target_file = $target_directory . $picture;
                 $file_type = pathinfo($target_file, PATHINFO_EXTENSION);
@@ -71,12 +69,12 @@ else{
                 // error message is empty
                 $file_upload_error_messages = "";
 
-                $check = getimagesize($_FILES["picture"]["tmp_name"]);
-                if ($check !== false) {
-
-                } else {
-                    $file_upload_error_messages .= "<div>Submitted file is not an image.</div>";
-                }
+//                $check = getimagesize($_FILES["picture"]["tmp_name"]);
+//                if ($check !== false) {
+//
+//                } else {
+//                    $file_upload_error_messages .= "<div>Submitted file is not an image.</div>";
+//                }
 
                 $allowed_file_types = array("jpg", "jpeg", "png");
                 if (!in_array($file_type, $allowed_file_types)) {
@@ -88,7 +86,7 @@ else{
                }
 
 
-                if (($_FILES['picture']['size'] >= (5048000)) || ($_FILES["picture"]["size"] == 0)) {
+                if (($_FILES['picture']['size'] >= (5242880)) || ($_FILES["picture"]["size"] == 0)) {
                     $file_upload_error_messages .= "<div>Image must be less than 5 MB in size.</div>";
                 }
 
@@ -125,7 +123,11 @@ else{
 
             // show error
         catch(PDOException $exception){
-            die('ERROR: ' . $exception->getMessage());
+            echo "<div class='alert alert-danger'>";
+            echo "<div>There is a beer with that name in the database. Name must be unique.</div>";
+            echo "</div>";
+            //$error = $exception->getMessage();
+            //die('ERROR: ' . $exception->getMessage());
         }
     }
     ?>
@@ -176,11 +178,5 @@ else{
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $("#addBeer").addClass('text_shadow');
-    });
-</script>
-
 </body>
 </html>
