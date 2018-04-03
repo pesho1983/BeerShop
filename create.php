@@ -97,6 +97,8 @@ else{
                 if (empty($file_upload_error_messages)) {
                     if(move_uploaded_file($_FILES["picture"]["tmp_name"], $target_file)){
                         $stmt->execute();
+                        echo "<div class='alert alert-success'>";
+                        echo "<div>Uploaded successfully.</div>";
                     } else {
                         echo "<div class='alert alert-danger'>";
                         echo "<div>Unable to upload photo.</div>";
