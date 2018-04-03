@@ -94,7 +94,7 @@ if(isset($_POST['submit'])) {
 
 
         $stmt->execute();
-        header("Refresh:1");
+        header("Location: profile.php");
 
 
     }
