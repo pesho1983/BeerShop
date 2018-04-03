@@ -102,6 +102,7 @@ else{
                         $stmt->execute();
                         echo "<div class='alert alert-success'>";
                         echo "<div>Uploaded successfully.</div>";
+                        echo "</div>";
                     } else {
                         echo "<div class='alert alert-danger'>";
                         echo "<div>Unable to upload photo.</div>";
