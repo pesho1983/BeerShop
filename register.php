@@ -61,9 +61,9 @@ try {
         }
         //Validation phone
 
-        $patern = '^[0-9]{10,10}$';
+        $patern = '#^[0-9]{10,10}$#';
 
-        if (strlen($phone) != 10 || preg_match($patern, $phone)) {
+        if (strlen($phone) != 10 || !preg_match($patern, $phone)) {
             throw new Exception("Phone must be 10 digits.");
         }
         //Validation age
@@ -253,7 +253,7 @@ VALUES (:username, :password,:email, :phone, :address, :first_name, :last_name, 
 
                 <div class="input-group margin col-lg-6">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-phone-alt"></i></span>
-                    <input class="form-control" id="phone" name="phone" type="number"
+                    <input class="form-control" id="phone" name="phone" type="text"
                            value="<?= $phone != null ? $phone : ""; ?>" maxlength="10" placeholder="Phone Number"
                            required>
                     <span class="input-group-addon"><i class="glyphicon glyphicon-heatr form-control-feedback"><div class="simple-linear"> </div></i></span>
