@@ -32,7 +32,7 @@
         echo "<div class='alert alert-success'>Record was deleted.</div>";
     }
 
-    $query = "SELECT id, name, description, price FROM products ORDER BY id ASC";
+    $query = "SELECT id, name, description, price, quantity FROM products ORDER BY id ASC";
     $stmt = $pdo->prepare($query);
     $stmt->execute();
 
@@ -56,8 +56,9 @@
                     echo "<tr class='bg-warning'>";
                 //        echo "<th class='col-sm-1'>ID</th>";
                         echo "<th class='col-sm-2'>Name</th>";
-                        echo "<th class='col-sm-5'>Description</th>";
-                        echo "<th class='col-sm-1'>Price</th>";
+                        echo "<th class='col-sm-4'>Description</th>";
+                        echo "<th class='col-sm-2'>Price</th>";
+                        echo "<th class='col-sm-1'>Quantity</th>";
                         echo "<th class='col-sm-4 text-center'>Action</th>";
                     echo "</tr>";
                 echo "</thead>";
@@ -69,7 +70,8 @@
                 //            echo "<td>{$id}</td>";
                             echo "<th class='align-middle'>{$name}</th>";
                             echo "<td class='align-middle'>{$description}</td>";
-                            echo "<td class='align-middle'>&#36;{$price}</td>";
+                            echo "<td class='align-middle'>{$price} lv.</td>";
+                            echo "<td class='align-middle'>{$quantity}</td>";
                             echo "<td>";
                                 echo "<div class='row justify-content-md-center'>";
                         //          echo "<a href='read_one.php?id={$id}' class='btn btn-info mr-1'>View</a>";

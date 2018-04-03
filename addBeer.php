@@ -39,13 +39,14 @@ else{
 
             $query = "INSERT INTO products
             SET name=:name, description=:description,
-                price=:price, picture=:picture";
+                price=:price, quantity=:quantity, picture=:picture";
 
             $stmt = $pdo->prepare($query);
 
             $name=htmlspecialchars(strip_tags($_POST['name']));
             $description=htmlspecialchars(strip_tags($_POST['description']));
             $price=htmlspecialchars(strip_tags($_POST['price']));
+            $quantity=htmlspecialchars(strip_tags($_POST['quantity']));
 
             $picture=!empty($_FILES["picture"]["name"])
                 ? sha1_file($_FILES['picture']['tmp_name']) . "-" . basename($_FILES["picture"]["name"])
@@ -56,6 +57,7 @@ else{
             $stmt->bindParam(':name', $name);
             $stmt->bindParam(':description', $description);
             $stmt->bindParam(':price', $price);
+            $stmt->bindParam(':quantity', $quantity);
             $stmt->bindParam(':picture', $picture);
 
             if($picture){
@@ -139,11 +141,11 @@ else{
             </tr>
             <tr>
                 <td>Price</td>
-                <td><input type='number' min=1 name='price' class='form-control'  required/></td>
+                <td><input type='number' min=0 name='price' class='form-control'  required/></td>
             </tr>
             <tr>
                 <td>Quantity</td>
-                <td><input type='number' min=1 name='price' class='form-control'  required/></td>
+                <td><input type='number' min=0 name='quantity' class='form-control'  required/></td>
             </tr>
             <tr>
                 <td>Photo</td>
