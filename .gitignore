@@ -3,7 +3,7 @@
 
 # User-specific stuff:
 .idea
-.uploads
+/uploads/
 .Temp
 
 ## File-based project format:
