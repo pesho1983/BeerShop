@@ -73,8 +73,8 @@
                             echo "<td>";
                                 echo "<div class='row justify-content-md-center'>";
                         //          echo "<a href='read_one.php?id={$id}' class='btn btn-info mr-1'>View</a>";
-                                    echo "<a href='update.php?id={$id}' class='btn btn-success mr-3 col-lg-3'>Edit</a>";
-                                    echo "<a href='#' onclick='delete_user({$id});' class='btn btn-danger col-lg-3'>Delete</a>";
+                                    echo "<a href='update.php?id={$id}' class='btn btn-success align-middle mr-3 col-lg-3'>Edit</a>";
+                                    echo "<a href='#' onclick='delete_user({$id});' class='btn btn-danger align-middle col-lg-3'>Delete</a>";
                                 echo "</div>";
                             echo "</td>";
                         echo "</tr>";
