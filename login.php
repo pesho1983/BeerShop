@@ -135,56 +135,52 @@ try {
 <header>
     <?php include_once "php_includes/header.php"; ?>
 </header>
+<div class="container">
+    <article style="position: relative; margin-top: 250px">
+        <div class="row justify-content-md-center">
+            <div class="col-sm-3">
+                <?php if (isset($_SESSION['username'])): ?>
+                    <div class="alert alert-success">
+                        <strong>Registration success.</strong> Please Login and buy some beer. :)
+                    </div>
 
-<article style="position: relative; margin-top: 250px">
+                <?php endif; ?>
+                <?php unset($_SESSION['username']); ?>
 
-    <div class="col-sm-5"></div>
-    <div class="col-sm-2">
+                <?php if ($error) : ?>
+                    <div class="alert alert-danger">
+                        <strong> <?= $error ?></strong>
+                    </div>
 
-        <?php if (isset($_SESSION['username'])): ?>
-            <div class="alert alert-success">
-                <strong>Registration success.</strong> Please Login and buy some beer. :)
+                <?php endif; ?>
+                <?php $error = ''; ?>
+
+                <form id="loginForm" action="#" method="post" novalidate="novalidate">
+                    <fieldset>
+                        <legend class="extraPlace"> Please sign in</legend>
+
+                        <div class="input-group margin">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input type="text" id="inputEmail" name="username" class="form-control" placeholder="Username" maxlength="40" required autofocus>
+                        </div>
+
+                        <div class="input-group margin">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+                        </div>
+
+                        <div class="checkbox alignLeftContent">
+                            <label>
+                                <input type="checkbox" value="remember-me" name="remember"> Remember me
+                            </label>
+                        </div>
+                        <input class="btn btn-md btn-success btn-block" type="submit" name="login" value="Sign in">
+                    </fieldset>
+                </form>
             </div>
-
-        <?php endif; ?>
-        <?php unset($_SESSION['username']); ?>
-
-        <?php if ($error) : ?>
-            <div class="alert alert-danger">
-                <strong> <?= $error ?></strong>
-            </div>
-
-        <?php endif; ?>
-        <?php $error = ''; ?>
-
-        <form id="loginForm" action="#" method="post" novalidate="novalidate">
-            <fieldset>
-                <legend class="extraPlace"> Please sign in</legend>
-
-                <div class="input-group margin">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                    <input type="text" id="inputEmail" name="username" class="form-control" placeholder="Username"
-                           maxlength="40" required autofocus>
-                </div>
-
-                <div class="input-group margin">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                    <input type="password" id="password" name="password" class="form-control" placeholder="Password"
-                           required>
-                </div>
-
-                <div class="checkbox alignLeftContent">
-                    <label>
-                        <input type="checkbox" value="remember-me" name="remember"> Remember me
-                    </label>
-                </div>
-                <input class="btn btn-md btn-success btn-block" type="submit" name="login" value="Sign in">
-            </fieldset>
-        </form>
-    </div>
-    <div class="col-sm-5"></div>
-</article>
-
+        </div>
+    </article>
+</div>
 <footer class="container fixed-bottom">
     <?php include_once "php_includes/footer.php"; ?>
 </footer>
