@@ -144,7 +144,7 @@ else{
             </tr>
             <tr>
                 <td>Price</td>
-                <td><input type='number' min=0 name='price' class='form-control'  required/></td>
+                <td><input type='number' step="0.01" min=0 name='price' class='form-control'  required/></td>
             </tr>
             <tr>
                 <td>Quantity</td>
