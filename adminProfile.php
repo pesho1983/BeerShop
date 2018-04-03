@@ -1,5 +1,3 @@
-
-?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -42,12 +40,7 @@
 
 
 <footer class="container fixed-bottom">
-
-        <div>
-            <h2>Quality House Beer</h2>
-            <h6>phone: +359 123 123 123</h6>
-    </div>
-    <h4>CREATED BY QUALITY HOUSE TEAM &#174; - 2018</h4>
+    <?php include_once "php_includes/footer.php"; ?>
 </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
