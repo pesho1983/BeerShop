@@ -30,16 +30,23 @@
     <?php include_once "php_includes/header.php"; ?>
 </header>
 
-<div class="container" style="margin-top: 100px; margin-bottom: 150px;">
+<div class="container col-sm-12" style="margin-top: 100px; margin-bottom: 150px;">
     <div class="col-sm-1"></div>
     <div class="col-sm-10" style="text-align:center; margin-top: 50px">
         <div class="row">
             <div id="avatarDiv" class="col-lg-12">
                 <h3 class="font-weight-bold">Admin panel</h3>                
             </div>
-        
-</div>
 
+    <div class="col-lg-12" style="margin-top: 5%">
+            <div class="row justify-content-md-center my-3 py-3">
+                <div class="col-sm-4"><a href="addBeer.php"><img src="images/add_beer.png"><p>ADD BEER</p></a></div>
+                
+                <div class="col-sm-4"><a href="listAllBeers.php"><img src="images/edit_beer.png"><p>EDIT BEER</p></a></div>
+
+                <div class="col-sm-4"><a href="#"><img src="images/user_acc.png"><p>USER ACCOUNTS</p></a></div>
+            </div>        
+    </div>
 
 <footer class="container fixed-bottom">
 
