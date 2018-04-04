@@ -77,7 +77,7 @@ else{
             $query = "UPDATE products 
                     SET name=:name, description=:description, price=:price, quantity=:quantity
                     WHERE id=:id";
-            
+
 
             // posted values
             $name=htmlspecialchars(strip_tags($_POST['name']));
@@ -129,7 +129,12 @@ else{
 
                 if (empty($file_upload_error_messages)) {
                     if(move_uploaded_file($_FILES["picture"]["tmp_name"], $target_file)){
-                        $stmt->execute();
+                        if($stmt->execute()){
+                            echo "<div class='alert alert-success'>Record was updated.</div>";
+                        }
+                        else{
+                            echo "<div class='alert alert-danger'>Unable to update record.</div>";
+                        }
                     }
                     else {
                         echo "<div class='alert alert-danger'>";
@@ -161,7 +166,7 @@ else{
                     echo "<div class='alert alert-success'>Record was updated.</div>";
 
                 }else{
-                    echo "<div class='alert alert-danger'>Unable to update record. Please try again.</div>";
+                    echo "<div class='alert alert-danger'>Unable to update record.</div>";
                 }
             }
 
