@@ -86,7 +86,7 @@ else{
                             echo "<td>";
                                 echo "<div class='row justify-content-md-center'>";
                         //          echo "<a href='read_one.php?id={$id}' class='btn btn-info mr-1'>View</a>";
-                                    echo "<a href='update.php?id={$id}' class='btn btn-success mx-3 col-lg-4'>Edit</a>";
+                                    echo "<a href='edit.php?id={$id}' class='btn btn-success mx-3 col-lg-4'>Edit</a>";
                                     echo "<a href='#' onclick='delete_user({$id});' class='btn mx-3 btn-danger col-lg-4'>Delete</a>";
                                 echo "</div>";
                             echo "</td>";
