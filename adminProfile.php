@@ -36,33 +36,35 @@ else{
     <?php include_once "php_includes/header.php"; ?>
 </header>
 
-<div class="container justify-content-md-center" style="margin-top: 100px; margin-bottom: 150px;">
+<div class="container" style="margin-top: 100px; margin-bottom: 150px;">
         <div class="row justify-content-md-center my-5">
             <div class="col my-5">
                 <h2 class="text-center">Admin panel</h2>
             </div>
         </div>
-        <div class="row my-5">
-                    <div class="col justify-content-md-center  my-5">
+        <div class="container my-5 justify-content-md-center">
+            <div class="row my-5 justify-content-md-center" >
+                    <div class="col-lg-3 text-center my-5">
                         <a href="addBeer.php">
                             <img class="img-fluid" src="images/add_beer.png">
                             <p class="text-center">ADD BEER</p>
                         </a>
                     </div>
 
-                    <div class="col justify-content-md-center  my-5">
+                    <div class="col-lg-3 text-center my-5">
                         <a href="listAllBeers.php">
                             <img class="img-fluid"  src="images/edit_beer.png">
                             <p class="text-center">EDIT BEER</p>
                         </a>
                     </div>
 
-                    <div class="col justify-content-md-center  my-5">
+                    <div class="col-lg-3 text-center my-5">
                         <a href="#">
                             <img class="img-fluid"  src="images/user_acc.png">
                             <p class="text-center">USER ACCOUNTS</p>
                         </a>
                     </div>
+            </div>
         </div>
 </div>
 
