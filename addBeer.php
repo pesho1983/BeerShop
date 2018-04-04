@@ -66,12 +66,12 @@ else{
                 // error message is empty
                 $file_upload_error_messages = "";
 
-//                $check = getimagesize($_FILES["picture"]["tmp_name"]);
-//                if ($check !== false) {
-//
-//                } else {
-//                    $file_upload_error_messages .= "<div>Submitted file is not an image.</div>";
-//                }
+               $check = getimagesize($_FILES["picture"]["tmp_name"]);
+               if ($check !== false) {
+
+               } else {
+                   $file_upload_error_messages .= "<div>Submitted file is not an image.</div>";
+               }
 
                 $allowed_file_types = array("jpg", "jpeg", "png");
                 if (!in_array($file_type, $allowed_file_types)) {
