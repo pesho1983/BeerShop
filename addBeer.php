@@ -14,7 +14,6 @@ else{
 <head>
     <title>Create a new beer</title>
 
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link type="text/css" rel="stylesheet" media="screen" href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
     <link href="css/styles.css" rel="stylesheet">
@@ -35,7 +34,6 @@ else{
     if($_POST){
 
         try{
-
 
             $query = "INSERT INTO products
             SET name=:name, description=:description,
@@ -64,7 +62,6 @@ else{
                 $target_directory = "beers/";
                 $target_file = $target_directory . $picture;
                 $file_type = pathinfo($target_file, PATHINFO_EXTENSION);
-
 
                 // error message is empty
                 $file_upload_error_messages = "";
