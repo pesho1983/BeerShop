@@ -178,29 +178,29 @@ if (isset($_POST['submit'])) {
                 </div>
             </form>
 
-            <form class="well well lg">
+            <form class="well well-lg shadow_animation_stroke" ">
                 <div class="form-group">
                     <label> Info about me </label>
-                    <textarea id="infoAboutMe" name="infoAboutMe" class="form-control" rows="3" maxlength="200"
-                              style="resize: none"></textarea>
+                    <textarea id="infoAboutMe" name="infoAboutMe" class="form-control shadow_strokes" rows="3" maxlength="200"
+                              style="resize: none;  "></textarea>
                 </div>
                 <div>
                     <h3 class="welcome mt-5 font-weight-bold">My Favorite Beers</h3>
                 </div>
                 <div class="row justify-content-md-center my-3 py-3">
-                    <div class="polaroid rounded col-sm-4 border" style="box-shadow: 3px 3px 3px rgba(0,0,0,0.38)">
+                    <div class="polaroid rounded col-sm-3 mx-5 shadow_strokes"  >
                         <div class="col-md py-4">
                             <img src="images/qh_beer.png">
                             <p>Beer 1</p>
                         </div>
                     </div>
-                    <div class="polaroid rounded col-sm-4 border " style="box-shadow: 3px 3px 3px rgba(0,0,0,0.38)">
+                    <div class="polaroid rounded col-sm-3 mx-5 shadow_strokes" >
                         <div class=" col-md py-4">
                             <img src="images/qh_beer.png">
                             <p>Beer 2</p>
                         </div>
                     </div>
-                    <div class=" polaroid rounded col-sm-4 border" style="box-shadow: 3px 3px 3px rgba(0,0,0,0.38)">
+                    <div class=" polaroid rounded col-sm-3 mx-5 shadow_strokes" >
                         <div class="col-md py-4">
                             <img src="images/qh_beer.png">
                             <p>Beer 3</p>
