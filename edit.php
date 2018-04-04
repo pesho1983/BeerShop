@@ -88,7 +88,7 @@ else{
             $description=htmlspecialchars(strip_tags($_POST['description']));
             $price=htmlspecialchars(strip_tags($_POST['price']));
             $quantity=htmlspecialchars(strip_tags($_POST['quantity']));
-            $picture = htmlspecialchars(strip_tags($_POST['picture']));
+            //$picture = htmlspecialchars(strip_tags($_POST['picture']));
 
             // bind the parameters
             $stmt->bindParam(':name', $name);
@@ -96,7 +96,7 @@ else{
             $stmt->bindParam(':price', $price);
             $stmt->bindParam(':quantity', $quantity);
             $stmt->bindParam(':id', $id);
-            $stmt->bindParam(':picture', $picture);
+            //$stmt->bindParam(':picture', $picture);
 
             // Execute the query
             if($stmt->execute()){
@@ -138,7 +138,7 @@ else{
             </tr>
             <tr>
                 <td>Picture</td>
-                <td><p><?php echo $picture ? "<img src='beers/{$picture}' style='width:150px; height:150px;' />" : "<img src='images/avatar.jpg' style='width:300px; height:25%;';>" ?></p></td>
+                <td><p><?php echo $picture ? "<img src='beers/{$picture}' style='width:150px; height:150px;' />" : "<img src='images/avatar.jpg' style='width:150px;; height:150px;';>" ?></p></td>
             </tr>
             <tr>
                 <td></td>
