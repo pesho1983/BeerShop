@@ -18,7 +18,7 @@ else{
     <link type="text/css" rel="stylesheet" media="screen" href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
 
 
 </head>
@@ -29,7 +29,7 @@ else{
 
 <!-- container -->
 <div class="col-sm-2"></div>
-<div class="container" style="margin-top: 150px;">
+<div class="container" style="margin-top: 100px;">
     <div class="row justify-content-md-center">
         <div class="page-header col-lg-10 text-center">
             <h1>Beers</h1>
@@ -62,7 +62,7 @@ else{
         echo "<div class='row justify-content-md-center'>";
 //            echo "<div class='col-lg-1'></div>";
             echo "<div class='table-responsive col-lg-10'>";
-                echo "<table class='table table-hover table-responsive'>";
+                echo "<table class='table table-hover table-responsive table-fixed'>";
                 echo "<thead>";
                     echo "<tr class='bg-warning'>";
                 //        echo "<th class='col-sm-1'>ID</th>";
@@ -83,11 +83,11 @@ else{
                             echo "<td class='align-middle ' >{$description}</td>";
                             echo "<td class='align-middle'>{$price} lv.</td>";
                             echo "<td class='align-middle'>{$quantity}</td>";
-                            echo "<td>";
-                                echo "<div class='row justify-content-md-center'>";
+                            echo "<td class='align-middle'>";
+                                echo "<div class='row justify-content-md-center align-middle'>";
                         //          echo "<a href='read_one.php?id={$id}' class='btn btn-info mr-1'>View</a>";
-                                    echo "<a href='update.php?id={$id}' class='btn btn-success mx-1 col-lg-3'>Edit</a>";
-                                    echo "<a href='#' onclick='delete_user({$id});' class='btn mx-1 btn-danger col-lg-3'>Delete</a>";
+                                    echo "<a href='update.php?id={$id}' class='btn btn-success mx-1 my-1 col-lg-3'>Edit</a>";
+                                    echo "<a href='#' onclick='delete_user({$id});' class='btn btn-danger mx-1 my-1 col-lg-3'>Delete</a>";
                                 echo "</div>";
                             echo "</td>";
                         echo "</tr>";
@@ -121,6 +121,7 @@ else{
             window.location = 'delete.php?id=' + id;
         }
     }
+
 </script>
 
 </body>
