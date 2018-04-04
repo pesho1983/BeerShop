@@ -148,7 +148,7 @@ if (isset($_POST['submit'])) {
         <div class="row">
             <div id="avatarDiv" class="col-lg-12">
                 <h3 class="font-weight-bold">Profile</h3>
-                <p><?php echo $avatar ? "<img src='uploads/{$avatar}' style='width:150px; height:150px;' />" : "<img src='images/avatar.jpg' style='width:300px; height:25%;';>" ?></p>
+                <p><?php echo $avatar ? "<img src='uploads/{$avatar}' style='width:20%; height:20%;' />" : "<img src='images/avatar.jpg' style='width:300px; height:25%;';>" ?></p>
             </div>
         </div>
         <div>
