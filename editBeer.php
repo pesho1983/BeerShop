@@ -24,7 +24,7 @@ else{
 <header>
     <?php include_once "php_includes/header.php"; ?>
 </header>
-<div class="container" style="margin-top: 150px;">
+<div class="container" style="margin-top: 50px; margin-bottom: 50px;">
 
     <div class="page-header">
         <h1>Edit Product</h1>
@@ -77,7 +77,7 @@ else{
             // in this case, it seemed like we have so many fields to pass and
             // it is better to label them and not use question marks
             $query = "UPDATE products 
-                    SET name=:name, description=:description, price=:price, quantity=:quantity, picture=:picture
+                    SET name=:name, description=:description, price=:price, quantity=:quantity
                     WHERE id = :id";
 
             // prepare query for excecution
@@ -88,7 +88,61 @@ else{
             $description=htmlspecialchars(strip_tags($_POST['description']));
             $price=htmlspecialchars(strip_tags($_POST['price']));
             $quantity=htmlspecialchars(strip_tags($_POST['quantity']));
-            //$picture = htmlspecialchars(strip_tags($_POST['picture']));
+
+            if($_FILES['picture']['size'] > 0){
+                $query = "UPDATE products 
+                    SET name=:name, description=:description, price=:price, quantity=:quantity, picture=:picture
+                    WHERE id = :id";
+
+                $picture=!empty($_FILES["picture"]["name"])
+                    ? sha1_file($_FILES["picture"]["tmp_name"]) . "-" . basename($_FILES["picture"]["name"])
+                    : "";
+                $picture=htmlspecialchars(strip_tags($picture));
+                $stmt->bindParam(':picture', $picture);
+
+                $target_directory = "beers/";
+                $target_file = $target_directory . $picture;
+                $file_type = pathinfo($target_file, PATHINFO_EXTENSION);
+                $file_upload_error_messages = "";
+
+                $allowed_file_types = array("jpg", "jpeg", "png");
+                if (!in_array($file_type, $allowed_file_types)) {
+                    $file_upload_error_messages .= "<div>Only JPG, JPEG, PNG files are allowed.</div>";
+                }
+
+                if (file_exists($target_file)) {
+                    $file_upload_error_messages .= "<div>Image already exists. Try to change file name.</div>";
+                }
+
+
+                if (($_FILES['picture']['size'] >= (5242880)) || ($_FILES["picture"]["size"] == 0)) {
+                    $file_upload_error_messages .= "<div>Image must be less than 5 MB in size.</div>";
+                }
+
+
+                if (!is_dir($target_directory)) {
+                    mkdir($target_directory, 0777, true);
+                }
+
+                if (empty($file_upload_error_messages)) {
+                    if(move_uploaded_file($_FILES["picture"]["tmp_name"], $target_file)){
+                        return;
+                    }
+                    else {
+                        echo "<div class='alert alert-danger'>";
+                        echo "<div>Unable to upload photo.</div>";
+                        echo "<div>Update the record to upload photo.</div>";
+                        echo "</div>";
+                    }
+                }
+                 else {
+                    // it means there are some errors, so show them to user
+                    echo "<div class='alert alert-danger'>";
+                    echo "<div>{$file_upload_error_messages}</div>";
+                    echo "<div>Update the record to upload photo.</div>";
+                    echo "</div>";
+                }
+            }
 
             // bind the parameters
             $stmt->bindParam(':name', $name);
@@ -96,7 +150,7 @@ else{
             $stmt->bindParam(':price', $price);
             $stmt->bindParam(':quantity', $quantity);
             $stmt->bindParam(':id', $id);
-            //$stmt->bindParam(':picture', $picture);
+
 
             // Execute the query
             if($stmt->execute()){
@@ -118,7 +172,7 @@ else{
     <div class="col-sm-12">
         <div class="col-sm-2"></div>
         <div class="col-sm-8">
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"] . "?id={$id}");?>" method="post">
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"] . "?id={$id}");?>" method="post" enctype="multipart/form-data">
         <table class='table table-hover table-responsive table-bordered'>
             <tr>
                 <td>Name</td>
@@ -134,11 +188,15 @@ else{
             </tr>
             <tr>
                 <td>Quantity</td>
-                <td><input type='text' min=0 name='quantity' value="<?php echo htmlspecialchars($quantity, ENT_QUOTES); ?>"class='form-control'  required/></td>
+                <td><input type='text' min=0 name='quantity' value="<?php echo htmlspecialchars($quantity, ENT_QUOTES); ?>" class='form-control'  required/></td>
             </tr>
             <tr>
                 <td>Picture</td>
-                <td><p><?php echo $picture ? "<img src='beers/{$picture}' style='width:150px; height:150px;' />" : "<img src='images/avatar.jpg' style='width:150px;; height:150px;';>" ?></p></td>
+                <td><p><?php echo $picture ? "<img src='beers/{$picture}' style='width:150px; height:150px;' />" : "<img src='images/birichka.jpg' style='width:150px;; height:150px;';>" ?></p></td>
+            </tr>
+            <tr>
+                <td>Change Picture</td>
+                <td><input class="btn btn-default" type="file" name="picture"/></td>
             </tr>
             <tr>
                 <td></td>
