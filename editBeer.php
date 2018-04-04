@@ -31,8 +31,6 @@ else{
     </div>
 
     <?php
-    // get passed parameter value, in this case, the record ID
-    // isset() is a PHP function used to verify if a value is there or not
     $id=isset($_GET['id']) ? $_GET['id'] : die('ERROR: Record ID not found.');
 
 
@@ -78,10 +76,8 @@ else{
             // it is better to label them and not use question marks
             $query = "UPDATE products 
                     SET name=:name, description=:description, price=:price, quantity=:quantity
-                    WHERE id = :id";
+                    WHERE id=:id";
 
-            // prepare query for excecution
-            $stmt = $pdo->prepare($query);
 
             // posted values
             $name=htmlspecialchars(strip_tags($_POST['name']));
@@ -92,7 +88,7 @@ else{
             if($_FILES['picture']['size'] > 0){
                 $query = "UPDATE products 
                     SET name=:name, description=:description, price=:price, quantity=:quantity, picture=:picture
-                    WHERE id = :id";
+                    WHERE id=:id";
 
                 $picture=!empty($_FILES["picture"]["name"])
                     ? sha1_file($_FILES["picture"]["tmp_name"]) . "-" . basename($_FILES["picture"]["name"])
@@ -144,6 +140,7 @@ else{
                 }
             }
 
+            $stmt = $pdo->prepare($query);
             // bind the parameters
             $stmt->bindParam(':name', $name);
             $stmt->bindParam(':description', $description);
