@@ -143,7 +143,7 @@ else{
             </tr>
             <tr>
                 <td>Price</td>
-                <td><input type='number' step="0.01" min=0 name='price' class='form-control'  required/></td>
+                <td><input type='number' min=0.01 step="0.01" min=0 name='price' class='form-control'  required/></td>
             </tr>
             <tr>
                 <td>Quantity</td>
@@ -156,7 +156,7 @@ else{
             <tr>
                 <td></td>
                 <td>
-                    <input type='submit' value='Save' class='btn btn-primary' />
+                    <input type='submit' value='Save' class='btn btn-success' />
                     <a href='listAllBeers.php' class='btn btn-danger'>Back to read products</a>
                 </td>
             </tr>

@@ -15,11 +15,8 @@ else{
 
     <link rel="shortcut icon" href="images/logoNew_bubbles.png"/>
     <link type="text/css" rel="stylesheet" media="screen" href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="css/styles.css" rel="stylesheet">
 
     <meta charset="utf-8">
@@ -33,35 +30,46 @@ else{
 </head>
 
 
-<body class="text-center" style="background-color:#eee">
+<body style="background-color:#eee">
 
 <header class="fixed-top">
     <?php include_once "php_includes/header.php"; ?>
 </header>
 
-<div class="container col-sm-12" style="margin-top: 100px; margin-bottom: 150px;">
-    <div class="col-sm-1"></div>
-    <div class="col-sm-10" style="text-align:center; margin-top: 50px">
-        <div class="row">
-            <div id="avatarDiv" class="col-lg-12">
-                <h3 class="font-weight-bold">Admin panel</h3>                
+<div class="container" style="margin-top: 100px; margin-bottom: 150px;">
+        <div class="row justify-content-md-center my-5">
+            <div class="col my-5">
+                <h2 class="text-center">Admin panel</h2>
             </div>
+        </div>
+        <div class="container my-5 justify-content-md-center">
+            <div class="row my-5 justify-content-md-center" >
+                    <div class="col-lg-3 text-center my-5">
+                        <a href="addBeer.php">
+                            <img class="img-fluid" src="images/add_beer.png">
+                            <p class="text-center">ADD BEER</p>
+                        </a>
+                    </div>
 
-    <div class="col-lg-12" style="margin-top: 5%">
-            <div class="row justify-content-md-center my-3 py-3">
+                    <div class="col-lg-3 text-center my-5">
+                        <a href="listAllBeers.php">
+                            <img class="img-fluid"  src="images/edit_beer.png">
+                            <p class="text-center">EDIT BEER</p>
+                        </a>
+                    </div>
 
-                <div class="col-lg-3"><a href="addBeer.php"><img src="images/add_beer.png"><p>ADD BEER</p></a></div>
+                    <div class="col-lg-3 text-center my-5">
+                        <a href="#">
+                            <img class="img-fluid"  src="images/user_acc.png">
+                            <p class="text-center">USER ACCOUNTS</p>
+                        </a>
+                    </div>
+            </div>
+        </div>
+</div>
 
-                <div class="col-lg-1"> </div>
 
-                <div class="col-lg-3"><a href="listAllBeers.php"><img src="images/edit_beer.png"><p>EDIT BEER</p></a></div>
 
-                <div class="col-lg-1"> </div>
-
-                <div class="col-lg-3"><a href="#"><img src="images/user_acc.png"><p>USER ACCOUNTS</p></a>
-                </div>
-            </div>        
-    </div>
 
 <footer class="container fixed-bottom">
     <?php include_once "php_includes/footer.php"; ?>
@@ -73,7 +81,6 @@ else{
         $("#profile").addClass('text_shadow');
     });
 </script>
-
 
 </body>
 
