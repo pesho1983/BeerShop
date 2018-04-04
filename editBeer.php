@@ -77,7 +77,7 @@ else{
             $query = "UPDATE products 
                     SET name=:name, description=:description, price=:price, quantity=:quantity
                     WHERE id=:id";
-
+            
 
             // posted values
             $name=htmlspecialchars(strip_tags($_POST['name']));
@@ -87,14 +87,21 @@ else{
 
             if($_FILES['picture']['size'] > 0){
                 $query = "UPDATE products 
-                    SET name=:name, description=:description, price=:price, quantity=:quantity, picture=:picture
+                    SET picture=:picture, name=:name, description=:description, price=:price, quantity=:quantity
                     WHERE id=:id";
 
                 $picture=!empty($_FILES["picture"]["name"])
                     ? sha1_file($_FILES["picture"]["tmp_name"]) . "-" . basename($_FILES["picture"]["name"])
                     : "";
                 $picture=htmlspecialchars(strip_tags($picture));
+                $stmt = $pdo->prepare($query);
+
                 $stmt->bindParam(':picture', $picture);
+                $stmt->bindParam(':name', $name);
+                $stmt->bindParam(':description', $description);
+                $stmt->bindParam(':price', $price);
+                $stmt->bindParam(':quantity', $quantity);
+                $stmt->bindParam(':id', $id);
 
                 $target_directory = "beers/";
                 $target_file = $target_directory . $picture;
@@ -122,7 +129,7 @@ else{
 
                 if (empty($file_upload_error_messages)) {
                     if(move_uploaded_file($_FILES["picture"]["tmp_name"], $target_file)){
-                        return;
+                        $stmt->execute();
                     }
                     else {
                         echo "<div class='alert alert-danger'>";
@@ -139,23 +146,26 @@ else{
                     echo "</div>";
                 }
             }
+            else{
+                $stmt = $pdo->prepare($query);
+                // bind the parameters
+                $stmt->bindParam(':name', $name);
+                $stmt->bindParam(':description', $description);
+                $stmt->bindParam(':price', $price);
+                $stmt->bindParam(':quantity', $quantity);
+                $stmt->bindParam(':id', $id);
 
-            $stmt = $pdo->prepare($query);
-            // bind the parameters
-            $stmt->bindParam(':name', $name);
-            $stmt->bindParam(':description', $description);
-            $stmt->bindParam(':price', $price);
-            $stmt->bindParam(':quantity', $quantity);
-            $stmt->bindParam(':id', $id);
 
+                // Execute the query
+                if($stmt->execute()){
+                    echo "<div class='alert alert-success'>Record was updated.</div>";
 
-            // Execute the query
-            if($stmt->execute()){
-                echo "<div class='alert alert-success'>Record was updated.</div>";
-
-            }else{
-                echo "<div class='alert alert-danger'>Unable to update record. Please try again.</div>";
+                }else{
+                    echo "<div class='alert alert-danger'>Unable to update record. Please try again.</div>";
+                }
             }
+
+
 
         }
 
