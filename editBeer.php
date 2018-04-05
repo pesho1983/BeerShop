@@ -194,7 +194,7 @@ else{
                 <td>Description</td>
                 <td><textarea name='description' class='form-control' style="text-align: justify;" maxlength=500 required><?php echo htmlspecialchars($description, ENT_QUOTES);  ?></textarea></td>
             </tr>
-            <tr>
+            <tr> 
                 <td>Price</td>
                 <td><input type='number' min=0.01 step="0.01" min=0 name='price' value="<?php echo htmlspecialchars($price, ENT_QUOTES);  ?>" class='form-control' required/></td>
             </tr>
