@@ -139,7 +139,7 @@ else{
             </tr>
             <tr>
                 <td>Description</td>
-                <td><textarea name='description' class='form-control' required></textarea></td>
+                <td><textarea name='description' class='form-control' maxlength=500 required></textarea></td> 
             </tr>
             <tr>
                 <td>Price</td>
