@@ -26,8 +26,8 @@ else{
 <!-- container -->
 <div class="container" style="margin-top: 150px;">
 
-    <div class="page-header">
-        <h1>Create Product</h1>
+    <div class="justify-content-md-center text-center">
+        <h2>Create Product</h2>
     </div>
 
     <?php

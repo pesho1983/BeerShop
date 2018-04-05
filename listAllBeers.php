@@ -23,16 +23,15 @@ else{
 
 </head>
 <body>
-<header>
+<header class="fixed-top">
     <?php include_once "php_includes/header.php"; ?>
 </header>
 
 <!-- container -->
-<div class="col-sm-2"></div>
 <div class="container" style="margin-top: 100px;">
     <div class="row justify-content-md-center">
         <div class="page-header col-lg-10 text-center">
-            <h1>Beers</h1>
+            <h2>Beers</h2>
         </div>
     </div>
     <?php
@@ -53,8 +52,8 @@ else{
 
     echo "    
            <div class='row'>
-            <div class='col-lg-1'></div>
-            <a href='addBeer.php' class='btn btn-primary mb-3 ml-4'>Create New Product</a>
+                <div class='col-lg-1'></div>
+                <a href='addBeer.php' class='btn btn-primary mb-3 ml-4'>Create New Product</a>
           </div>";
 
 

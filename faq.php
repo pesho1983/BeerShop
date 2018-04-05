@@ -17,18 +17,18 @@
 <div class="container" style="margin-top: 100px; ">
     <div class="row justify-content-md-center" style="margin-top: 200px; margin-bottom: 150px">
 
-        <div class="col-sm-6">
+        <div class="col-sm-8 shadow_strokes_faq">
                 <ul>
-                    <li class=" my-3">
-                        <p style="color: orangered;">Is it necessary to be registered to buy a beer?</p>
-                        <ul style="color: darkgreen;">
+                    <li class=" my-4">
+                        <h4 class="text-color-faq">Is it necessary to be registered to buy a beer?</h4>
+                        <ul>
                             <li>Yes, it is.</li>
                         </ul>
                     </li>
 
-                    <li class=" my-3">
-                        <p style="color: orangered;">How do I sign up?</p>
-                        <ol style="color: darkgreen;">
+                    <li class=" my-4">
+                        <h4 class="text-color-faq">How do I sign up?</h4>
+                        <ol>
                             <li>Go to Register form.</li>
                             <li>Register with valid data.</li>
                             <li>Accept agreement with Terms and Condition and GDPR.</li>
@@ -36,44 +36,44 @@
                         </ol>
                     </li>
 
-                    <li class=" my-3">
-                        <p style="color: orangered;">What are my payment methods?</p>
-                        <ul style="color: darkgreen;">
+                    <li class=" my-4">
+                        <h4 class="text-color-faq">What are my payment methods?</h4>
+                        <ul>
                             <li>...</li>
                         </ul>
                     </li>
 
-                    <li class=" my-3">
-                        <p style="color: orangered;">Can I place an order by phone?</p>
-                        <ul style="color: darkgreen;">
+                    <li class=" my-4">
+                        <h4 class="text-color-faq">Can I place an order by phone?</h4>
+                        <ul>
                             <li>...</li>
                         </ul>
                     </li>
 
-                    <li class=" my-3">
-                        <p style="color: orangered;">How save is it to order online?</p>
-                        <ul style="color: darkgreen;">
+                    <li class=" my-4">
+                        <h4 class="text-color-faq">How save is it to order online?</h4>
+                        <ul>
                             <li>...</li>
                         </ul>
                     </li>
 
-                    <li class=" my-3">
-                        <p style="color: orangered;">How long it will take to get my order?</p>
-                        <ul style="color: darkgreen;">
+                    <li class=" my-4">
+                        <h4 class="text-color-faq">How long it will take to get my order?</h4>
+                        <ul>
                             <li>...</li>
                         </ul>
                     </li>
 
-                    <li class=" my-3">
-                        <p style="color: orangered;">What shipping carriers do you use?</p>
-                        <ul style="color: darkgreen;">
+                    <li class=" my-4">
+                        <h4 class="text-color-faq">What shipping carriers do you use?</h4>
+                        <ul>
                             <li>...</li>
                         </ul>
                     </li>
 
-                    <li class=" my-3">
-                        <p style="color: orangered;">How can I track my order?</p>
-                        <ul style="color: darkgreen;">
+                    <li class=" my-4">
+                        <h4 class="text-color-faq">How can I track my order?</h4>
+                        <ul>
                             <li>...</li>
                         </ul>
                     </li>
