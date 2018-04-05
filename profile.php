@@ -26,6 +26,7 @@ $stmt->execute([$username]);
 
 $user = $stmt->fetch();
 
+$error = "";
 
 if (isset($_POST['submit'])) {
     $query = "UPDATE users
@@ -35,68 +36,93 @@ if (isset($_POST['submit'])) {
     $stmt = $pdo->prepare($query);
 
     $picture = !empty($_FILES["picture"]["name"])
-        ? sha1_file($_FILES['picture']['tmp_name']) . "-" . basename($_FILES["picture"]["name"])
+        ? sha1_file($_FILES["picture"]["tmp_name"]) . "-" . basename($_FILES["picture"]["name"])
         : "";
     $picture = htmlspecialchars(strip_tags($picture));
 
     $stmt->bindParam(':picture', $picture);
+    try {
     if ($picture) {
 
-        // sha1_file() function is used to make a unique file name
-        $target_directory = "uploads/";
-        $target_file = $target_directory . $picture;
-        $file_type = pathinfo($target_file, PATHINFO_EXTENSION);
+            // sha1_file() function is used to make a unique file name
+            $target_directory = "uploads/";
+            $target_file = $target_directory . $picture;
+            $file_type = pathinfo($target_file, PATHINFO_EXTENSION);
 
-        // error message is empty
-        $file_upload_error_messages = "";
+            // error message is empty
+            //$file_upload_error_messages = "";
 
-        $check = getimagesize($_FILES["picture"]["tmp_name"]);
-        if ($check !== false) {
+            $check = getimagesize($_FILES["picture"]["tmp_name"]);
+            if ($check !== false) {
 
-        } else {
-            $file_upload_error_messages .= "<div>Submitted file is not an image.</div>";
-        }
-
-        $allowed_file_types = array("jpg", "jpeg", "png");
-        if (!in_array($file_type, $allowed_file_types)) {
-            $file_upload_error_messages .= "<div>Only JPG, JPEG, PNG files are allowed.</div>";
-        }
-        if (file_exists($target_file)) {
-            $file_upload_error_messages .= "<div>Image already exists. Try to change file name.</div>";
-        }
-
-        if ($_FILES['picture']['size'] > (2048000)) {
-            $file_upload_error_messages .= "<div>Image must be less than 2 MB in size.</div>";
-        }
-
-        if (!is_dir($target_directory)) {
-            mkdir($target_directory, 0777, true);
-        }
-
-        if (empty($file_upload_error_messages)) {
-            // it means there are no errors, so try to upload the file
-            if (move_uploaded_file($_FILES["picture"]["tmp_name"], $target_file)) {
-                // it means photo was uploaded
             } else {
+                throw new Exception("Submitted file is not an image.");
+                //$file_upload_error_messages .= "<div>Submitted file is not an image.</div>";
+            }
+            if ($_FILES['picture']['size'] == 0) {
+                throw new Exception("Please submit a file.");
+                //$file_upload_error_messages .= "<div>Please submit a file.</div>";
+            }
+
+            $allowed_file_types = array("jpg", "jpeg", "png");
+            if (!in_array($file_type, $allowed_file_types)) {
+                throw new Exception("Only JPG, JPEG, PNG files are allowed.");
+                //$file_upload_error_messages .= "<div>Only JPG, JPEG, PNG files are allowed.</div>";
+            }
+
+            if (file_exists($target_file)) {
+                throw new Exception("Image already exists. Try to change file name.");
+                //$file_upload_error_messages .= "<div>Image already exists. Try to change file name.</div>";
+            }
+
+            if ($_FILES['picture']['size'] > (2048000)) {
+                throw new Exception("Image must be less than 2 MB in size.");
+                //$file_upload_error_messages .= "<div>Image must be less than 2 MB in size.</div>";
+            }
+
+            if (!is_dir($target_directory)) {
+                mkdir($target_directory, 0777, true);
+            }
+
+            if (empty($file_upload_error_messages)) {
+                if (move_uploaded_file($_FILES["picture"]["tmp_name"], $target_file)) {
+                    $stmt->execute();
+                } else {
+                    echo "<div class='alert alert-danger'>";
+                    echo "<div>Unable to upload photo.</div>";
+                    echo "<div>Update the record to upload photo.</div>";
+                    echo "</div>";
+                }
+            } // if $file_upload_error_messages is NOT empty
+            else {
+                // it means there are some errors, so show them to user
                 echo "<div class='alert alert-danger'>";
-                echo "<div>Unable to upload photo.</div>";
+                echo "<div>{$file_upload_error_messages}</div>";
                 echo "<div>Update the record to upload photo.</div>";
                 echo "</div>";
             }
-        } // if $file_upload_error_messages is NOT empty
-        else {
-            // it means there are some errors, so show them to user
-            echo "<div class='alert alert-danger'>";
-            echo "<div>{$file_upload_error_messages}</div>";
-            echo "<div>Update the record to upload photo.</div>";
-            echo "</div>";
+        }
+        else{
+            throw new Exception("Please select a picture.");
         }
 
 
-        $stmt->execute();
-
-        header("Location: profile.php");
+        //header("Location: profile.php");
     }
+    catch(Exception $exception){
+        $avatarQuery = "SELECT id, username, picture FROM users WHERE username = '$username'";
+        $avatarStmt = $pdo->prepare($avatarQuery);
+
+        //$stmt->bindParam(1, $id);
+
+        $avatarStmt->execute();
+
+        // store retrieved row to a variable
+        $row = $avatarStmt->fetch(PDO::FETCH_ASSOC);
+        $avatar = htmlspecialchars($row['picture'], ENT_QUOTES);
+        $error = $exception->getMessage();
+    }
+
 } else {
 
     $avatarQuery = "SELECT id, username, picture FROM users WHERE username = '$username'";
@@ -145,6 +171,13 @@ if (isset($_POST['submit'])) {
 <div class="container" style="margin-top: 100px; margin-bottom: 150px;">
     <div class="col-sm-1"></div>
     <div class="col-sm-10" style="text-align:center; margin-top: 50px">
+        <?php if ($error) : ?>
+            <div class="alert alert-danger">
+                <strong> <?= $error ?></strong>
+            </div>
+
+        <?php endif; ?>
+        <?php $error = ''; ?>
         <div class="row">
             <div id="avatarDiv" class="col-lg-12">
                 <h3 class="font-weight-bold">Profile</h3>
@@ -210,7 +243,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div>
                     <div>
-                        <button class="btn btn-warning" type="submit" name="submit">Save Changes</button>
+                        <button class="btn btn-warning" type="submit" name="saveChanges">Save Changes</button>
                     </div>
                 </div>
             </form>
