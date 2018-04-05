@@ -80,7 +80,7 @@ else{
                         echo "<tr>";
                 //            echo "<td>{$id}</td>";
                             echo "<th class='align-middle'>{$name}</th>";
-                            echo "<td class='align-middle'>{$description}</td>";
+                            echo "<td class='align-middle' style='text-align: justify'>{$description}</td>";
                             echo "<td class='align-middle'>{$price} lv.</td>";
                             echo "<td class='align-middle'>{$quantity}</td>";
                             echo "<td class='align-middle'>";

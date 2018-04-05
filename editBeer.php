@@ -192,7 +192,7 @@ else{
             </tr>
             <tr>
                 <td>Description</td>
-                <td><textarea name='description' class='form-control' required><?php echo htmlspecialchars($description, ENT_QUOTES);  ?></textarea></td>
+                <td><textarea name='description' class='form-control' style="text-align: justify;" required><?php echo htmlspecialchars($description, ENT_QUOTES);  ?></textarea></td>
             </tr>
             <tr>
                 <td>Price</td>
