@@ -53,24 +53,23 @@ else{
 
     echo "    
            <div class='row'>
-            <div class='col-lg-1'></div>
-            <a href='addBeer.php' class='btn btn-primary mb-3 ml-4'>Create New Product</a>
+           <a href='addBeer.php' class='btn btn-primary mb-3 ml-4'>Create New Product</a>
           </div>";
 
 
     if($num>0){
         echo "<div class='row justify-content-md-center'>";
 //            echo "<div class='col-lg-1'></div>";
-            echo "<div class='table-responsive col-lg-10'>";
+            echo "<div class='table-responsive col'>";
                 echo "<table class='table table-hover table-responsive table-fixed'>";
                 echo "<thead>";
                     echo "<tr class='bg-warning'>";
                 //        echo "<th class='col-sm-1'>ID</th>";
                         echo "<th class='col-sm-2'>Name</th>";
                         echo "<th class='col-sm-4'>Description</th>";
-                        echo "<th class='col-sm-1'>Price</th>";
+                        echo "<th class='col-sm-2'>Price</th>";
                         echo "<th class='col-sm-1'>Quantity</th>";
-                        echo "<th class='col-sm-4 text-center'>Action</th>";
+                        echo "<th class='col-sm-3 text-center'>Action</th>";
                     echo "</tr>";
                 echo "</thead>";
                     echo "<tbody>";
