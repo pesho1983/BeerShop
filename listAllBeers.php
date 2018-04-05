@@ -80,13 +80,13 @@ else{
                         echo "<tr>";
                 //            echo "<td>{$id}</td>";
                             echo "<th class='align-middle'>{$name}</th>";
-                            echo "<td class='align-middle ' >{$description}</td>";
+                            echo "<td class='align-middle'>{$description}</td>";
                             echo "<td class='align-middle'>{$price} lv.</td>";
                             echo "<td class='align-middle'>{$quantity}</td>";
                             echo "<td class='align-middle'>";
                                 echo "<div class='row justify-content-md-center align-middle'>";
                         //          echo "<a href='read_one.php?id={$id}' class='btn btn-info mr-1'>View</a>";
-                                    echo "<a href='update.php?id={$id}' class='btn btn-success mx-4 my-1 col-lg-4'>Edit</a>";
+                                    echo "<a href='editBeer.php?id={$id}' class='btn btn-success mx-4 my-1 col-lg-4'>Edit</a>";
                                     echo "<a href='#' onclick='delete_user({$id});' class='btn btn-danger mx-4 my-1 col-lg-4'>Delete</a>";
                                 echo "</div>";
                             echo "</td>";

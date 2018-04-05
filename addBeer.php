@@ -150,7 +150,7 @@ else{
                 <td><input type='number' min=0 name='quantity' class='form-control'  required/></td>
             </tr>
             <tr>
-                <td>Photo</td>
+                <td>Picture</td>
                 <td><input class="btn btn-default" type="file" name="picture" required /></td>
             </tr>
             <tr>

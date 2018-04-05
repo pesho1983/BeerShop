@@ -188,19 +188,19 @@ else{
         <table class='table table-hover table-responsive table-bordered'>
             <tr>
                 <td>Name</td>
-                <td><input type='text' name='name' value="<?php echo htmlspecialchars($name, ENT_QUOTES);  ?>" class='form-control' /></td>
+                <td><input type='text' name='name' value="<?php echo htmlspecialchars($name, ENT_QUOTES);  ?>" class='form-control' required /></td>
             </tr>
             <tr>
                 <td>Description</td>
-                <td><textarea name='description' class='form-control'><?php echo htmlspecialchars($description, ENT_QUOTES);  ?></textarea></td>
+                <td><textarea name='description' class='form-control' required><?php echo htmlspecialchars($description, ENT_QUOTES);  ?></textarea></td>
             </tr>
             <tr>
                 <td>Price</td>
-                <td><input type='text' name='price' value="<?php echo htmlspecialchars($price, ENT_QUOTES);  ?>" class='form-control' /></td>
+                <td><input type='number' min=0.01 step="0.01" min=0 name='price' value="<?php echo htmlspecialchars($price, ENT_QUOTES);  ?>" class='form-control' required/></td>
             </tr>
             <tr>
                 <td>Quantity</td>
-                <td><input type='text' min=0 name='quantity' value="<?php echo htmlspecialchars($quantity, ENT_QUOTES); ?>" class='form-control'  required/></td>
+                <td><input type='number' min=0 name='quantity' value="<?php echo htmlspecialchars($quantity, ENT_QUOTES); ?>" class='form-control'  required/></td>
             </tr>
             <tr>
                 <td>Picture</td>
