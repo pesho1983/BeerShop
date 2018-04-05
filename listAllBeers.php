@@ -62,7 +62,7 @@ else{
         echo "<div class='row justify-content-md-center'>";
 //            echo "<div class='col-lg-1'></div>";
             echo "<div class='table-responsive col-lg-10'>";
-                echo "<table class='table table-hover table-responsive table-fixed'>";
+                echo "<table class='table table-hover '>";
                 echo "<thead>";
                     echo "<tr class='bg-warning'>";
                 //        echo "<th class='col-sm-1'>ID</th>";
@@ -74,7 +74,7 @@ else{
                     echo "</tr>";
                 echo "</thead>";
                     echo "<tbody>";
-                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){ 
                         extract($row);
 
                         echo "<tr>";
@@ -94,6 +94,8 @@ else{
                     }
                     echo "</tbody>";
                 echo "</table>";
+            echo "</div>";
+            echo "<div class='col-lg-10' style='margin-bottom: 150px'>";
             echo "</div>";
 //            echo "<div class='col-lg-1'></div>";
         echo "</div>";
