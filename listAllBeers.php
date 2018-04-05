@@ -74,7 +74,7 @@ else{
                     echo "</tr>";
                 echo "</thead>";
                     echo "<tbody>";
-                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){ 
                         extract($row);
 
                         echo "<tr>";
