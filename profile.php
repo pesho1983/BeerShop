@@ -179,11 +179,10 @@ if (isset($_POST['submit'])) {
                 </div>
             </form>
 
-            <form class="well well-lg shadow_animation_stroke" ">
+            <form class="well well-lg shadow_strokes_big">
                 <div class="form-group">
                     <label> Info about me </label>
-                    <textarea id="infoAboutMe" name="infoAboutMe" class="form-control shadow_strokes" rows="3" maxlength="200"
-                              style="resize: none;  "></textarea>
+                    <textarea id="infoAboutMe" name="infoAboutMe" class="form-control shadow_strokes" rows="3" maxlength="200" style="resize: none; "></textarea>
                 </div>
                 <div>
                     <h3 class="welcome mt-5 font-weight-bold">My Favorite Beers</h3>
