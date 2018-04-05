@@ -87,6 +87,7 @@ if (isset($_POST['submit'])) {
             if (empty($file_upload_error_messages)) {
                 if (move_uploaded_file($_FILES["picture"]["tmp_name"], $target_file)) {
                     $stmt->execute();
+                    header("Location: profile.php");
                 } else {
                     echo "<div class='alert alert-danger'>";
                     echo "<div>Unable to upload photo.</div>";
