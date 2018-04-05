@@ -31,8 +31,6 @@ else{
     </div>
 
     <?php
-    // get passed parameter value, in this case, the record ID
-    // isset() is a PHP function used to verify if a value is there or not
     $id=isset($_GET['id']) ? $_GET['id'] : die('ERROR: Record ID not found.');
 
 
@@ -78,10 +76,8 @@ else{
             // it is better to label them and not use question marks
             $query = "UPDATE products 
                     SET name=:name, description=:description, price=:price, quantity=:quantity
-                    WHERE id = :id";
+                    WHERE id=:id";
 
-            // prepare query for excecution
-            $stmt = $pdo->prepare($query);
 
             // posted values
             $name=htmlspecialchars(strip_tags($_POST['name']));
@@ -91,14 +87,21 @@ else{
 
             if($_FILES['picture']['size'] > 0){
                 $query = "UPDATE products 
-                    SET name=:name, description=:description, price=:price, quantity=:quantity, picture=:picture
-                    WHERE id = :id";
+                    SET picture=:picture, name=:name, description=:description, price=:price, quantity=:quantity
+                    WHERE id=:id";
 
                 $picture=!empty($_FILES["picture"]["name"])
                     ? sha1_file($_FILES["picture"]["tmp_name"]) . "-" . basename($_FILES["picture"]["name"])
                     : "";
                 $picture=htmlspecialchars(strip_tags($picture));
+                $stmt = $pdo->prepare($query);
+
                 $stmt->bindParam(':picture', $picture);
+                $stmt->bindParam(':name', $name);
+                $stmt->bindParam(':description', $description);
+                $stmt->bindParam(':price', $price);
+                $stmt->bindParam(':quantity', $quantity);
+                $stmt->bindParam(':id', $id);
 
                 $target_directory = "beers/";
                 $target_file = $target_directory . $picture;
@@ -126,7 +129,12 @@ else{
 
                 if (empty($file_upload_error_messages)) {
                     if(move_uploaded_file($_FILES["picture"]["tmp_name"], $target_file)){
-                        return;
+                        if($stmt->execute()){
+                            echo "<div class='alert alert-success'>Record was updated.</div>";
+                        }
+                        else{
+                            echo "<div class='alert alert-danger'>Unable to update record.</div>";
+                        }
                     }
                     else {
                         echo "<div class='alert alert-danger'>";
@@ -143,22 +151,26 @@ else{
                     echo "</div>";
                 }
             }
+            else{
+                $stmt = $pdo->prepare($query);
+                // bind the parameters
+                $stmt->bindParam(':name', $name);
+                $stmt->bindParam(':description', $description);
+                $stmt->bindParam(':price', $price);
+                $stmt->bindParam(':quantity', $quantity);
+                $stmt->bindParam(':id', $id);
 
-            // bind the parameters
-            $stmt->bindParam(':name', $name);
-            $stmt->bindParam(':description', $description);
-            $stmt->bindParam(':price', $price);
-            $stmt->bindParam(':quantity', $quantity);
-            $stmt->bindParam(':id', $id);
 
+                // Execute the query
+                if($stmt->execute()){
+                    echo "<div class='alert alert-success'>Record was updated.</div>";
 
-            // Execute the query
-            if($stmt->execute()){
-                echo "<div class='alert alert-success'>Record was updated.</div>";
-
-            }else{
-                echo "<div class='alert alert-danger'>Unable to update record. Please try again.</div>";
+                }else{
+                    echo "<div class='alert alert-danger'>Unable to update record.</div>";
+                }
             }
+
+
 
         }
 
@@ -176,19 +188,19 @@ else{
         <table class='table table-hover table-responsive table-bordered'>
             <tr>
                 <td>Name</td>
-                <td><input type='text' name='name' value="<?php echo htmlspecialchars($name, ENT_QUOTES);  ?>" class='form-control' /></td>
+                <td><input type='text' name='name' value="<?php echo htmlspecialchars($name, ENT_QUOTES);  ?>" class='form-control' required /></td>
             </tr>
             <tr>
                 <td>Description</td>
-                <td><textarea name='description' class='form-control'><?php echo htmlspecialchars($description, ENT_QUOTES);  ?></textarea></td>
+                <td><textarea name='description' class='form-control' style="text-align: justify;" required><?php echo htmlspecialchars($description, ENT_QUOTES);  ?></textarea></td>
             </tr>
             <tr>
                 <td>Price</td>
-                <td><input type='text' name='price' value="<?php echo htmlspecialchars($price, ENT_QUOTES);  ?>" class='form-control' /></td>
+                <td><input type='number' min=0.01 step="0.01" min=0 name='price' value="<?php echo htmlspecialchars($price, ENT_QUOTES);  ?>" class='form-control' required/></td>
             </tr>
             <tr>
                 <td>Quantity</td>
-                <td><input type='text' min=0 name='quantity' value="<?php echo htmlspecialchars($quantity, ENT_QUOTES); ?>" class='form-control'  required/></td>
+                <td><input type='number' min=0 name='quantity' value="<?php echo htmlspecialchars($quantity, ENT_QUOTES); ?>" class='form-control'  required/></td>
             </tr>
             <tr>
                 <td>Picture</td>

@@ -61,7 +61,7 @@ else{
         echo "<div class='row justify-content-md-center'>";
 //            echo "<div class='col-lg-1'></div>";
             echo "<div class='table-responsive col'>";
-                echo "<table class='table table-hover table-responsive table-fixed'>";
+                echo "<table class='table table-hover '>";
                 echo "<thead>";
                     echo "<tr class='bg-warning'>";
                 //        echo "<th class='col-sm-1'>ID</th>";
@@ -79,20 +79,22 @@ else{
                         echo "<tr>";
                 //            echo "<td>{$id}</td>";
                             echo "<th class='align-middle'>{$name}</th>";
-                            echo "<td class='align-middle ' >{$description}</td>";
+                            echo "<td class='align-middle' style='text-align: justify'>{$description}</td>";
                             echo "<td class='align-middle'>{$price} lv.</td>";
                             echo "<td class='align-middle'>{$quantity}</td>";
                             echo "<td class='align-middle'>";
                                 echo "<div class='row justify-content-md-center align-middle'>";
                         //          echo "<a href='read_one.php?id={$id}' class='btn btn-info mr-1'>View</a>";
-                                    echo "<a href='editBeer.php?id={$id}' class='btn btn-success mx-1 my-1 col-lg-3'>Edit</a>";
-                                    echo "<a href='#' onclick='delete_user({$id});' class='btn btn-danger mx-1 my-1 col-lg-3'>Delete</a>";
+                                    echo "<a href='editBeer.php?id={$id}' class='btn btn-success mx-4 my-1 col-lg-4'>Edit</a>";
+                                    echo "<a href='#' onclick='delete_user({$id});' class='btn btn-danger mx-4 my-1 col-lg-4'>Delete</a>";
                                 echo "</div>";
                             echo "</td>";
                         echo "</tr>";
                     }
                     echo "</tbody>";
                 echo "</table>";
+            echo "</div>";
+            echo "<div class='col-lg-10' style='margin-bottom: 150px'>";
             echo "</div>";
 //            echo "<div class='col-lg-1'></div>";
         echo "</div>";
