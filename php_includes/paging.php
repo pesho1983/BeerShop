@@ -2,6 +2,7 @@
 echo "<ul class='pagination pull-left margin-zero mt0'>";
 
 // first page button
+$first_page = 1;
 if($page>1){
 
     $prev_page = $page - 1;
