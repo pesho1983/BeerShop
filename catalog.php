@@ -27,7 +27,7 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
 
 <body style="background-color:#eee">
 
-<header>
+<header class="fixed-top">
     <?php include_once "php_includes/header.php"; ?>
 </header>
 <div style=" padding-top: 100px;
@@ -78,13 +78,13 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
     if ($num > 0) {
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             extract($row);
-            echo "<div class='product'>";
+            echo "<div class='product justify-content-md-center'>";
             echo "<img src='beers/{$picture}' style='height:50%; width: 50%;'>";
             echo "<h2 class='header'>{$name}</h2>";
             echo "<p class='description'></p>";
-            echo "<p class='price'>{$price}</p>";
+            echo "<p class='price'>{$price} lv.</p>";
             echo "<div class='btn'>Add to cart</div>";
-            echo "<div class='quickview'>Quickview</div>";
+            echo "<div class='quickview'>Description</div>";
             echo "</div>";
         }
     }
@@ -94,7 +94,7 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
     echo "<div class='close'></div>";
     echo "<h2 class='headline'>{$name}</h2>";
     echo "<p class='description'>{$description}</p>";
-    echo "<img src='beers/{$picture}'>";
+
     echo "</div>";
 
     echo "<br>";
@@ -136,6 +136,6 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
             }
         }
     </script>
-    0
+
 </body>
 </html>
