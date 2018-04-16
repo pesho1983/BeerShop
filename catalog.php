@@ -20,7 +20,10 @@
     
 
 <div class='container' style="margin-bottom: 150px">
+  <div class="row">
+  <div class="col-lg-4"></div>
 
+  <div class="col-lg-12">
   <div class='product'>
     <img src='https://placeimg.com/200/100'>
     <h2 class='header'>Product Name</h2>
@@ -128,7 +131,10 @@
     <div class='btn'>Add to cart</div>
     <div class='quickview'>Quickview</div>
   </div>
- 
+  </div>
+  <div class="col-lg-4"></div>
+
+  </div> 
 </div>
 
 <div class='quickviewContainer' style="margin-top: 50px">
@@ -150,24 +156,6 @@
         $(document).ready(function() {
             $("#catalog").addClass('text_shadow');
         });
-    </script>
-
-    <script>
-window.onscroll = function() {myFunction()};
-
-var header = document.getElementById("myHeader");
-var sticky = header.offsetTop;
-
-function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    header.classList.add("sticky");
-  } else {
-    header.classList.remove("sticky");
-  }
-}
-</script>
-
-    
     
     </body>
 </html>
