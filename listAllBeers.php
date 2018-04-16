@@ -1,5 +1,11 @@
 <?php
 require_once 'connect.php';
+// pagination default page is 1
+$page = isset($_GET['page']) ? $_GET['page'] : 1;
+// beers per page
+$records_per_page = 4;
+$from_record_num = ($records_per_page * $page) - $records_per_page;
+
 if (isset($_SESSION['user']) && $_SESSION['user'] == 'admin') {
 
 }
@@ -23,16 +29,15 @@ else{
 
 </head>
 <body>
-<header>
+<header class="fixed-top">
     <?php include_once "php_includes/header.php"; ?>
 </header>
 
 <!-- container -->
-<div class="col-sm-2"></div>
 <div class="container" style="margin-top: 100px;">
     <div class="row justify-content-md-center">
         <div class="page-header col-lg-10 text-center">
-            <h1>Beers</h1>
+            <h2>Beers</h2>
         </div>
     </div>
     <?php
@@ -43,8 +48,17 @@ else{
         echo "<div class='alert alert-success'>Record was deleted.</div>";
     }
 
-    $query = "SELECT id, name, description, price, quantity FROM products ORDER BY id ASC";
+//    $query = "SELECT id, name, description, price, quantity FROM products ORDER BY id ASC";
+//    $stmt = $pdo->prepare($query);
+//    $stmt->execute();
+
+    // query with pagination included
+    $query = "SELECT id, name, description, price, quantity FROM products ORDER BY id DESC
+    LIMIT :from_record_num, :records_per_page";
+
     $stmt = $pdo->prepare($query);
+    $stmt->bindParam(":from_record_num", $from_record_num, PDO::PARAM_INT);
+    $stmt->bindParam(":records_per_page", $records_per_page, PDO::PARAM_INT);
     $stmt->execute();
 
 
@@ -53,8 +67,8 @@ else{
 
     echo "    
            <div class='row'>
-            <div class='col-lg-1'></div>
-            <a href='addBeer.php' class='btn btn-primary mb-3 ml-4'>Create New Product</a>
+                <div class='col-lg-1'></div>
+                <a href='addBeer.php' class='btn btn-primary mb-3 ml-4'>Create New Product</a>
           </div>";
 
 
@@ -93,6 +107,19 @@ else{
                         echo "</tr>";
                     }
                     echo "</tbody>";
+        // PAGINATION
+        // count total number of rows
+        $query = "SELECT COUNT(*) as total_rows FROM products";
+        $stmt = $pdo->prepare($query);
+        // execute query
+        $stmt->execute();
+        // get total rows
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $total_rows = $row['total_rows'];
+        // paginate records
+        $page_url="listAllBeers.php?";
+        include_once "php_includes/paging.php";
+
                 echo "</table>";
             echo "</div>";
             echo "<div class='col-lg-10' style='margin-bottom: 150px'>";

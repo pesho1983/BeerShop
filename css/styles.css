@@ -292,16 +292,18 @@ input #avatar{
 /*Table css for fixing end here*/
 
 
+
 /*Shadows in prfile.php strokes start here */
+
 
 .shadow_strokes{
     box-shadow:
-            0 2px 2px rgba(255, 173, 51,0.28);
+            0 2px 2px #FFB901;
 }
 
 .shadow_strokes_big{
     box-shadow:
-            6px 6px 6px rgba(255, 173, 51,0.39);
+            0 0 20px #FFB901;
 }
 /*.shadow_animation_stroke{*/
     /*background-color: #ffffff;*/
@@ -311,4 +313,27 @@ input #avatar{
     /*50% {box-shadow: 6px 6px 6px rgba(255, 173, 51,0.28);}*/
 /*}*/
 
+
 /*Shadows in prfile.php strokes end here */
+
+
+/*Shadows in faq.php strokes start here */
+
+.shadow_strokes_faq{
+    box-shadow:
+            0 0 20px #FFB901;
+            /*6px 6px  rgba(255, 173, 51,0.39);*/
+}
+
+.text-color-faq{
+    color: #FFB901;
+    text-shadow:
+            -1px -1px 0 #222,
+            1px -1px 0 #222,
+            -1px 1px 0 #222,
+            1px 1px 0 #222;
+}
+
+
+/*Shadows in faq.php strokes end here */
+

@@ -39,6 +39,7 @@ if (isset($_POST['submit'])) {
         ? sha1_file($_FILES["picture"]["tmp_name"]) . "-" . basename($_FILES["picture"]["name"])
         : "";
     $picture = htmlspecialchars(strip_tags($picture));
+    $postSize = (int)$_SERVER['CONTENT_LENGTH'];
 
     $stmt->bindParam(':picture', $picture);
     try {
@@ -49,7 +50,8 @@ if (isset($_POST['submit'])) {
             $target_file = $target_directory . $picture;
             $file_type = pathinfo($target_file, PATHINFO_EXTENSION);
 
-            // error message is empty
+
+        // error message is empty
             //$file_upload_error_messages = "";
 
             $check = getimagesize($_FILES["picture"]["tmp_name"]);
@@ -63,6 +65,7 @@ if (isset($_POST['submit'])) {
                 throw new Exception("Please submit a file.");
                 //$file_upload_error_messages .= "<div>Please submit a file.</div>";
             }
+
 
             $allowed_file_types = array("jpg", "jpeg", "png");
             if (!in_array($file_type, $allowed_file_types)) {
@@ -86,6 +89,8 @@ if (isset($_POST['submit'])) {
 
             if (empty($file_upload_error_messages)) {
                 if (move_uploaded_file($_FILES["picture"]["tmp_name"], $target_file)) {
+                    // TO DO: Unlink the old picture.
+
                     $stmt->execute();
                     header("Location: profile.php");
                 } else {
