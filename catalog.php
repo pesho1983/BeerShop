@@ -3,7 +3,7 @@
     <head>
         <link rel="shortcut icon" href="images/logoNew_bubbles.png"/>
         <link type="text/css" rel="stylesheet" media="screen" href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link href="css/catalog.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
         <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.2.4/css/simple-line-icons.min.css'>
@@ -14,15 +14,15 @@
     
     <body style="background-color:#eee">
 
-    <header>
+    <header class="fixed-top">
       <?php include_once "php_includes/header.php"; ?>
     </header>  
     
 
-<div class='container' style="margin-bottom: 150px">
+<div class='container' style="margin-top: 90px; margin-bottom: 150px" >
 
   <div class='product'>
-    <img src='https://placeimg.com/200/100'>
+    <img src='beers/8d622ad42aa157c6e037de80e5ee44e116d97269-asdva.jpeg' style="height: 155px; width: 200px">
     <h2 class='header'>Product Name</h2>
     <p class='description'>Nullam posuere turpis vel lacinia luctus. Donec in efficitur neque. Curabitur consectetur non ipsum in eleifend. Praesent id velit in nisi maximus porta nec vitae odio. Proin vitae magna a massa accumsan venenatis. Donec semper, sem in ullamcorper bibendum, mauris sem imperdiet lorem, tempor aliquet ligula lorem sit amet nibh. Suspendisse potenti.</p>
     <p class='price'>231,-</p>
@@ -139,7 +139,7 @@
 </div>
 
 
-    <footer class="container fixed-bottom">
+    <footer class="fixed-bottom">
       <?php include_once "php_includes/footer.php"; ?>
     </footer>
 
