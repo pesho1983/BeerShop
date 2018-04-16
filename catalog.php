@@ -92,9 +92,9 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
 
     echo "<div class='quickviewContainer' style='margin-top: 50px;'>";
     echo "<div class='close'></div>";
-    echo "<h2 class='headline'></h2>";
-    echo "<p class='description'></p>";
-    echo "<img src='beers/{$image}'>";
+    echo "<h2 class='headline'>{$name}</h2>";
+    echo "<p class='description'>{$description}</p>";
+    echo "<img src='beers/{$picture}'>";
     echo "</div>";
 
     echo "<br>";

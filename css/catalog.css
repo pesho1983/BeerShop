@@ -4,7 +4,6 @@
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
 }
-
 .container .product {
   position: relative;
   overflow: hidden;
@@ -104,7 +103,7 @@
 
 .quickviewContainer {
   position: fixed;
-  height: 100vh;
+  height: 100%;
   width: 400px;
   background: rgba(0, 0, 0, 0.9);
   top: 70px;
