@@ -122,6 +122,7 @@ else{
         // paginate records
         $page_url="listAllBeers.php?";
         include_once "php_includes/paging.php";
+
             echo "</div>";
             echo "<div class='col-lg-10' style='margin-bottom: 150px'>";
             echo "</div>";
