@@ -1,46 +1,22 @@
+<?php
+require_once 'connect.php';
+$page = isset($_GET['page']) ? $_GET['page'] : 1;
+// beers per page
+$records_per_page = 12;
+$from_record_num = ($records_per_page * $page) - $records_per_page;
+
+?>
 <!doctype html>
 <html lang="en">
     <head>
         <link rel="shortcut icon" href="images/logoNew_bubbles.png"/>
         <link type="text/css" rel="stylesheet" media="screen" href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link href="css/catalog.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
         <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.2.4/css/simple-line-icons.min.css'>
         <link href="css/styles.css" rel="stylesheet">
-        <style>
-body {margin:0;}
-
-.navbar {
-  overflow: hidden;
-  background-color: #333;
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
-.navbar a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.navbar a:hover {
-  background: #ddd;
-  color: black;
-}
-
-.main {
-  padding: 16px;
-  margin-top: 30px;
-  height: 1500px; /* Used in this example to enable scrolling */
-}
-</style>
-
         <title>Catalog</title>
     </head>
     
@@ -51,124 +27,55 @@ body {margin:0;}
     </header>  
     
 
-<div class='container' style="margin-bottom: 150px">
+<div class='container' style="margin-bottom: 150px;">
+<?php
+    $query = "SELECT id, name, description, price, picture, quantity FROM products ORDER BY id DESC
+    LIMIT :from_record_num, :records_per_page";
 
-  <div class='product'>
-    <img src='https://placeimg.com/200/100'>
-    <h2 class='header'>Product Name</h2>
-    <p class='description'>Nullam posuere turpis vel lacinia luctus. Donec in efficitur neque. Curabitur consectetur non ipsum in eleifend. Praesent id velit in nisi maximus porta nec vitae odio. Proin vitae magna a massa accumsan venenatis. Donec semper, sem in ullamcorper bibendum, mauris sem imperdiet lorem, tempor aliquet ligula lorem sit amet nibh. Suspendisse potenti.</p>
-    <p class='price'>231,-</p>
-    <div class='btn'>Add to cart</div>
-    <div class='quickview'>Quickview</div>
-  </div>
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(":from_record_num", $from_record_num, PDO::PARAM_INT);
+    $stmt->bindParam(":records_per_page", $records_per_page, PDO::PARAM_INT);
+    $stmt->execute();
 
-  <div class='product'>
-    <img src='https://placeimg.com/200/100'>
-    <h2 class='header'>Product Name</h2>
-    <p class='description'>Nullam posuere turpis vel lacinia luctus. Donec in efficitur neque. Curabitur consectetur non ipsum in eleifend. Praesent id velit in nisi maximus porta nec vitae odio. Proin vitae magna a massa accumsan venenatis. Donec semper, sem in ullamcorper bibendum, mauris sem imperdiet lorem, tempor aliquet ligula lorem sit amet nibh. Suspendisse potenti.</p>
-    <p class='price'>231,-</p>
-    <div class='btn'>Add to cart</div>
-    <div class='quickview'>Quickview</div>
-  </div>
+    echo "";
+    $num = $stmt->rowCount();
+    if($num>0){
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+            extract($row);
+            echo "<div class='product'>";
+            echo "<img src='beers/{$picture}' style='height:50%; width: 50%;'>";
+                echo "<h2 class='header'>{$name}</h2>";
+                echo "<p class='description'></p>";
+                echo "<p class='price'>{$price}</p>";
+                echo "<div class='btn'>Add to cart</div>";
+                echo "<div class='quickview'>Quickview</div>";
+            echo "</div>";
+        }
+    }
 
-  <div class='product'>
-    <img src='https://placeimg.com/200/100'>
-    <h2 class='header'>Product Name</h2>
-    <p class='description'>Nullam posuere turpis vel lacinia luctus. Donec in efficitur neque. Curabitur consectetur non ipsum in eleifend. Praesent id velit in nisi maximus porta nec vitae odio. Proin vitae magna a massa accumsan venenatis. Donec semper, sem in ullamcorper bibendum, mauris sem imperdiet lorem, tempor aliquet ligula lorem sit amet nibh. Suspendisse potenti.</p>
-    <p class='price'>231,-</p>
-    <div class='btn'>Add to cart</div>
-    <div class='quickview'>Quickview</div>
-  </div>
 
-  <div class='product'>
-    <img src='https://placeimg.com/200/100'>
-    <h2 class='header'>Product Name</h2>
-    <p class='description'>Nullam posuere turpis vel lacinia luctus. Donec in efficitur neque. Curabitur consectetur non ipsum in eleifend. Praesent id velit in nisi maximus porta nec vitae odio. Proin vitae magna a massa accumsan venenatis. Donec semper, sem in ullamcorper bibendum, mauris sem imperdiet lorem, tempor aliquet ligula lorem sit amet nibh. Suspendisse potenti.</p>
-    <p class='price'>231,-</p>
-    <div class='btn'>Add to cart</div>
-    <div class='quickview'>Quickview</div>
-  </div>
 
-  <div class='product'>
-    <img src='https://placeimg.com/200/100'>
-    <h2 class='header'>Product Name</h2>
-    <p class='description'>Nullam posuere turpis vel lacinia luctus. Donec in efficitur neque. Curabitur consectetur non ipsum in eleifend. Praesent id velit in nisi maximus porta nec vitae odio. Proin vitae magna a massa accumsan venenatis. Donec semper, sem in ullamcorper bibendum, mauris sem imperdiet lorem, tempor aliquet ligula lorem sit amet nibh. Suspendisse potenti.</p>
-    <p class='price'>231,-</p>
-    <div class='btn'>Add to cart</div>
-    <div class='quickview'>Quickview</div>
-  </div>
 
-  <div class='product'>
-    <img src='https://placeimg.com/200/100'>
-    <h2 class='header'>Product Name</h2>
-    <p class='description'>Nullam posuere turpis vel lacinia luctus. Donec in efficitur neque. Curabitur consectetur non ipsum in eleifend. Praesent id velit in nisi maximus porta nec vitae odio. Proin vitae magna a massa accumsan venenatis. Donec semper, sem in ullamcorper bibendum, mauris sem imperdiet lorem, tempor aliquet ligula lorem sit amet nibh. Suspendisse potenti.</p>
-    <p class='price'>231,-</p>
-    <div class='btn'>Add to cart</div>
-    <div class='quickview'>Quickview</div>
-  </div>
+    echo "<div class='quickviewContainer'>";
+    echo "<div class='close'></div>";
+    echo "<h2 class='headline'></h2>";
+    echo "<p class='description'></p>";
+    echo "<img src='beers/{$image}'>";
+    echo "</div>";
 
-  <div class='product'>
-    <img src='https://placeimg.com/200/100'>
-    <h2 class='header'>Product Name</h2>
-    <p class='description'>Nullam posuere turpis vel lacinia luctus. Donec in efficitur neque. Curabitur consectetur non ipsum in eleifend. Praesent id velit in nisi maximus porta nec vitae odio. Proin vitae magna a massa accumsan venenatis. Donec semper, sem in ullamcorper bibendum, mauris sem imperdiet lorem, tempor aliquet ligula lorem sit amet nibh. Suspendisse potenti.</p>
-    <p class='price'>231,-</p>
-    <div class='btn'>Add to cart</div>
-    <div class='quickview'>Quickview</div>
-  </div>
-
-  <div class='product'>
-    <img src='https://placeimg.com/200/100'>
-    <h2 class='header'>Product Name</h2>
-    <p class='description'>Nullam posuere turpis vel lacinia luctus. Donec in efficitur neque. Curabitur consectetur non ipsum in eleifend. Praesent id velit in nisi maximus porta nec vitae odio. Proin vitae magna a massa accumsan venenatis. Donec semper, sem in ullamcorper bibendum, mauris sem imperdiet lorem, tempor aliquet ligula lorem sit amet nibh. Suspendisse potenti.</p>
-    <p class='price'>231,-</p>
-    <div class='btn'>Add to cart</div>
-    <div class='quickview'>Quickview</div>
-  </div>
-
-  <div class='product'>
-    <img src='https://placeimg.com/200/100'>
-    <h2 class='header'>Product Name</h2>
-    <p class='description'>Nullam posuere turpis vel lacinia luctus. Donec in efficitur neque. Curabitur consectetur non ipsum in eleifend. Praesent id velit in nisi maximus porta nec vitae odio. Proin vitae magna a massa accumsan venenatis. Donec semper, sem in ullamcorper bibendum, mauris sem imperdiet lorem, tempor aliquet ligula lorem sit amet nibh. Suspendisse potenti.</p>
-    <p class='price'>231,-</p>
-    <div class='btn'>Add to cart</div>
-    <div class='quickview'>Quickview</div>
-  </div>
-
-  <div class='product'>
-    <img src='https://placeimg.com/200/100'>
-    <h2 class='header'>Product Name</h2>
-    <p class='description'>Nullam posuere turpis vel lacinia luctus. Donec in efficitur neque. Curabitur consectetur non ipsum in eleifend. Praesent id velit in nisi maximus porta nec vitae odio. Proin vitae magna a massa accumsan venenatis. Donec semper, sem in ullamcorper bibendum, mauris sem imperdiet lorem, tempor aliquet ligula lorem sit amet nibh. Suspendisse potenti.</p>
-    <p class='price'>231,-</p>
-    <div class='btn'>Add to cart</div>
-    <div class='quickview'>Quickview</div>
-  </div>
-
-  <div class='product'>
-    <img src='https://placeimg.com/200/100'>
-    <h2 class='header'>Product Name</h2>
-    <p class='description'>Nullam posuere turpis vel lacinia luctus. Donec in efficitur neque. Curabitur consectetur non ipsum in eleifend. Praesent id velit in nisi maximus porta nec vitae odio. Proin vitae magna a massa accumsan venenatis. Donec semper, sem in ullamcorper bibendum, mauris sem imperdiet lorem, tempor aliquet ligula lorem sit amet nibh. Suspendisse potenti.</p>
-    <p class='price'>231,-</p>
-    <div class='btn'>Add to cart</div>
-    <div class='quickview'>Quickview</div>
-  </div>
-  
-  <div class='product'>
-    <img src='https://placeimg.com/200/100'>
-    <h2 class='header'>Product Name</h2>
-    <p class='description'>Nullam posuere turpis vel lacinia luctus. Donec in efficitur neque. Curabitur consectetur non ipsum in eleifend. Praesent id velit in nisi maximus porta nec vitae odio. Proin vitae magna a massa accumsan venenatis. Donec semper, sem in ullamcorper bibendum, mauris sem imperdiet lorem, tempor aliquet ligula lorem sit amet nibh. Suspendisse potenti.</p>
-    <p class='price'>231,-</p>
-    <div class='btn'>Add to cart</div>
-    <div class='quickview'>Quickview</div>
-  </div>
- 
-</div>
-
-<div class='quickviewContainer' style="margin-top: 50px">
-  <div class='close'></div>
-  <h2 class='headline'></h2>
-  <p class='description'></p>
-  <img src='https://placeimg.com/100/100'>
-</div>
+    echo "<br>";
+    $query = "SELECT COUNT(*) as total_rows FROM products";
+    $stmt = $pdo->prepare($query);
+    // execute query
+    $stmt->execute();
+    // get total rows
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    $total_rows = $row['total_rows'];
+    // paginate records
+    $page_url="catalog.php?";
+    include_once "php_includes/paging.php";
+echo "</div>";
+?>
 
 
     <footer class="container fixed-bottom">
@@ -198,8 +105,5 @@ function myFunction() {
   }
 }
 </script>
-
-    
-    
     </body>
 </html>
