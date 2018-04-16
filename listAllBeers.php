@@ -24,8 +24,9 @@ else{
     <link type="text/css" rel="stylesheet" media="screen" href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link href="css/styles.css" rel="stylesheet" type="text/css">
 
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 
 </head>
 <body>
@@ -76,7 +77,7 @@ else{
         echo "<div class='row justify-content-md-center'>";
 //            echo "<div class='col-lg-1'></div>";
             echo "<div class='table-responsive col-lg-10'>";
-                echo "<table class='table table-hover '>";
+                echo "<table id='beerTable' class='table table-hover '>";
                 echo "<thead>";
                     echo "<tr class='bg-warning'>";
                 //        echo "<th class='col-sm-1'>ID</th>";
@@ -139,10 +140,13 @@ else{
 </footer>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--<script type="text/javascript" href="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>-->
 <script type='text/javascript'>
     $(document).ready(function() {
-        $("#BeerIndex").addClass('text_shadow');
+        $("#profile").addClass('text_shadow');
+
+        // $('#beerTable').DataTable();
+
     });
     function delete_user( id ){
         var answer = confirm('Are you sure?');
