@@ -107,6 +107,7 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
     $total_rows = $row['total_rows'];
     // paginate records
     $page_url = "catalog.php?";
+    $order = $_GET['order'];
     include_once "php_includes/paging.php";
     echo "</div>";
     ?>
@@ -136,6 +137,5 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
             }
         }
     </script>
-    0
 </body>
 </html>
