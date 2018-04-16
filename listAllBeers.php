@@ -3,7 +3,7 @@ require_once 'connect.php';
 // pagination default page is 1
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 // beers per page
-$records_per_page = 4;
+$records_per_page = 6;
 $from_record_num = ($records_per_page * $page) - $records_per_page;
 
 if (isset($_SESSION['user']) && $_SESSION['user'] == 'admin') {
@@ -107,6 +107,8 @@ else{
                         echo "</tr>";
                     }
                     echo "</tbody>";
+
+                echo "</table>";
         // PAGINATION
         // count total number of rows
         $query = "SELECT COUNT(*) as total_rows FROM products";
@@ -119,8 +121,6 @@ else{
         // paginate records
         $page_url="listAllBeers.php?";
         include_once "php_includes/paging.php";
-
-                echo "</table>";
             echo "</div>";
             echo "<div class='col-lg-10' style='margin-bottom: 150px'>";
             echo "</div>";
