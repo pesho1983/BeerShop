@@ -26,7 +26,9 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
     <header>
       <?php include_once "php_includes/header.php"; ?>
     </header>
-<div class='container' style="margin-bottom: 150px;">
+
+<div class='container' style="margin-bottom: 150px; padding: 20px; padding-top: 100px;
+  text-align: center;">
 <?php
     $query = "SELECT id, name, description, price, picture, quantity FROM products ORDER BY id DESC
     LIMIT :from_record_num, :records_per_page";
@@ -52,34 +54,10 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
         }
     }
 
-    <div class='product col-md-4'>
-    <img src='https://placeimg.com/200/100'>
-    <h2 class='header'>Product Name</h2>
-    <p class='description'>Nullam posuere turpis vel lacinia luctus. Donec in efficitur neque. Curabitur consectetur non ipsum in eleifend. Praesent id velit in nisi maximus porta nec vitae odio. Proin vitae magna a massa accumsan venenatis. Donec semper, sem in ullamcorper bibendum, mauris sem imperdiet lorem, tempor aliquet ligula lorem sit amet nibh. Suspendisse potenti.</p>
-    <p class='price'>231,-</p>
-    <div class='btn'>Add to cart</div>
-    <div class='quickview'>Quickview</div>
-  </div>
 
-    <div class='product col-md-4'>
-    <img src='https://placeimg.com/200/100'>
-    <h2 class='header'>Product Name</h2>
-    <p class='description'>Nullam posuere turpis vel lacinia luctus. Donec in efficitur neque. Curabitur consectetur non ipsum in eleifend. Praesent id velit in nisi maximus porta nec vitae odio. Proin vitae magna a massa accumsan venenatis. Donec semper, sem in ullamcorper bibendum, mauris sem imperdiet lorem, tempor aliquet ligula lorem sit amet nibh. Suspendisse potenti.</p>
-    <p class='price'>231,-</p>
-    <div class='btn'>Add to cart</div>
-    <div class='quickview'>Quickview</div>
-  </div>
 
-    <div class='product col-md-4'>
-    <img src='https://placeimg.com/200/100'>
-    <h2 class='header'>Product Name</h2>
-    <p class='description'>Nullam posuere turpis vel lacinia luctus. Donec in efficitur neque. Curabitur consectetur non ipsum in eleifend. Praesent id velit in nisi maximus porta nec vitae odio. Proin vitae magna a massa accumsan venenatis. Donec semper, sem in ullamcorper bibendum, mauris sem imperdiet lorem, tempor aliquet ligula lorem sit amet nibh. Suspendisse potenti.</p>
-    <p class='price'>231,-</p>
-    <div class='btn'>Add to cart</div>
-    <div class='quickview'>Quickview</div>
-  </div>
 
-    echo "<div class='quickviewContainer'>";
+    echo "<div class='quickviewContainer' style='margin-top: 50px;'>";
     echo "<div class='close'></div>";
     echo "<h2 class='headline'></h2>";
     echo "<p class='description'></p>";
@@ -99,21 +77,6 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
     include_once "php_includes/paging.php";
 echo "</div>";
 ?>
-
-
-  </div>
-  </div>
-  <div class='col-lg-3'></div>
-
-  </div> 
-</div>
-
-<div class='quickviewContainer' style="margin-top: 50px">
-  <div class='close'></div>
-  <h2 class='headline'></h2>
-  <p class='description'></p>
-  <img src='https://placeimg.com/100/100'>
-</div>
 
 
     <footer class="container fixed-bottom">
