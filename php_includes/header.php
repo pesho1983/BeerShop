@@ -8,7 +8,7 @@ if( isset($_COOKIE['remember_me']) AND trim($_COOKIE['remember_me'] ) != "" ) {
 
 }?>
 <h1 style="width:50%; margin:0 auto;">Quality House Beer</h1>
-<nav>
+<nav class="header" id="myHeader">
     <a href="index.php"><img src="images/logoNew_bubbles.png"></a>
     <ul>
         <?php if (!isset($_SESSION['user']) OR trim( $_SESSION['user'] ) == ""): ?>
