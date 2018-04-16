@@ -19,8 +19,9 @@ close.on('click', function(){
 function quickView() {
 	var description = $(this).parent().find('.description').text(),
 		 header = $(this).parent().find('.header').text(),
-		 price = $(this).find('.price'),
-		 quickViewHeader = $('.quickviewContainer .headline'),
+		 price = $(this).parent().find('.price').text(),
+		quickViewHeader = $('.quickviewContainer .headline'),
+		quickViewPrice = $('.quickviewContainer .price'),
 		 quickViewDescription = $('.quickviewContainer .description');
 	clearTimeout(timeQuick);
 		if(quickview.hasClass('active')){
@@ -33,6 +34,7 @@ function quickView() {
 		}
 	
 	quickViewHeader.text(header);
+		quickViewPrice.text(price);
 	quickViewDescription.text(description);
 }
 
