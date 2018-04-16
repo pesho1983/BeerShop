@@ -5,12 +5,12 @@
   box-sizing: border-box;
 }
 
-.container {
+.catalog {
   padding: 20px;
   padding-top: 100px;
   text-align: center;
 }
-.container .product {
+.catalog .product {
   position: relative;
   overflow: hidden;
   width: 200px;
@@ -18,10 +18,10 @@
   display: inline-block;
   border-radius: 4px;
   background-color: #000;
-  margin: 20px;
+  margin: 10px;
   padding: 15px;
 }
-.container .product img {
+.catalog .product img {
   position: relative;
   top: -15px;
   left: -15px;
@@ -30,33 +30,33 @@
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
 }
-.container .product img:hover {
+.catalog .product img:hover {
   -webkit-clip-path: polygon(0 100%, 0 0, 100% 0, 100% 100%);
           clip-path: polygon(0 100%, 0 0, 100% 0, 100% 100%);
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
-.container .product h2 {
+.catalog .product h2 {
   text-align: left;
   color: #fff;
   font-size: 14px;
   font-weight: bold;
   margin-bottom: 4px;
 }
-.container .product .description {
+.catalog .product .description {
   text-align: left;
   font-size: 11px;
   color: #fff;
   max-height: 23px;
   overflow: hidden;
 }
-.container .product .price {
+.catalog .product .price {
   text-align: right;
   font-size: 18px;
   color: #fff;
   margin-top: 6px;
 }
-.container .product .btn {
+.catalog .product .btn {
   position: absolute;
   font-size: 11px;
   font-weight: bold;
@@ -71,21 +71,21 @@
   overflow: hidden;
   transition: all .2s ease;
 }
-.container .product .btn.ok {
+.catalog .product .btn.ok {
   background-color: rgba(0, 254, 254, 0.4);
   color: #fff;
 }
-.container .product .btn.ok:after {
+.catalog .product .btn.ok:after {
   content: "\e080";
   color: #fff;
 }
-.container .product .btn:hover {
+.catalog .product .btn:hover {
   padding-right: 25px;
 }
-.container .product .btn:hover:after {
+.catalog .product .btn:hover:after {
   margin-left: 5px;
 }
-.container .product .btn:after {
+.catalog .product .btn:after {
   font-family: 'simple-line-icons';
   content: "\e095";
   transition: all .2s ease;
@@ -94,14 +94,14 @@
   margin-left: 30px;
   transition: all .2s ease;
 }
-.container .product .quickview {
+.catalog .product .quickview {
   position: absolute;
   bottom: 20px;
   font-size: 11px;
   color: #fff;
   cursor: pointer;
 }
-.container .product .quickview:before {
+.catalog .product .quickview:before {
   font-family: 'simple-line-icons';
   content: "\e05d";
   margin-right: 3px;

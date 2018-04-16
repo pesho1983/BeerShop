@@ -19,111 +19,12 @@
     </header>  
     
 
-<div class='container' style="margin-bottom: 150px">
-  <div class="row">
-  <div class="col-lg-4"></div>
-
-  <div class="col-lg-12">
-  <div class='product'>
-    <img src='https://placeimg.com/200/100'>
-    <h2 class='header'>Product Name</h2>
-    <p class='description'>Nullam posuere turpis vel lacinia luctus. Donec in efficitur neque. Curabitur consectetur non ipsum in eleifend. Praesent id velit in nisi maximus porta nec vitae odio. Proin vitae magna a massa accumsan venenatis. Donec semper, sem in ullamcorper bibendum, mauris sem imperdiet lorem, tempor aliquet ligula lorem sit amet nibh. Suspendisse potenti.</p>
-    <p class='price'>231,-</p>
-    <div class='btn'>Add to cart</div>
-    <div class='quickview'>Quickview</div>
-  </div>
-
-  <div class='product'>
-    <img src='https://placeimg.com/200/100'>
-    <h2 class='header'>Product Name</h2>
-    <p class='description'>Nullam posuere turpis vel lacinia luctus. Donec in efficitur neque. Curabitur consectetur non ipsum in eleifend. Praesent id velit in nisi maximus porta nec vitae odio. Proin vitae magna a massa accumsan venenatis. Donec semper, sem in ullamcorper bibendum, mauris sem imperdiet lorem, tempor aliquet ligula lorem sit amet nibh. Suspendisse potenti.</p>
-    <p class='price'>231,-</p>
-    <div class='btn'>Add to cart</div>
-    <div class='quickview'>Quickview</div>
-  </div>
-
-  <div class='product'>
-    <img src='https://placeimg.com/200/100'>
-    <h2 class='header'>Product Name</h2>
-    <p class='description'>Nullam posuere turpis vel lacinia luctus. Donec in efficitur neque. Curabitur consectetur non ipsum in eleifend. Praesent id velit in nisi maximus porta nec vitae odio. Proin vitae magna a massa accumsan venenatis. Donec semper, sem in ullamcorper bibendum, mauris sem imperdiet lorem, tempor aliquet ligula lorem sit amet nibh. Suspendisse potenti.</p>
-    <p class='price'>231,-</p>
-    <div class='btn'>Add to cart</div>
-    <div class='quickview'>Quickview</div>
-  </div>
-
-  <div class='product'>
-    <img src='https://placeimg.com/200/100'>
-    <h2 class='header'>Product Name</h2>
-    <p class='description'>Nullam posuere turpis vel lacinia luctus. Donec in efficitur neque. Curabitur consectetur non ipsum in eleifend. Praesent id velit in nisi maximus porta nec vitae odio. Proin vitae magna a massa accumsan venenatis. Donec semper, sem in ullamcorper bibendum, mauris sem imperdiet lorem, tempor aliquet ligula lorem sit amet nibh. Suspendisse potenti.</p>
-    <p class='price'>231,-</p>
-    <div class='btn'>Add to cart</div>
-    <div class='quickview'>Quickview</div>
-  </div>
-
-  <div class='product'>
-    <img src='https://placeimg.com/200/100'>
-    <h2 class='header'>Product Name</h2>
-    <p class='description'>Nullam posuere turpis vel lacinia luctus. Donec in efficitur neque. Curabitur consectetur non ipsum in eleifend. Praesent id velit in nisi maximus porta nec vitae odio. Proin vitae magna a massa accumsan venenatis. Donec semper, sem in ullamcorper bibendum, mauris sem imperdiet lorem, tempor aliquet ligula lorem sit amet nibh. Suspendisse potenti.</p>
-    <p class='price'>231,-</p>
-    <div class='btn'>Add to cart</div>
-    <div class='quickview'>Quickview</div>
-  </div>
-
-  <div class='product'>
-    <img src='https://placeimg.com/200/100'>
-    <h2 class='header'>Product Name</h2>
-    <p class='description'>Nullam posuere turpis vel lacinia luctus. Donec in efficitur neque. Curabitur consectetur non ipsum in eleifend. Praesent id velit in nisi maximus porta nec vitae odio. Proin vitae magna a massa accumsan venenatis. Donec semper, sem in ullamcorper bibendum, mauris sem imperdiet lorem, tempor aliquet ligula lorem sit amet nibh. Suspendisse potenti.</p>
-    <p class='price'>231,-</p>
-    <div class='btn'>Add to cart</div>
-    <div class='quickview'>Quickview</div>
-  </div>
-
-  <div class='product'>
-    <img src='https://placeimg.com/200/100'>
-    <h2 class='header'>Product Name</h2>
-    <p class='description'>Nullam posuere turpis vel lacinia luctus. Donec in efficitur neque. Curabitur consectetur non ipsum in eleifend. Praesent id velit in nisi maximus porta nec vitae odio. Proin vitae magna a massa accumsan venenatis. Donec semper, sem in ullamcorper bibendum, mauris sem imperdiet lorem, tempor aliquet ligula lorem sit amet nibh. Suspendisse potenti.</p>
-    <p class='price'>231,-</p>
-    <div class='btn'>Add to cart</div>
-    <div class='quickview'>Quickview</div>
-  </div>
-
-  <div class='product'>
-    <img src='https://placeimg.com/200/100'>
-    <h2 class='header'>Product Name</h2>
-    <p class='description'>Nullam posuere turpis vel lacinia luctus. Donec in efficitur neque. Curabitur consectetur non ipsum in eleifend. Praesent id velit in nisi maximus porta nec vitae odio. Proin vitae magna a massa accumsan venenatis. Donec semper, sem in ullamcorper bibendum, mauris sem imperdiet lorem, tempor aliquet ligula lorem sit amet nibh. Suspendisse potenti.</p>
-    <p class='price'>231,-</p>
-    <div class='btn'>Add to cart</div>
-    <div class='quickview'>Quickview</div>
-  </div>
-
-  <div class='product'>
-    <img src='https://placeimg.com/200/100'>
-    <h2 class='header'>Product Name</h2>
-    <p class='description'>Nullam posuere turpis vel lacinia luctus. Donec in efficitur neque. Curabitur consectetur non ipsum in eleifend. Praesent id velit in nisi maximus porta nec vitae odio. Proin vitae magna a massa accumsan venenatis. Donec semper, sem in ullamcorper bibendum, mauris sem imperdiet lorem, tempor aliquet ligula lorem sit amet nibh. Suspendisse potenti.</p>
-    <p class='price'>231,-</p>
-    <div class='btn'>Add to cart</div>
-    <div class='quickview'>Quickview</div>
-  </div>
-
-  <div class='product'>
-    <img src='https://placeimg.com/200/100'>
-    <h2 class='header'>Product Name</h2>
-    <p class='description'>Nullam posuere turpis vel lacinia luctus. Donec in efficitur neque. Curabitur consectetur non ipsum in eleifend. Praesent id velit in nisi maximus porta nec vitae odio. Proin vitae magna a massa accumsan venenatis. Donec semper, sem in ullamcorper bibendum, mauris sem imperdiet lorem, tempor aliquet ligula lorem sit amet nibh. Suspendisse potenti.</p>
-    <p class='price'>231,-</p>
-    <div class='btn'>Add to cart</div>
-    <div class='quickview'>Quickview</div>
-  </div>
-
-  <div class='product'>
-    <img src='https://placeimg.com/200/100'>
-    <h2 class='header'>Product Name</h2>
-    <p class='description'>Nullam posuere turpis vel lacinia luctus. Donec in efficitur neque. Curabitur consectetur non ipsum in eleifend. Praesent id velit in nisi maximus porta nec vitae odio. Proin vitae magna a massa accumsan venenatis. Donec semper, sem in ullamcorper bibendum, mauris sem imperdiet lorem, tempor aliquet ligula lorem sit amet nibh. Suspendisse potenti.</p>
-    <p class='price'>231,-</p>
-    <div class='btn'>Add to cart</div>
-    <div class='quickview'>Quickview</div>
-  </div>
+<div class='catalog' style="margin-bottom: 150px">
+  <div class='row'>
+  <div class='col-lg-3'></div>
+  <div class='col-lg-6'>
   
-  <div class='product'>
+  <div class='product col-md-4'>
     <img src='https://placeimg.com/200/100'>
     <h2 class='header'>Product Name</h2>
     <p class='description'>Nullam posuere turpis vel lacinia luctus. Donec in efficitur neque. Curabitur consectetur non ipsum in eleifend. Praesent id velit in nisi maximus porta nec vitae odio. Proin vitae magna a massa accumsan venenatis. Donec semper, sem in ullamcorper bibendum, mauris sem imperdiet lorem, tempor aliquet ligula lorem sit amet nibh. Suspendisse potenti.</p>
@@ -131,8 +32,50 @@
     <div class='btn'>Add to cart</div>
     <div class='quickview'>Quickview</div>
   </div>
+
+    <div class='product col-md-4'>
+    <img src='https://placeimg.com/200/100'>
+    <h2 class='header'>Product Name</h2>
+    <p class='description'>Nullam posuere turpis vel lacinia luctus. Donec in efficitur neque. Curabitur consectetur non ipsum in eleifend. Praesent id velit in nisi maximus porta nec vitae odio. Proin vitae magna a massa accumsan venenatis. Donec semper, sem in ullamcorper bibendum, mauris sem imperdiet lorem, tempor aliquet ligula lorem sit amet nibh. Suspendisse potenti.</p>
+    <p class='price'>231,-</p>
+    <div class='btn'>Add to cart</div>
+    <div class='quickview'>Quickview</div>
   </div>
-  <div class="col-lg-4"></div>
+
+    <div class='product col-md-4'>
+    <img src='https://placeimg.com/200/100'>
+    <h2 class='header'>Product Name</h2>
+    <p class='description'>Nullam posuere turpis vel lacinia luctus. Donec in efficitur neque. Curabitur consectetur non ipsum in eleifend. Praesent id velit in nisi maximus porta nec vitae odio. Proin vitae magna a massa accumsan venenatis. Donec semper, sem in ullamcorper bibendum, mauris sem imperdiet lorem, tempor aliquet ligula lorem sit amet nibh. Suspendisse potenti.</p>
+    <p class='price'>231,-</p>
+    <div class='btn'>Add to cart</div>
+    <div class='quickview'>Quickview</div>
+  </div>
+
+    <div class='product col-md-4'>
+    <img src='https://placeimg.com/200/100'>
+    <h2 class='header'>Product Name</h2>
+    <p class='description'>Nullam posuere turpis vel lacinia luctus. Donec in efficitur neque. Curabitur consectetur non ipsum in eleifend. Praesent id velit in nisi maximus porta nec vitae odio. Proin vitae magna a massa accumsan venenatis. Donec semper, sem in ullamcorper bibendum, mauris sem imperdiet lorem, tempor aliquet ligula lorem sit amet nibh. Suspendisse potenti.</p>
+    <p class='price'>231,-</p>
+    <div class='btn'>Add to cart</div>
+    <div class='quickview'>Quickview</div>
+  </div>
+
+      <div class='product col-md-4'>
+    <img src='https://placeimg.com/200/100'>
+    <h2 class='header'>Product Name</h2>
+    <p class='description'>Nullam posuere turpis vel lacinia luctus. Donec in efficitur neque. Curabitur consectetur non ipsum in eleifend. Praesent id velit in nisi maximus porta nec vitae odio. Proin vitae magna a massa accumsan venenatis. Donec semper, sem in ullamcorper bibendum, mauris sem imperdiet lorem, tempor aliquet ligula lorem sit amet nibh. Suspendisse potenti.</p>
+    <p class='price'>231,-</p>
+    <div class='btn'>Add to cart</div>
+    <div class='quickview'>Quickview</div>
+  </div>
+
+
+  
+  
+
+  </div>
+  </div>
+  <div class='col-lg-3'></div>
 
   </div> 
 </div>
