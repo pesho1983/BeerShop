@@ -17,6 +17,7 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
         <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.2.4/css/simple-line-icons.min.css'>
         <link href="css/styles.css" rel="stylesheet">
+
         <title>Catalog</title>
     </head>
     
@@ -24,9 +25,7 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
 
     <header>
       <?php include_once "php_includes/header.php"; ?>
-    </header>  
-    
-
+    </header>
 <div class='container' style="margin-bottom: 150px;">
 <?php
     $query = "SELECT id, name, description, price, picture, quantity FROM products ORDER BY id DESC
@@ -86,12 +85,6 @@ echo "</div>";
     <script src="js/catalog.js" type="text/javascript"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script>
-        $(document).ready(function() {
-            $("#catalog").addClass('text_shadow');
-        });
-    </script>
-
-    <script>
 window.onscroll = function() {myFunction()};
 
 var header = document.getElementById("myHeader");
@@ -104,6 +97,6 @@ function myFunction() {
     header.classList.remove("sticky");
   }
 }
-</script>
+</script>0
     </body>
 </html>
