@@ -26,7 +26,9 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
     <header>
       <?php include_once "php_includes/header.php"; ?>
     </header>
-<div class='container' style="margin-bottom: 150px;">
+
+<div class='container' style="margin-bottom: 150px; padding: 20px; padding-top: 100px;
+  text-align: center;">
 <?php
     $query = "SELECT id, name, description, price, picture, quantity FROM products ORDER BY id DESC
     LIMIT :from_record_num, :records_per_page";
@@ -55,7 +57,7 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
 
 
 
-    echo "<div class='quickviewContainer'>";
+    echo "<div class='quickviewContainer' style='margin-top: 50px;'>";
     echo "<div class='close'></div>";
     echo "<h2 class='headline'></h2>";
     echo "<p class='description'></p>";

@@ -4,13 +4,6 @@
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
 }
-
-.container {
-  padding: 20px;
-  padding-top: 100px;
-  text-align: center;
-}
-
 .container .product {
   position: relative;
   overflow: hidden;
