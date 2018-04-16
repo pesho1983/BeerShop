@@ -34,7 +34,7 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
   text-align: center;">
     <form name="sort" action="catalog.php" method="post">
         <select name="order">
-            <option value="price">Make A Selection</option>
+            <option>Make A Selection</option>
             <option value="name">Name ASC</option>
             <option value="nameDesc">Name DESC</option>
             <option value="price">Price ASC</option>
@@ -46,13 +46,17 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
 <div class='container' style="margin-bottom: 150px; text-align: center;">
 
     <?php
-    if (isset($_POST['order']) && $_POST['order'] == 'name') {
+    if (isset($_POST['order'])) {
+        $sortCriteria = $_POST['order'];
+    }
+
+    if (isset($_POST['order']) && $sortCriteria == 'name') {
         $query = "SELECT id, name, description, price, picture, quantity FROM products ORDER BY name ASC LIMIT :from_record_num, :records_per_page";
-       // $query = "SELECT  id,name, description, price, quantity FROM products ORDER BY name ASC";
+        // $query = "SELECT  id,name, description, price, quantity FROM products ORDER BY name ASC";
 
     } elseif (isset($_POST['order']) && $_POST['order'] == 'nameDesc') {
         $query = "SELECT id, name, description, price, picture, quantity FROM products ORDER BY name DESC LIMIT :from_record_num, :records_per_page";
-       // $query = "SELECT  id,name, description, price, quantity FROM products ORDER BY name DESC";
+        // $query = "SELECT  id,name, description, price, quantity FROM products ORDER BY name DESC";
 
     } elseif (isset($_POST['order']) && $_POST['order'] == 'price') {
         $query = "SELECT id, name, description, price, picture, quantity FROM products ORDER BY price ASC LIMIT :from_record_num, :records_per_page";
@@ -60,7 +64,7 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
 
     } elseif (isset($_POST['order']) && $_POST['order'] == 'priceDesc') {
         $query = "SELECT id, name, description, price, picture, quantity FROM products ORDER BY price DESC LIMIT :from_record_num, :records_per_page";
-       // $query = "SELECT  id,name, description, price, quantity FROM products ORDER BY price DESC";
+        // $query = "SELECT  id,name, description, price, quantity FROM products ORDER BY price DESC";
 
     } else {
         $query = "SELECT id, name, description, price, picture, quantity FROM products ORDER BY id DESC
@@ -113,7 +117,7 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
     ?>
 
 
-    <footer class="container fixed-bottom">
+    <footer class="fixed-bottom">
         <?php include_once "php_includes/footer.php"; ?>
     </footer>
 
