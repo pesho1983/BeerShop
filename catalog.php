@@ -32,9 +32,9 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
 </header>
 <div style=" padding-top: 100px;
   text-align: center;">
-    <form name="sort" action="catalog.php" method="post">
+    <form name="sort" action="catalog.php" method="get">
         <select name="order">
-            <option value="price">Make A Selection</option>
+            <option>Make A Selection</option>
             <option value="name">Name ASC</option>
             <option value="nameDesc">Name DESC</option>
             <option value="price">Price ASC</option>
@@ -46,21 +46,29 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
 <div class='container' style="margin-bottom: 150px; text-align: center;">
 
     <?php
-    if (isset($_POST['order']) && $_POST['order'] == 'name') {
+
+    if (isset($_GET['order'])) {
+        $sortCriteria = $_GET['order'];
+        $test = "order=".$sortCriteria;
+    }
+
+    if (isset($_GET['order']) && $sortCriteria == 'name') {
         $query = "SELECT id, name, description, price, picture, quantity FROM products ORDER BY name ASC LIMIT :from_record_num, :records_per_page";
-       // $query = "SELECT  id,name, description, price, quantity FROM products ORDER BY name ASC";
+        // $query = "SELECT  id,name, description, price, quantity FROM products ORDER BY name ASC";
 
-    } elseif (isset($_POST['order']) && $_POST['order'] == 'nameDesc') {
+
+    } elseif (isset($_GET['order']) && $sortCriteria == 'nameDesc') {
         $query = "SELECT id, name, description, price, picture, quantity FROM products ORDER BY name DESC LIMIT :from_record_num, :records_per_page";
-       // $query = "SELECT  id,name, description, price, quantity FROM products ORDER BY name DESC";
+        // $query = "SELECT  id,name, description, price, quantity FROM products ORDER BY name DESC";
 
-    } elseif (isset($_POST['order']) && $_POST['order'] == 'price') {
+    } elseif (isset($_GET['order']) && $sortCriteria == 'price') {
         $query = "SELECT id, name, description, price, picture, quantity FROM products ORDER BY price ASC LIMIT :from_record_num, :records_per_page";
         //$query = "SELECT  id,name, description, price, quantity FROM products ORDER BY price ASC";
 
-    } elseif (isset($_POST['order']) && $_POST['order'] == 'priceDesc') {
+    } elseif (isset($_GET['order']) && $sortCriteria == 'priceDesc') {
+
         $query = "SELECT id, name, description, price, picture, quantity FROM products ORDER BY price DESC LIMIT :from_record_num, :records_per_page";
-       // $query = "SELECT  id,name, description, price, quantity FROM products ORDER BY price DESC";
+        // $query = "SELECT  id,name, description, price, quantity FROM products ORDER BY price DESC";
 
     } else {
         $query = "SELECT id, name, description, price, picture, quantity FROM products ORDER BY id DESC
@@ -81,7 +89,7 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
             echo "<div class='product justify-content-md-center'>";
             echo "<img src='beers/{$picture}' style='height:50%; width: 50%;'>";
             echo "<h2 class='header'>{$name}</h2>";
-            echo "<p class='description'></p>";
+            echo "<p class='description' style='display: none;'>{$description}</p>";
             echo "<p class='price'>{$price} lv.</p>";
             echo "<div class='btn'>Add to cart</div>";
             echo "<div class='quickview'>Description</div>";
@@ -93,8 +101,9 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
     echo "<div class='quickviewContainer' style='margin-top: 50px;'>";
     echo "<div class='close'></div>";
     echo "<h2 class='headline'>{$name}</h2>";
+    echo "<p class='price'>{$price}</p>";
     echo "<p class='description'>{$description}</p>";
-
+    //echo "<img src='beers/{$picture}'>";
     echo "</div>";
 
     echo "<br>";
@@ -106,7 +115,7 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     $total_rows = $row['total_rows'];
     // paginate records
-    $page_url = "catalog.php?";
+    $page_url = "catalog.php?{$test}&";
     include_once "php_includes/paging.php";
     echo "</div>";
     ?>
@@ -136,6 +145,6 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
             }
         }
     </script>
-
+ 
 </body>
 </html>
