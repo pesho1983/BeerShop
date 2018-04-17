@@ -124,8 +124,11 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
     ?>
 
 
-    <footer class="fixed-bottom">
-        <?php include_once "php_includes/footer.php"; ?>
+    <footer class="fixed-bottom" style="font-family: 'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol'">
+        <div>
+            <h2 style='margin: 5px 0px 15px 0px;'>Quality House Beer</h2>
+            <h6>phone: +359 123 123 123</h6>
+        </div>
     </footer>
 
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
