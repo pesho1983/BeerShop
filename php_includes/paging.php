@@ -3,6 +3,8 @@ echo "<ul class='pagination pull-left margin-zero mt0'>";
 
 // first page button
 $first_page = 1;
+
+
 if($page>1){
 
     $prev_page = $page - 1;
@@ -44,6 +46,13 @@ for ($x=$initial_num; $x<$condition_limit_num; $x++) {
             echo "</li>";
         }
     }
+
+     else if($x - 1 > $total_pages){
+        $pageString = "page=";
+        $location = $page_url .$pageString .$total_pages;
+        header('Location: ' .$location);
+    }
+
 }
 
 // last page button
