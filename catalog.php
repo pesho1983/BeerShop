@@ -34,11 +34,11 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
   text-align: center;">
     <form name="sort" action="catalog.php" method="get">
         <select name="order">
-            <option>Make A Selection</option>
-            <option value="name">Name ASC</option>
-            <option value="nameDesc">Name DESC</option>
-            <option value="price">Price ASC</option>
-            <option value="priceDesc">Price DESC</option>
+            <option>Default</option>
+            <option value="name">Name (A-Z)</option>
+            <option value="nameDesc">Name (Z-A)</option>
+            <option value="price">Price (Low > High)</option>
+            <option value="priceDesc">Price (High > Low)</option>
         </select>
         <input class="button" type="submit" value=" - Sort - "/>
     </form>
@@ -145,6 +145,6 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
             }
         }
     </script>
- 
+
 </body>
 </html>
