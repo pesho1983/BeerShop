@@ -60,7 +60,7 @@ nav ul li a {
 nav ul li a:hover {
     color: #E05151;
     transition: all .5s;
-    border-bottom: 2px solid #E05151;
+    /*border-bottom: 2px solid #E05151;*/
 }
 nav ul li a:active {
     /*color: ;*/
