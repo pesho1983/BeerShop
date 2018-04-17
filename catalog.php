@@ -49,9 +49,8 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
 
     if (isset($_GET['order'])) {
         $sortCriteria = $_GET['order'];
-        $test = "order=".$sortCriteria;
-    }
-    else{
+        $test = "order=" . $sortCriteria;
+    } else {
         $test = "";
     }
 
@@ -94,7 +93,11 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
             echo "<h2 class='header'>{$name}</h2>";
             echo "<p class='description' style='display: none;'>{$description}</p>";
             echo "<p class='price'>{$price} lv.</p>";
-            echo "<div class='btn'>Add to cart</div>";
+            if ($quantity == 0) {
+                echo "<h2 class='text_shadow'>Out of Stock</h2>";
+            } else {
+                echo "<div class='btn'>Add to cart</div>";
+            }
             echo "<div class='quickview'>Description</div>";
             echo "</div>";
         }
@@ -124,7 +127,8 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
     ?>
 
 
-    <footer class="fixed-bottom" style="font-family: 'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol'">
+    <footer class="fixed-bottom"
+            style="font-family: 'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol'">
         <div>
             <h2 style='margin: 5px 0px 15px 0px;'>Quality House Beer</h2>
             <h6>phone: +359 123 123 123</h6>
@@ -136,7 +140,7 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
     <script src="https://code.jquery.com/jquery-3.3.1.js"
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $("#catalog").addClass('text_shadow');
         });
 
