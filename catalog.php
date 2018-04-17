@@ -89,7 +89,7 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             extract($row);
             echo "<div class='product justify-content-md-center'>";
-            echo "<img src='beers/{$picture}' style='height:50%; '>";
+            echo "<img class='beerPicture' src='beers/{$picture}' style='height:50%; '>";
             echo "<h2 class='header my-3'>{$name}</h2>";
             echo "<p class='description' style='display: none;'>{$description}</p>";
             echo "<p class='price'>{$price} lv.</p>";
@@ -107,7 +107,7 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
     echo "<div class='quickviewContainer' style='margin-top: 50px;'>";
         echo "<div class='close'></div>";
         echo "<h2 class='headline'>{$name}</h2>";
-        echo "<img src='beers/{$picture}' style='height:30%;'>" ;
+        echo "<img class='picture' src='beers/{$picture}' style='height:30%;'>" ;
         echo "<p class='price my-3'>{$price}</p>";
         echo "<p class='description my-5'>{$description}</p>";
 

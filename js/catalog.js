@@ -22,9 +22,11 @@ function quickView() {
 	var description = $(this).parent().find('.description').text(),
 		 header = $(this).parent().find('.header').text(),
 		 price = $(this).parent().find('.price').text(),
+		picture = $(this).parent().find('.beerPicture').attr('src'),
 		quickViewHeader = $('.quickviewContainer .headline'),
 		quickViewPrice = $('.quickviewContainer .price'),
-		 quickViewDescription = $('.quickviewContainer .description');
+		 quickViewDescription = $('.quickviewContainer .description'),
+	quickViewPicture = $('.quickviewContainer .picture');
 	clearTimeout(timeQuick);
 		if(quickview.hasClass('active') || mainDivInfo.hasClass('class_for_border')){
 			quickview.removeClass('active');
@@ -42,6 +44,8 @@ function quickView() {
 	quickViewHeader.text(header);
 		quickViewPrice.text(price);
 	quickViewDescription.text(description);
+
+	quickViewPicture.attr('src', picture);
 }
 
 function showMiniCart() {
