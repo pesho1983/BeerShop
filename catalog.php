@@ -25,7 +25,7 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
     <title>Catalog</title>
 </head>
 
-<body style="background-color:#eee">
+<body style="background-color:#eee; margin-top: 50px;">
 
 <header class="fixed-top">
     <?php include_once "php_includes/header.php"; ?>
@@ -50,6 +50,9 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
     if (isset($_GET['order'])) {
         $sortCriteria = $_GET['order'];
         $test = "order=".$sortCriteria;
+    }
+    else{
+        $test = "";
     }
 
     if (isset($_GET['order']) && $sortCriteria == 'name') {
