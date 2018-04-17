@@ -4,6 +4,7 @@ var cartCount = 0,
 	 cart = $('.cart'),
 	 quickview = $('.quickviewContainer'),
 	 quickViewBtn = $('.quickview'),
+	 mainDivInfo = $('.product'),
 	 close = $('.quickviewContainer .close'),
 	 minicart = [],
 	 totalPrice = [],
@@ -14,6 +15,7 @@ quickViewBtn.on('click', quickView);
 cart.on('click', showMiniCart);
 close.on('click', function(){
 	quickview.removeClass('active');
+mainDivInfo.removeClass('class_for_border')
 });
 
 function quickView() {
@@ -24,14 +26,18 @@ function quickView() {
 		quickViewPrice = $('.quickviewContainer .price'),
 		 quickViewDescription = $('.quickviewContainer .description');
 	clearTimeout(timeQuick);
-		if(quickview.hasClass('active')){
+		if(quickview.hasClass('active') || mainDivInfo.hasClass('class_for_border')){
 			quickview.removeClass('active');
+			mainDivInfo.removeClass('class_for_border');
 			var timeQuick = setTimeout(function(){
 				quickview.addClass('active');
+                // $(this).parent().addClass('class_for_border');
 			}, 300);
 		} else{
 			quickview.addClass('active');
+            $(this).parent().addClass('class_for_border');
 		}
+    $(this).parent().addClass('class_for_border');
 	
 	quickViewHeader.text(header);
 		quickViewPrice.text(price);

@@ -11,18 +11,17 @@
   height: 300px;
   display: inline-block;
   border-radius: 4px;
-  background-color: #000;
+  background-color: #343434;
   margin: 20px;
   padding: 15px;
 }
 .container .product img {
   position: relative;
-  top: -15px;
-  left: -15px;
+  /*top: -15px;*/
+  /*left: -15px;*/
   -webkit-clip-path: polygon(0 100%, 0 0, 100% 0, 100% 100%);
           clip-path: polygon(0 100%, 0 0, 100% 0, 100% 100%);
-  border-top-right-radius: 4px;
-  border-top-left-radius: 4px;
+  border-radius: 4px;
 }
 .container .product img:hover {
   -webkit-clip-path: polygon(0 100%, 0 0, 100% 0, 100% 100%);
@@ -31,9 +30,9 @@
           transform: scale(1.1);
 }
 .container .product h2 {
-  text-align: left;
+  text-align: center;
   color: #fff;
-  font-size: 14px;
+  font-size: 19px;
   font-weight: bold;
   margin-bottom: 4px;
 }
@@ -56,11 +55,11 @@
   font-weight: bold;
   float: right;
   padding: 10px;
-  border: 2px solid #FFB901;
+  border: 2px solid #FAC003;
   border-radius: 20px;
   bottom: 10px;
   right: 10px;
-  color: #FFB901;
+  color: #FAC003;
   cursor: pointer;
   overflow: hidden;
   transition: all .2s ease;
@@ -84,14 +83,14 @@
   content: "\e095";
   transition: all .2s ease;
   position: absolute;
-  color: #FFB901;
+  color: #FAC003;
   margin-left: 30px;
   transition: all .2s ease;
 }
 .container .product .quickview {
   position: absolute;
   bottom: 20px;
-  font-size: 11px;
+  font-size: 13px;
   color: #fff;
   cursor: pointer;
 }
@@ -105,12 +104,15 @@
   position: fixed;
   height: 100%;
   width: 400px;
-  background: rgba(0, 0, 0, 0.9);
+  background: #343434;
   top: 70px;
   right: -100%;
   transition: all .3s ease;
   padding: 30px;
   color: #fff;
+  box-shadow:
+          -5px 0 15px #EEA500;
+
 }
 .quickviewContainer .close {
   height: 20px;
@@ -133,11 +135,12 @@
 }
 .quickviewContainer .headline {
   margin-bottom: 30px;
-  font-size: 18px;
+  font-size: 25px;
 }
 .quickviewContainer .description {
-  font-size: 12px;
+  font-size: 19px;
   margin-bottom: 20px;
+  /*text-align: justify;*/
 }
 .quickviewContainer img {
   display: inline-block;
@@ -146,4 +149,15 @@
 }
 .quickviewContainer.active {
   right: 0;
+}
+
+.quickviewContainer .price {
+  font-size: 20px;
+
+}
+
+.class_for_border{
+  box-shadow:
+          0 0 15px #EEA500;
+
 }
