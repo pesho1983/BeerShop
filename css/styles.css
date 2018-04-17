@@ -126,7 +126,7 @@ h1 {
             2px 2px 0 #fff;
 }
 *{
-    font-weight:700
+    font-weight:700 !important;
 }
 .button {
     width: 80px;
@@ -178,19 +178,19 @@ footer{
 
 }
 footer div{
-    color: #a56000;
+    color: #a56000 !important;
     /*font-size: 50px;*/
-    text-align: center;
-    width: 100%;
-    background-size: 100%;
+    text-align: center !important;
+    width: 100% !important;
+    background-size: 100% !important;
 }
 footer div h2{
-    font-size: 40px;
+    font-size: 40px !important;
 }
 footer h4{
-    color: #a56000;
-    float:left;
-    font-size: 15px;
+    color: #a56000 !important;
+    float:left !important;
+    font-size: 15px !important;
 }
 
 .main_info {
