@@ -56,11 +56,11 @@
   font-weight: bold;
   float: right;
   padding: 10px;
-  border: 2px solid #00fefe;
+  border: 2px solid #FFB901;
   border-radius: 20px;
   bottom: 10px;
   right: 10px;
-  color: #00fefe;
+  color: #FFB901;
   cursor: pointer;
   overflow: hidden;
   transition: all .2s ease;
@@ -84,7 +84,7 @@
   content: "\e095";
   transition: all .2s ease;
   position: absolute;
-  color: #00fefe;
+  color: #FFB901;
   margin-left: 30px;
   transition: all .2s ease;
 }

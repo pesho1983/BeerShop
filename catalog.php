@@ -25,9 +25,9 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
     <title>Catalog</title>
 </head>
 
-<body style="background-color:#eee">
+<body style="background-color:#eee; margin-top: 50px;">
 
-<header>
+<header class="fixed-top">
     <?php include_once "php_includes/header.php"; ?>
 </header>
 <div style=" padding-top: 100px;
@@ -50,6 +50,9 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
     if (isset($_GET['order'])) {
         $sortCriteria = $_GET['order'];
         $test = "order=".$sortCriteria;
+    }
+    else{
+        $test = "";
     }
 
     if (isset($_GET['order']) && $sortCriteria == 'name') {
@@ -86,13 +89,13 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
     if ($num > 0) {
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             extract($row);
-            echo "<div class='product'>";
+            echo "<div class='product justify-content-md-center'>";
             echo "<img src='beers/{$picture}' style='height:50%; width: 50%;'>";
             echo "<h2 class='header'>{$name}</h2>";
             echo "<p class='description' style='display: none;'>{$description}</p>";
-            echo "<p class='price'>{$price}</p>";
+            echo "<p class='price'>{$price} lv.</p>";
             echo "<div class='btn'>Add to cart</div>";
-            echo "<div class='quickview'>Quickview</div>";
+            echo "<div class='quickview'>Description</div>";
             echo "</div>";
         }
     }
@@ -130,6 +133,10 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
     <script src="https://code.jquery.com/jquery-3.3.1.js"
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script>
+        $(document).ready(function() {
+            $("#catalog").addClass('text_shadow');
+        });
+
         window.onscroll = function () {
             myFunction()
         };
