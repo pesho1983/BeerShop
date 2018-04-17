@@ -27,9 +27,10 @@ if( isset($_COOKIE['remember_me']) AND trim($_COOKIE['remember_me'] ) != "" ) {
             <li><a id="home" href="index.php"><i class="fa fa-home"></i> HOME</a></li>
             <li><a id="catalog" href="catalog.php"><i class="fa fa-list"></i> CATALOG</a></li>
             <li><a id="logout" href="logout.php"><i class="fa fa-sign-out"></i> LOGOUT</a></li>
-            <li><a href="#"><i class="fa fa-search"></i>
-                    <input style="box-sizing: border-box; border: 2px solid; border-radius: 15px; height: 40px;width: 220px;" type="text" placeholder=" Search..." name="search">
-                </a>
+            <li>
+                <form action="search.php" method="POST">
+                <a href="#"><i class="fa fa-search"></i><input style="box-sizing: border-box; border: 2px solid; border-radius: 15px; height: 40px;width: 220px;" type="text" placeholder=" Search..." name="search"></a>
+                </form>
             </li>
             <li><a id="profile" href="adminProfile.php"><i class="fa fa-user"></i> <?= $_SESSION['user'] ?></a></li>
 
@@ -41,7 +42,7 @@ if( isset($_COOKIE['remember_me']) AND trim($_COOKIE['remember_me'] ) != "" ) {
             <li><a id="faq" href="faq.php"><i class="fa fa-question"></i> FAQ</a></li>
             <li><a id="logout" href="logout.php"><i class="fa fa-sign-out"></i> LOGOUT</a></li>
             <li><a href="#"><i class="fa fa-search"></i>
-                    <input style="box-sizing: border-box; border: 2px solid; border-radius: 15px; height: 40px;width: 300px;" type="text" placeholder=" Search..." name="search">
+                    <input style="box-sizing: border-box; border: 2px solid; border-radius: 15px; height: 40px;width: 300px;" type="text" placeholder=" Search..." name="search" method="get">
                 </a>
             </li>
             <li><a id="profile" href="profile.php"><i class="fa fa-user"></i> <?= $_SESSION['user'] ?></a></li>
