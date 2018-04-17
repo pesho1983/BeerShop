@@ -92,17 +92,13 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
             echo "<img src='beers/{$picture}' style='height:50%; '>";
             echo "<h2 class='header my-3'>{$name}</h2>";
             echo "<p class='description' style='display: none;'>{$description}</p>";
-<<<<<<< HEAD
-            echo "<p class='price my-4'>{$price} lv.</p>";
             echo "<div class='btn'>Add to cart</div>";
-=======
             echo "<p class='price'>{$price} lv.</p>";
             if ($quantity == 0) {
                 echo "<h2 class='text_shadow'>Out of Stock</h2>";
             } else {
                 echo "<div class='btn'>Add to cart</div>";
             }
->>>>>>> 72bc1c9c71ceae15b6881d546d90a01f3aac8e7a
             echo "<div class='quickview'>Description</div>";
             echo "</div>";
         }
