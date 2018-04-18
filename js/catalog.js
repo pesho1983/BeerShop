@@ -42,9 +42,10 @@ function quickView() {
     $(this).parent().addClass('class_for_border');
 	
 	quickViewHeader.text(header);
-		quickViewPrice.text(price);
+	quickViewHeader.addClass("text_class")
+	quickViewPrice.text(price);
 	quickViewDescription.text(description);
-
+    quickViewDescription.prepend('<p class="my-3 text_class">Details: </p>')
 	quickViewPicture.attr('src', picture);
 }
 

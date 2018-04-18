@@ -10,16 +10,14 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
 <html lang="en">
 <head>
     <link rel="shortcut icon" href="images/logoNew_bubbles.png"/>
-    <link type="text/css" rel="stylesheet" media="screen"
-          href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" media="screen" href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
     <link href="css/catalog.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-    <link rel='stylesheet prefetch'
-          href='https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.2.4/css/simple-line-icons.min.css'>
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.2.4/css/simple-line-icons.min.css'>
+
     <link href="css/styles.css" rel="stylesheet">
 
     <title>Catalog</title>
@@ -33,14 +31,14 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
 <div style=" padding-top: 100px;
   text-align: center;">
     <form name="sort" action="catalog.php" method="get">
-        <select name="order">
+        <select class="btn btn-success" name="order">
             <option>Default</option>
             <option value="name">Name (A-Z)</option>
             <option value="nameDesc">Name (Z-A)</option>
             <option value="price">Price (Low > High)</option>
             <option value="priceDesc">Price (High > Low)</option>
         </select>
-        <input class="button" type="submit" value=" - Sort - "/>
+        <input class="btn btn-danger" type="submit" value=" - Sort - "/>
     </form>
 </div>
 <div class='container' style="margin-bottom: 150px; text-align: center;">
@@ -92,7 +90,7 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
             echo "<img class='beerPicture' src='beers/{$picture}' style='height:50%; '>";
             echo "<h2 class='header my-3'>{$name}</h2>";
             echo "<p class='description' style='display: none;'>{$description}</p>";
-            echo "<p class='price'>{$price} lv.</p>";
+            echo "<p class='price'>price {$price} lv.</p>";
             if ($quantity == 0) {
                 echo "<h2 class='text_shadow'>Out of Stock</h2>";
             } else {
@@ -112,7 +110,7 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
         echo "<h2 class='headline'>{$name}</h2>";
         echo "<img class='picture' src='beers/{$picture}' style='height:30%;'>" ;
         echo "<p class='price my-3'>{$price}</p>";
-        echo "<p class='description my-5'>{$description}</p>";
+        echo "<p class='description my-5 text-justify'>{$description}</p>";
 
     echo "</div>";
 
