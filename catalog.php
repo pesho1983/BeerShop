@@ -96,7 +96,10 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
             if ($quantity == 0) {
                 echo "<h2 class='text_shadow'>Out of Stock</h2>";
             } else {
-                echo "<div class='btn'>Add to cart</div>";
+                //echo "<div class='btn'>Add to cart</div>";
+                $cartId = $row["id"];
+                echo "<a class='btn' href='cartAction.php?action=addToCart&id=$cartId'>Add to cart</a>";
+
             }
             echo "<div class='quickview'>Description</div>";
             echo "</div>";

@@ -21,7 +21,7 @@ if($page>1){
 $total_pages = ceil($total_rows / $records_per_page);
 
 // range of num links to show
-$range = 1;
+$range = 5;
 
 // display links to 'range of pages' around 'current page'
 $initial_num = $page - $range;
@@ -47,7 +47,7 @@ for ($x=$initial_num; $x<$condition_limit_num; $x++) {
         }
     }
 
-     else if($x - 1 > $total_pages){
+     else if($x - $range > $total_pages){
         $pageString = "page=";
         $location = $page_url .$pageString .$total_pages;
         header('Location: ' .$location);
