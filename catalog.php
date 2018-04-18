@@ -88,7 +88,7 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
             extract($row);
             echo "<div class='product justify-content-md-center'>";
             echo "<img class='beerPicture' src='beers/{$picture}' style='height:50%; '>";
-            echo "<h2 class='header my-3'>{$name}</h2>";
+            echo "<h2 class='header my-3 text-truncate'>{$name}</h2>";
             echo "<p class='description' style='display: none;'>{$description}</p>";
             echo "<p class='price'>price {$price} lv.</p>";
             if ($quantity == 0) {
