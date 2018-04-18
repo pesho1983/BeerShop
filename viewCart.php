@@ -1,5 +1,4 @@
 <?php
-// initializ shopping cart class
 require_once 'Cart.php';
 $cart = new Cart;
 ?>
