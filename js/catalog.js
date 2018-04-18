@@ -43,7 +43,7 @@ function quickView() {
 	
 	quickViewHeader.text(header);
 	quickViewHeader.addClass("text_class")
-	quickViewPrice.text(price);
+	quickViewPrice.text("Price: " + price);
 	quickViewDescription.text(description);
     quickViewDescription.prepend('<p class="my-3 text_class">Details: </p>')
 	quickViewPicture.attr('src', picture);
