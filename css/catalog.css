@@ -140,7 +140,9 @@
 .quickviewContainer .description {
   font-size: 19px;
   margin-bottom: 20px;
+  text-align: justify !important;
   /*text-align: justify;*/
+  padding-bottom: 10px;
 }
 .quickviewContainer img {
   display: inline-block;

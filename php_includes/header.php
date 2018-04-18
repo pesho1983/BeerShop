@@ -38,7 +38,7 @@ if( isset($_COOKIE['remember_me']) AND trim($_COOKIE['remember_me'] ) != "" ) {
             <li><a id="home" href="index.php"><i class="fa fa-home"></i> HOME</a></li>
             <li><a id="catalog" href="catalog.php"><i class="fa fa-list"></i> CATALOG</a></li>
             <li><a id="about" href="about.php"><i class="fa fa-pencil"></i> ABOUT</a></li>
-            <li><a id="basket" href="basket.php"><i class="fa fa-beer"></i> BASKET</a></li>
+            <li><a id="basket" href="viewCart.php"><i class="fa fa-beer"></i> BASKET</a></li>
             <li><a id="faq" href="faq.php"><i class="fa fa-question"></i> FAQ</a></li>
             <li><a id="logout" href="logout.php"><i class="fa fa-sign-out"></i> LOGOUT</a></li>
             <li><a href="#"><i class="fa fa-search"></i>

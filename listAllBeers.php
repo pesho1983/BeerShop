@@ -72,6 +72,8 @@ else{
           </div>";
 
 
+
+
     if($num>0){
         echo "<div class='row justify-content-md-center'>";
 //            echo "<div class='col-lg-1'></div>";
@@ -90,11 +92,10 @@ else{
                     echo "<tbody>";
                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){ 
                         extract($row);
-
                         echo "<tr>";
                 //            echo "<td>{$id}</td>";
                             echo "<th class='align-middle'>{$name}</th>";
-                            echo "<td class='align-middle' style='text-align: justify'>{$description}</td>";
+                            echo "<td class='align-middle' style='text-align: justify; word-break: break-all;'>{$description}</td>";
                             echo "<td class='align-middle'>{$price} lv.</td>";
                             echo "<td class='align-middle'>{$quantity}</td>";
                             echo "<td class='align-middle'>";
