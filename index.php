@@ -17,22 +17,6 @@
     <div class="container">   
 
     <div class="row">
-    <?php
-        $query = ("SELECT * FROM (
-  SELECT * FROM order_detail ORDER BY id DESC LIMIT 3
-) as r ORDER BY id");
-        $stmt = $pdo->prepare($query);
-        $stmt->execute();
-        $num = $stmt->rowCount();
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            extract($row);
-
-        }
-
-
-
-    ?>
         <div class="col-lg-4"></div>
         <div class="col-lg-8">
         
@@ -69,21 +53,47 @@
 
                 <div class="col-lg-12 last_sold">
                     <h2 class="welcome">LAST 3 SOLD BEERS</h2>
-                    <div class="fron_beer">
-                        <p><img src="images/qh_beer.png" ></p>
-                        <p>QH beer: amber beer</p>
-                    </div>
-                    <div class="fron_beer">
-                        <p><img src="images/heineken.png"></p>
-                        <p>Heineken: regular beer</p>
-                    </div>
-                    <div class="fron_beer">
-                        <p><img src="images/qh_beer.png"></p>
-                        <p>QH beer: amber beer</p>
-                    </div>
-                </div>
+                    <?php
+                    $query = ("SELECT * FROM (
+                    SELECT * FROM order_detail ORDER BY id DESC LIMIT 3
+                    ) as r ORDER BY id");
+                    $stmt = $pdo->prepare($query);
+                    $stmt->execute();
+                    $num = $stmt->rowCount();
+
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                        extract($row);
+                        $beerQuery = ("SELECT * FROM products WHERE id = " .$row['product_id']);
+                        $exec = $pdo->prepare($beerQuery);
+                        $exec->execute();
+                        $beerRow = $exec->fetch (PDO::FETCH_ASSOC);
+                        echo "<div class='fron beer'>";
+                        echo "<p><img style='height: 100px;' src='beers/{$beerRow['picture']}'></p>";
+                        echo "<p>{$beerRow['name']}</p>";
+                        echo "</div>";
+                    }
+
+
+
+                    ?>
+
+<!--                    <div class="fron_beer">-->
+<!--                        <p><img src="images/qh_beer.png" ></p>-->
+<!--                        <p>QH beer: amber beer</p>-->
+<!--                    </div>-->
+<!--                    <div class="fron_beer">-->
+<!--                        <p><img src="images/heineken.png"></p>-->
+<!--                        <p>Heineken: regular beer</p>-->
+<!--                    </div>-->
+<!--                    <div class="fron_beer">-->
+<!--                        <p><img src="images/qh_beer.png"></p>-->
+<!--                        <p>QH beer: amber beer</p>-->
+<!--                    </div>-->
+
             </div>
         </div>
+
+    </div>
     </div>
     </div>
 
