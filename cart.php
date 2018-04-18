@@ -72,7 +72,7 @@ class Cart {
                  */
                 // prep the quantity
                 $item['qty'] = (float) $item['qty'];
-                if($item['qty'] == 0){
+                if($item['qty'] == 0  || $item['qty'] < 0){
                     return FALSE;
                 }
                 // prep the price

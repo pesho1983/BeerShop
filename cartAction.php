@@ -49,7 +49,7 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
             // get cart items
             $cartItems = $cart->contents();
             foreach($cartItems as $item){
-                $sql = "INSERT INTO order_detail (order_id, product_id, quantity) VALUES ('".$orderID."', '".$item['id']."', '".$item['qty']."')";
+                $sql = "INSERT INTO order_detail (order_id, product_id, price, quantity) VALUES ('".$orderID."', '".$item['id']."', '".$item['price']."', '".$item['qty']."')";
                 $exec = $pdo->prepare($sql);
                 $exec->execute();
             }

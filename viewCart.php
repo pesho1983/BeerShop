@@ -6,7 +6,7 @@ $cart = new Cart;
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>View Cart - PHP Shopping Cart Tutorial</title>
+    <title>Cart</title>
     <meta charset="utf-8">
     <link rel="shortcut icon" href="images/logoNew_bubbles.png"/>
     <link type="text/css" rel="stylesheet" media="screen" href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">

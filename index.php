@@ -17,6 +17,22 @@
     <div class="container">   
 
     <div class="row">
+    <?php
+        $query = ("SELECT * FROM (
+  SELECT * FROM order_detail ORDER BY id DESC LIMIT 3
+) as r ORDER BY id");
+        $stmt = $pdo->prepare($query);
+        $stmt->execute();
+        $num = $stmt->rowCount();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            extract($row);
+
+        }
+
+
+
+    ?>
         <div class="col-lg-4"></div>
         <div class="col-lg-8">
         

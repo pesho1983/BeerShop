@@ -23,9 +23,15 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Checkout - PHP Shopping Cart Tutorial</title>
+    <title>Checkout</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="images/logoNew_bubbles.png"/>
+    <link type="text/css" rel="stylesheet" media="screen" href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
@@ -37,7 +43,10 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     </style>
 </head>
 <body>
-<div class="container">
+<header class="fixed-top">
+    <?php include_once "php_includes/header.php"; ?>
+</header>
+<div class="container" style="margin-top:100px;">
     <h1>Order Preview</h1>
     <table class="table">
         <thead>
@@ -86,5 +95,8 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
         <a href="cartAction.php?action=placeOrder" class="btn btn-success orderBtn">Place Order <i class="glyphicon glyphicon-menu-right"></i></a>
     </div>
 </div>
+<footer class="footer navbar-fixed-bottom">
+    <?php include_once "php_includes/footer.php"; ?>
+</footer>
 </body>
 </html>
