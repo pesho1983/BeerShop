@@ -31,8 +31,8 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
 <div style=" padding-top: 100px;
   text-align: center;">
     <form name="sort" action="catalog.php" method="get">
-        <select class="btn btn-success" name="order">
-            <option>Default</option>
+        <select class="btn" name="order">
+            <option>Order by:</option>
             <option value="name">Name (A-Z)</option>
             <option value="nameDesc">Name (Z-A)</option>
             <option value="price">Price (Low > High)</option>
