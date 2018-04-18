@@ -10,7 +10,7 @@
     </head>
     
     <body style="background:url(images/beer_background-Copy2.jpg); width: 100%; min-height:100%; background-size: cover;  overflow: hidden; ">
-    <header class="fixed-top">
+    <header>
       <?php include_once "php_includes/header.php"; ?>
     </header>  
 
