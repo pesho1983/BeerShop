@@ -1,9 +1,10 @@
 <?php
 require_once 'Cart.php';
+require_once 'connect.php';
 $cart = new Cart;
 
 // include database configuration file
-require_once 'connect.php';
+
 if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
     if($_REQUEST['action'] == 'addToCart' && !empty($_REQUEST['id'])){
         $productID = $_REQUEST['id'];
