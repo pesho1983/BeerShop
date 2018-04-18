@@ -31,7 +31,7 @@ $user = $stmt->fetch();
 
 if (isset($_POST['deposit'])) {
     $deposit = htmlspecialchars(strip_tags($_POST['money']));
-    $wallet = intval($deposit) + intval($user['wallet']);
+    $wallet = floatval($deposit) + floatval($user['wallet']);
 
     $query = "UPDATE users 
                     SET wallet=:wallet
