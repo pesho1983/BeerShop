@@ -1,4 +1,8 @@
 <?php
+if (!isset($_SESSION['user'])) {
+    header('Location: login.php');
+    exit;
+}
 require_once 'cart.php';
 require_once 'connect.php';
 $cart = new Cart;

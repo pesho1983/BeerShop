@@ -1,4 +1,8 @@
 <?php
+if (!isset($_SESSION['user'])) {
+    header('Location: login.php');
+    exit;
+}
 require_once 'cart.php';
 $cart = new Cart;
 ?>
@@ -21,10 +25,13 @@ $cart = new Cart;
     <script>
         function updateCartItem(obj,id){
             $.get("cartAction.php", {action:"updateCartItem", id:id, qty:obj.value}, function(data){
-                if(data == 'ok'){
+                console.log(data);
+                if(data == '1'){
                     location.reload();
                 }else{
                     alert('Cart update failed, please try again.');
+                    location.reload();
+
                 }
             });
         }

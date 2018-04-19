@@ -29,26 +29,27 @@
             <div class="col-lg-12 beers">           
                 <div class="col-lg-12 best_beers">
                     <h2 class="welcome">BEST SELLING BEERS</h2>
-                    <div class="fron_beer">
-                        <p><img src="images/qh_beer.png" ></p>
-                        <p>QH beer: amber beer</p>
-                    </div>
-                    <div class="fron_beer">
-                        <p><img src="images/heineken.png" ></p>
-                        <p>Heineken: regular beer</p>
-                    </div>
-                    <div class="fron_beer">
-                        <p><img src="images/qh_beer.png" ></p>
-                        <p>QH beer: amber beer</p>
-                    </div>
-                    <div class="fron_beer">
-                        <p><img src="images/heineken.png"></p>
-                        <p>Heineken: regular beer</p>
-                    </div>
-                    <div class="fron_beer">
-                        <p><img src="images/qh_beer.png"></p>
-                        <p>QH beer: amber beer</p>
-                    </div>
+                    <?php
+                    $query = ("SELECT * FROM (
+                    SELECT * FROM products ORDER BY times_sold DESC LIMIT 5
+                    ) as r ORDER BY times_sold DESC");
+                    $stmt = $pdo->prepare($query);
+                    $stmt->execute();
+                    $num = $stmt->rowCount();
+
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                        extract($row);
+                        $beerQuery = ("SELECT * FROM products WHERE id = " .$row['id']);
+                        $exec = $pdo->prepare($beerQuery);
+                        $exec->execute();
+                        $beerRow = $exec->fetch (PDO::FETCH_ASSOC);
+                        echo "<div class='fron beer'>";
+                        echo "<p><img style='height: 100px;' src='beers/{$beerRow['picture']}'></p>";
+                        echo "<p>{$beerRow['name']}</p>";
+                        echo "<p>Sold: {$beerRow['times_sold']}</p>";
+                        echo "</div>";
+                    }
+                    ?>
                 </div> 
 
                 <div class="col-lg-12 last_sold">

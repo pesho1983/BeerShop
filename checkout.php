@@ -1,4 +1,8 @@
 <?php
+if (!isset($_SESSION['user'])) {
+    header('Location: login.php');
+    exit;
+}
 // include database configuration file
 include_once 'connect.php';
 
@@ -12,7 +16,7 @@ if($cart->total_items() <= 0){
 }
 
 // set customer ID in session
-$_SESSION['sessCustomerID'] = 1;
+$_SESSION['sessCustomerID'] = $_SESSION['id'];
 
 // get customer details by session customer ID
 $query = "SELECT * FROM users WHERE id = ".$_SESSION['sessCustomerID'];
@@ -85,8 +89,8 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     </table>
     <div class="shipAddr">
         <h4>Shipping Details</h4>
-        <p>Username: <?php echo $row['username']; ?></p>
-        <p>Email: <?php echo $row['email']; ?></p>
+        <p>First Name: <?php echo $row['first_name']; ?></p>
+        <p>Last Name: <?php echo $row['last_name']; ?></p>
         <p>Phone: <?php echo $row['phone']; ?></p>
         <p>Address: <?php echo $row['address']; ?></p>
     </div>
