@@ -66,9 +66,9 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 ?>
                 <tr>
                     <td><?php echo $item["name"]; ?></td>
-                    <td><?php echo '$'.$item["price"].' USD'; ?></td>
+                    <td><?php echo '$'.$item["price"].' lv'; ?></td>
                     <td><?php echo $item["qty"]; ?></td>
-                    <td><?php echo '$'.$item["subtotal"].' USD'; ?></td>
+                    <td><?php echo '$'.$item["subtotal"].' lv'; ?></td>
                 </tr>
             <?php } }else{ ?>
         <tr><td colspan="4"><p>No items in your cart......</p></td>
@@ -78,7 +78,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
         <tr>
             <td colspan="3"></td>
             <?php if($cart->total_items() > 0){ ?>
-                <td class="text-center"><strong>Total <?php echo '$'.$cart->total().' USD'; ?></strong></td>
+                <td class="text-center"><strong>Total <?php echo '$'.$cart->total().' lv'; ?></strong></td>
             <?php } ?>
         </tr>
         </tfoot>
