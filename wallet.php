@@ -60,7 +60,7 @@ if (isset($_POST['deposit'])) {
     <meta name="author" content="">
     <link rel="shortcut icon" href="images/logoNew_bubbles.png"/>
 
-    <title>User Profile</title>
+    <title>Personal wallet</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -81,7 +81,7 @@ if (isset($_POST['deposit'])) {
 
 
 <div class="container" style="margin-top: 150px; margin-bottom: 150px;">
-<h2>Personal wallet</h2>
+<h1>Personal wallet</h1>
 <div class='row' style="margin-top: 50px">
     <div class='col-lg-1'></div>
     <div class='col-lg-8' style='background-image: url("images/wallet_card.png"); background-repeat: no-repeat; height: 500px;'>
@@ -97,7 +97,7 @@ if (isset($_POST['deposit'])) {
             </table>
         </form>
     </div>
-    <div class='col-lg-3' style="margin-top: 230px"><h3 id="money"> Current ballance: BGN <?= $user['wallet'] ?> </h3></div>
+    <div class='col-lg-3' style="margin-top: 230px"><h3 id="money"> Current balance: BGN <?= $user['wallet'] ?> </h3></div>
     
 
 </div>
