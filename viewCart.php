@@ -14,8 +14,21 @@ $cart = new Cart;
 
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
-
-
+    <style>
+        .container{padding: 50px;}
+        input[type="number"]{width: 20%;}
+    </style>
+    <script>
+        function updateCartItem(obj,id){
+            $.get("cartAction.php", {action:"updateCartItem", id:id, qty:obj.value}, function(data){
+                if(data == 'ok'){
+                    location.reload();
+                }else{
+                    alert('Cart update failed, please try again.');
+                }
+            });
+        }
+    </script>
 </head>
 <body>
 <header>
@@ -42,9 +55,9 @@ $cart = new Cart;
                 ?>
                 <tr>
                     <td><?php echo $item["name"]; ?></td>
-                    <td><?php echo '$'.$item["price"].' USD'; ?></td>
+                    <td><?php echo '$'.$item["price"].' lv'; ?></td>
                     <td><input type="number" class="form-control text-center" value="<?php echo $item["qty"]; ?>" onchange="updateCartItem(this, '<?php echo $item["rowid"]; ?>')"></td>
-                    <td><?php echo '$'.$item["subtotal"].' USD'; ?></td>
+                    <td><?php echo '$'.$item["subtotal"].' lv'; ?></td>
                     <td>
                         <a href="cartAction.php?action=removeCartItem&id=<?php echo $item["rowid"]; ?>" class="btn btn-danger" onclick="return confirm('Are you sure?')"><i class="glyphicon glyphicon-trash"></i></a>
                     </td>
@@ -58,7 +71,7 @@ $cart = new Cart;
             <td><a href="catalog.php" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i> Continue Shopping</a></td>
             <td colspan="2"></td>
             <?php if($cart->total_items() > 0){ ?>
-                <td class="text-center"><strong>Total <?php echo '$'.$cart->total().' USD'; ?></strong></td>
+                <td class="text-center"><strong>Total <?php echo '$'.$cart->total().' lv'; ?></strong></td>
                 <td><a href="checkout.php" class="btn btn-success btn-block">Checkout <i class="glyphicon glyphicon-menu-right"></i></a></td>
             <?php } ?>
         </tr>
@@ -71,17 +84,6 @@ $cart = new Cart;
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script>
-    function updateCartItem(obj,id){
-        $.get("cartAction.php", {action:"updateCartItem", id:id, qty:obj.value}, function(data){
-            if(data == 'ok'){
-                location.reload();
-            }else{
-                alert('Cart update failed, please try again.');
-            }
-        });
-    }
-</script>
 </body>
 <!--<script>-->
 <!--    $(document).ready(function(){-->
