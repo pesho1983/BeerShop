@@ -1,5 +1,5 @@
 <?php
-require_once 'Cart.php';
+require_once 'cart.php';
 require_once 'connect.php';
 $cart = new Cart;
 
