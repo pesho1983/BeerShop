@@ -102,7 +102,7 @@
 
 .quickviewContainer {
   position: fixed;
-  height: 75%;
+  height: 73%;
   width: 400px;
   background: #343434;
   top: 80px;
@@ -114,6 +114,8 @@
           -5px 0 15px #EEA500;
   z-index: 9999;
   overflow: auto;
+
+
 }
 .quickviewContainer .close {
   height: 20px;
