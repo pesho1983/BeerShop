@@ -14,21 +14,8 @@ $cart = new Cart;
 
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
-    <style>
-        .container{padding: 50px;}
-        input[type="number"]{width: 20%;}
-    </style>
-    <script>
-        function updateCartItem(obj,id){
-            $.get("cartAction.php", {action:"updateCartItem", id:id, qty:obj.value}, function(data){
-                if(data == 'ok'){
-                    location.reload();
-                }else{
-                    alert('Cart update failed, please try again.');
-                }
-            });
-        }
-    </script>
+
+
 </head>
 <body>
 <header>
@@ -84,6 +71,17 @@ $cart = new Cart;
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+    function updateCartItem(obj,id){
+        $.get("cartAction.php", {action:"updateCartItem", id:id, qty:obj.value}, function(data){
+            if(data == 'ok'){
+                location.reload();
+            }else{
+                alert('Cart update failed, please try again.');
+            }
+        });
+    }
+</script>
 </body>
 <!--<script>-->
 <!--    $(document).ready(function(){-->
