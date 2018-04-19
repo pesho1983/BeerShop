@@ -1,4 +1,8 @@
 <?php
+if (!isset($_SESSION['user'])) {
+    header('Location: login.php');
+    exit;
+}
 // include database configuration file
 include_once 'connect.php';
 
