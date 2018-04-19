@@ -3,7 +3,7 @@
 include_once 'connect.php';
 
 // initializ shopping cart class
-include 'Cart.php';
+require_once 'cart.php';
 $cart = new Cart;
 
 // redirect to home if cart is empty
