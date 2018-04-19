@@ -14,8 +14,6 @@ $cart = new Cart;
 
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
         .container{padding: 50px;}
         input[type="number"]{width: 20%;}
@@ -83,6 +81,9 @@ $cart = new Cart;
 <footer class="footer navbar-fixed-bottom">
     <?php include_once "php_includes/footer.php"; ?>
 </footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 <!--<script>-->
 <!--    $(document).ready(function(){-->
