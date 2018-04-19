@@ -1,6 +1,5 @@
 <?php
-// initializ shopping cart class
-include_once 'Cart.php';
+require_once 'Cart.php';
 $cart = new Cart;
 ?>
 <!DOCTYPE html>
