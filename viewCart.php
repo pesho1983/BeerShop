@@ -31,11 +31,11 @@ $cart = new Cart;
     </script>
 </head>
 <body>
-<header class="fixed-top">
+<header>
     <?php include_once "php_includes/header.php"; ?>
 </header>
-<div class="container" style="margin-top:100px;">
-    <h1>Shopping Cart</h1>
+<div class="container" style="margin-top:100px; margin-bottom: 100px;">
+    <h1>Basket</h1>
     <table class="table">
         <thead>
         <tr>
