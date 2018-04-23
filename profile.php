@@ -12,7 +12,8 @@ $sql = "SELECT
             username,
             first_name,
             age,
-            picture
+            picture,
+            info
         FROM
             users
         WHERE
@@ -217,7 +218,7 @@ if (isset($_POST['submit'])) {
                         <p class="col-lg-6 text-center px-2"> Age: <?= $user['age'] ?></p>
                     </div>
                     <div class="row justify-content-md-center">
-                        <p class="col-lg-6 text-center px-2"> About me: <?= $user['about_me'] ?></p>
+                        <p class="col-lg-6 text-center px-2"> About me: <?= $user['info'] ?></p>
                     </div>
                 </div>
 
