@@ -39,6 +39,18 @@ else{
         <div class="page-header col-lg-10 text-center">
             <h2>Beers</h2>
         </div>
+        <div style="text-align: center;">
+            <form name="sort" action="listAllBeers.php" method="get">
+                <select class="btn" name="order">
+                    <option>Order by:</option>
+                    <option value="name">Name (A-Z)</option>
+                    <option value="nameDesc">Name (Z-A)</option>
+                    <option value="price">Price (Low > High)</option>
+                    <option value="priceDesc">Price (High > Low)</option>
+                </select>
+                <input class="btn btn-danger" type="submit" value=" - Sort - "/>
+            </form>
+        </div>
     </div>
     <?php
     $action = isset($_GET['action']) ? $_GET['action'] : "";
@@ -52,9 +64,36 @@ else{
 //    $stmt = $pdo->prepare($query);
 //    $stmt->execute();
 
-    // query with pagination included
-    $query = "SELECT id, name, description, price, quantity FROM products ORDER BY id DESC
+    if (isset($_GET['order'])) {
+        $sortCriteria = $_GET['order'];
+        $test = "order=" . $sortCriteria;
+    } else {
+        $test = "";
+    }
+
+    if (isset($_GET['order']) && $sortCriteria == 'name') {
+        $query = "SELECT id, name, description, price, picture, quantity FROM products ORDER BY name ASC LIMIT :from_record_num, :records_per_page";
+        // $query = "SELECT  id,name, description, price, quantity FROM products ORDER BY name ASC";
+
+
+    } elseif (isset($_GET['order']) && $sortCriteria == 'nameDesc') {
+        $query = "SELECT id, name, description, price, picture, quantity FROM products ORDER BY name DESC LIMIT :from_record_num, :records_per_page";
+        // $query = "SELECT  id,name, description, price, quantity FROM products ORDER BY name DESC";
+
+    } elseif (isset($_GET['order']) && $sortCriteria == 'price') {
+        $query = "SELECT id, name, description, price, picture, quantity FROM products ORDER BY price ASC LIMIT :from_record_num, :records_per_page";
+        //$query = "SELECT  id,name, description, price, quantity FROM products ORDER BY price ASC";
+
+    } elseif (isset($_GET['order']) && $sortCriteria == 'priceDesc') {
+
+        $query = "SELECT id, name, description, price, picture, quantity FROM products ORDER BY price DESC LIMIT :from_record_num, :records_per_page";
+        // $query = "SELECT  id,name, description, price, quantity FROM products ORDER BY price DESC";
+
+    } else {
+        $query = "SELECT id, name, description, price, picture, quantity FROM products ORDER BY id DESC
     LIMIT :from_record_num, :records_per_page";
+    }
+
 
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(":from_record_num", $from_record_num, PDO::PARAM_INT);
