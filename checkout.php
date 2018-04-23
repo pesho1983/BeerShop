@@ -28,9 +28,11 @@ $stmt->execute();
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 $errors = array (
     1 => "You don't have enough funds in your account to make this order!",
+
 );
 
 $error_id = isset($_GET['err']) ? (int)$_GET['err'] : 0;
+$error_quantity = isset($_GET['err']) ? $_GET['err'] : '';
 
 
 ?>
@@ -64,6 +66,18 @@ $error_id = isset($_GET['err']) ? (int)$_GET['err'] : 0;
  <?php if ($error_id != 0) {
      echo  "<div class='alert alert-danger'> You don't have enough funds in your account to make this order! </div>";
  } ?>
+    <?php if ($error_quantity != '') {
+        $Url = $_GET['err'];
+        $UrlQuantity = $_GET['quantity'];
+        $UrlId = $_GET['id'];
+
+        $beerQuery = "SELECT * FROM products WHERE id =" .$UrlId;
+        $beerStmt = $pdo->prepare($beerQuery);
+        $beerStmt->execute();
+        $beerRow = $beerStmt->fetch(PDO::FETCH_ASSOC);
+
+        echo  "<div class='alert alert-danger'> We don't have {$UrlQuantity} of {$Url}. We currently have {$beerRow['quantity']} in stock. </div>";
+    } ?>
     <h1>Order Preview</h1>
     <table class="table">
         <thead>

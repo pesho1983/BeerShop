@@ -54,6 +54,18 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
             header ("Location: checkout.php?err=1");
         }
         else {
+            $orderedItem = $cart->contents();
+            foreach($orderedItem as $orderItem){
+                $orderedItemSql = "SELECT * FROM products WHERE id = " .$orderItem['id'];
+                $orderedItemStmt = $pdo->prepare($orderedItemSql);
+                $orderedItemStmt->execute();
+                $orderedRow = $orderedItemStmt->fetch(PDO::FETCH_ASSOC);
+                if($orderedRow['quantity'] < $orderItem['qty'])
+                {
+                    header ("Location: checkout.php?err={$orderItem['name']}&quantity={$orderItem['qty']}&id={$orderItem['id']}");
+                    exit;
+                }
+            }
             $insertOrder = "INSERT INTO orders (user_id, total_price, `date`) VALUES ('" . $_SESSION['sessCustomerID'] . "', '" . $cart->total() . "', '" . date("Y-m-d H:i:s") . "')";
             $stmt = $pdo->prepare($insertOrder);
             $stmt->execute();
