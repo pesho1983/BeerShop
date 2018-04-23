@@ -32,7 +32,7 @@ $errors = array (
 );
 
 $error_id = isset($_GET['err']) ? (int)$_GET['err'] : 0;
-$error_quantity = isset($_GET['err']) ? $_GET['err'] : '';
+$error_quantity = isset($_GET['info']) ? $_GET['info'] : '';
 
 
 ?>
