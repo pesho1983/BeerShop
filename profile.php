@@ -216,6 +216,9 @@ if (isset($_POST['submit'])) {
                     <div class="row justify-content-md-center">
                         <p class="col-lg-6 text-center px-2"> Age: <?= $user['age'] ?></p>
                     </div>
+                    <div class="row justify-content-md-center">
+                        <p class="col-lg-6 text-center px-2"> About me: <?= $user['about_me'] ?></p>
+                    </div>
                 </div>
 
             <div class="well well-lg shadow_strokes_big">
