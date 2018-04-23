@@ -75,7 +75,7 @@
 
 
 
-                    ?>
+                    ?> 
 
 <!--                    <div class="fron_beer">-->
 <!--                        <p><img src="images/qh_beer.png" ></p>-->
