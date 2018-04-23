@@ -43,7 +43,7 @@
                         $exec->execute();
                         $beerRow = $exec->fetch (PDO::FETCH_ASSOC);
                         echo "<div class='fron beer'>";
-                        echo "<p><img style='height: 150px;' src='beers/{$beerRow['picture']}'></p>";
+                        echo "<p><img style='height: 100px;' src='beers/{$beerRow['picture']}'></p>";
                         echo "<p>{$beerRow['name']}</p>";
                         echo "<p>Sold: {$beerRow['times_sold']}</p>";
                         echo "</div>";
@@ -68,7 +68,7 @@
                         $exec->execute();
                         $beerRow = $exec->fetch (PDO::FETCH_ASSOC);
                         echo "<div class='fron beer'>";
-                        echo "<p><img style='height: 150px;' src='beers/{$beerRow['picture']}'></p>";
+                        echo "<p><img style='height: 100px;' src='beers/{$beerRow['picture']}'></p>";
                         echo "<p>{$beerRow['name']}</p>";
                         echo "</div>";
                     }
