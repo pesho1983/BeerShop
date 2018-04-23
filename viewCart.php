@@ -3,7 +3,22 @@
 require_once 'cart.php';
 $cart = new Cart;
 if (isset($_SESSION['id'])) {
+    $username = $_SESSION['user'];
 
+    $sql = "SELECT
+            *
+        FROM
+            users
+        WHERE
+             username = ?
+
+         ";
+
+    $stmt = $pdo->prepare($sql);
+
+    $stmt->execute([$username]);
+
+    $user = $stmt->fetch();
 }
 else{
     header('Location: login.php');
@@ -81,9 +96,17 @@ else{
         <tr>
             <td><a href="catalog.php" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i> Continue Shopping</a></td>
             <td colspan="2"></td>
+
             <?php if($cart->total_items() > 0){ ?>
-                <td class="text-center"><strong>Total <?php echo '$'.$cart->total().' lv'; ?></strong></td>
+                <td class="text-center"><strong>Total <?php echo ''.$cart->total().' lv'; ?></strong></td>
+<!--                <td class="text-center"><strong>Wallet --><?php //echo $user['wallet'] .' lv' ?><!--</strong></td>-->
+<!--                --><?php
+//                if($cart->total() > $user['wallet'])
+//                    echo "<div class='alert alert-danger'> You don't have enough funds in your account to make this order</div>";
+//
+//                else{ ?>
                 <td><a href="checkout.php" class="btn btn-success btn-block">Checkout <i class="glyphicon glyphicon-menu-right"></i></a></td>
+<!--                --><?php //} ?>
             <?php } ?>
         </tr>
         </tfoot>
