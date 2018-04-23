@@ -1,15 +1,18 @@
 <?php
-if (!isset($_SESSION['user'])) {
-    header('Location: login.php');
-    exit;
-}
+
 // include database configuration file
 include_once 'connect.php';
 
 // initializ shopping cart class
 require_once 'cart.php';
 $cart = new Cart;
+if (isset($_SESSION['id'])) {
 
+}
+else{
+    header('Location: login.php');
+    exit;
+}
 // redirect to home if cart is empty
 if($cart->total_items() <= 0){
     header("Location: index.php");
