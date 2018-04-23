@@ -96,7 +96,7 @@ try {
                 exit();
             }
             else {
-                header('Location: profile.php');
+                header('Location: catalog.php');
                 exit();
             }
 
