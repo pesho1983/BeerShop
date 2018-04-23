@@ -1,11 +1,14 @@
 <?php
-if (!isset($_SESSION['user'])) {
-    header('Location: login.php');
-    exit;
-}
 require_once 'cart.php';
 require_once 'connect.php';
 $cart = new Cart;
+if (isset($_SESSION['id'])) {
+
+}
+else{
+    header('Location: login.php');
+    exit;
+}
 
 // include database configuration file
 

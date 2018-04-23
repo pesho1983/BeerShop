@@ -1,10 +1,14 @@
 <?php
-if (!isset($_SESSION['user'])) {
+
+require_once 'cart.php';
+$cart = new Cart;
+if (isset($_SESSION['id'])) {
+
+}
+else{
     header('Location: login.php');
     exit;
 }
-require_once 'cart.php';
-$cart = new Cart;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -92,52 +96,4 @@ $cart = new Cart;
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
-<!--<script>-->
-<!--    $(document).ready(function(){-->
-<!--        $('.add-to-cart').on('click', function(e){-->
-<!--            e.preventDefault();-->
-<!---->
-<!--            var $btn = $(this);-->
-<!--            var id = $btn.parent().parent().find('.product-id').val();-->
-<!--            var qty = $btn.parent().parent().find('.quantity').val();-->
-<!---->
-<!--            var $form = $('<form action="?a=cart" method="post" />').html('<input type="hidden" name="add" value=""><input type="hidden" name="id" value="' + id + '"><input type="hidden" name="qty" value="' + qty + '">');-->
-<!---->
-<!--            $('body').append($form);-->
-<!--            $form.submit();-->
-<!--        });-->
-<!--        //<td class="text-center"><div class="form-group"><input type="number" value="'.$item['quantity'].'" class="form-control quantity pull-left" style="width:100px">-->
-<!--        // <div class="pull-right"><button class="btn btn-default btn-update" data-id="'.$id.'" data-color="'.((isset($item['attributes']['color'])) ? $item['attributes']['color']-->
-<!--        // : '').'"><i class="fa fa-refresh"></i> Update</button><button class="btn btn-danger btn-remove" data-id="'.$id.'" data-color="'.((isset($item['attributes']['color'])) ?-->
-<!--        // $item['attributes']['color'] : '').'"><i class="fa fa-trash"></i></button></div></div></td>-->
-<!---->
-<!--        $('.btn-update').on('click', function(){-->
-<!--            var $btn = $(this);-->
-<!--            var id = $btn.attr('data-id');-->
-<!--            var qty = $btn.parent().find('.quantity').val();-->
-<!---->
-<!--            var $form = $('<form action="?a=cart" method="post" />').html('<input type="hidden" name="update" value=""><input type="hidden" name="id" value="' + id + '"><input type="hidden" name="qty" value="' + qty + '">');-->
-<!---->
-<!--            $('body').append($form);-->
-<!--            $form.submit();-->
-<!--        });-->
-<!---->
-<!--        $('.btn-remove').on('click', function(){-->
-<!--            var $btn = $(this);-->
-<!--            var id = $btn.attr('data-id');-->
-<!---->
-<!--            var $form = $('<form action="?a=cart" method="post" />').html('<input type="hidden" name="remove" value=""><input type="hidden" name="id" value="'+id+'">');-->
-<!---->
-<!--            $('body').append($form);-->
-<!--            $form.submit();-->
-<!--        });-->
-<!---->
-<!--        $('.btn-empty-cart').on('click', function(){-->
-<!--            var $form = $('<form action="?a=cart" method="post" />').html('<input type="hidden" name="empty" value="">');-->
-<!---->
-<!--            $('body').append($form);-->
-<!--            $form.submit();-->
-<!--        });-->
-<!--    });-->
-<!--</script>-->
 </html>
