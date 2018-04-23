@@ -28,7 +28,7 @@ else{
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 
 </head>
-<body>
+<body style="background-color:#eee;">
 <header class="fixed-top">
     <?php include_once "php_includes/header.php"; ?>
 </header>

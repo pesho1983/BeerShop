@@ -1,15 +1,18 @@
 <?php
-if (!isset($_SESSION['user'])) {
-    header('Location: login.php');
-    exit;
-}
+
 // include database configuration file
 include_once 'connect.php';
 
 // initializ shopping cart class
 require_once 'cart.php';
 $cart = new Cart;
+if (isset($_SESSION['id'])) {
 
+}
+else{
+    header('Location: login.php');
+    exit;
+}
 // redirect to home if cart is empty
 if($cart->total_items() <= 0){
     header("Location: index.php");
@@ -23,6 +26,15 @@ $query = "SELECT * FROM users WHERE id = ".$_SESSION['sessCustomerID'];
 $stmt = $pdo->prepare($query);
 $stmt->execute();
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
+$errors = array (
+    1 => "You don't have enough funds in your account to make this order!",
+
+);
+
+$error_id = isset($_GET['err']) ? (int)$_GET['err'] : 0;
+$error_quantity = isset($_GET['info']) ? $_GET['info'] : '';
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,6 +63,21 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <?php include_once "php_includes/header.php"; ?>
 </header>
 <div class="container" style="margin-top:100px;">
+ <?php if ($error_id != 0) {
+     echo  "<div class='alert alert-danger'> You don't have enough funds in your account to make this order! </div>";
+ } ?>
+    <?php if ($error_quantity != '') {
+        $Url = $_GET['err'];
+        $UrlQuantity = $_GET['quantity'];
+        $UrlId = $_GET['id'];
+
+        $beerQuery = "SELECT * FROM products WHERE id =" .$UrlId;
+        $beerStmt = $pdo->prepare($beerQuery);
+        $beerStmt->execute();
+        $beerRow = $beerStmt->fetch(PDO::FETCH_ASSOC);
+
+        echo  "<div class='alert alert-danger'> We don't have {$UrlQuantity} of {$Url}. We currently have {$beerRow['quantity']} in stock. </div>";
+    } ?>
     <h1>Order Preview</h1>
     <table class="table">
         <thead>
@@ -95,9 +122,12 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
         <p>Address: <?php echo $row['address']; ?></p>
     </div>
     <div class="footBtn">
-        <a href="index.php" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i> Continue Shopping</a>
+        <a href="catalog.php" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i> Continue Shopping</a>
         <a href="cartAction.php?action=placeOrder" class="btn btn-success orderBtn">Place Order <i class="glyphicon glyphicon-menu-right"></i></a>
+        <a href="viewCart.php" class="btn btn-warning">Back to cart</a>
     </div>
+
+
 </div>
 <footer class="footer navbar-fixed-bottom">
     <?php include_once "php_includes/footer.php"; ?>

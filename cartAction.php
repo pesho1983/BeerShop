@@ -1,11 +1,14 @@
 <?php
-if (!isset($_SESSION['user'])) {
-    header('Location: login.php');
-    exit;
-}
 require_once 'cart.php';
 require_once 'connect.php';
 $cart = new Cart;
+if (isset($_SESSION['id'])) {
+
+}
+else{
+    header('Location: login.php');
+    exit;
+}
 
 // include database configuration file
 
@@ -42,33 +45,55 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
         header("Location: viewCart.php");
     }elseif($_REQUEST['action'] == 'placeOrder' && $cart->total_items() > 0 && !empty($_SESSION['sessCustomerID'])){
         // insert order details into database
-        $insertOrder = "INSERT INTO orders (user_id, total_price, `date`) VALUES ('".$_SESSION['sessCustomerID']."', '".$cart->total()."', '".date("Y-m-d H:i:s")."')";
-        $stmt = $pdo->prepare($insertOrder);
-        $stmt->execute();
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if($stmt){
-            $orderID = $pdo->lastInsertId();
-            $sql = '';
-            // get cart items
-            $cartItems = $cart->contents();
-            foreach($cartItems as $item){
-                $sql = "INSERT INTO order_detail (order_id, product_id, price, quantity) VALUES ('".$orderID."', '".$item['id']."', '".$item['price']."', '".$item['qty']."')";
-                $exec = $pdo->prepare($sql);
-                $exec->execute();
+        $userQuery = "SELECT * FROM users WHERE id = " .$_SESSION['id'];
+        $userStmt = $pdo->prepare($userQuery);
+        $userStmt->execute();
+        $userRow = $userStmt->fetch(PDO::FETCH_ASSOC);
+        if($cart->total() > $userRow['wallet'])
+        {
+            header ("Location: checkout.php?err=1");
+        }
+        else {
+            $orderedItem = $cart->contents();
+            foreach($orderedItem as $orderItem){
+                $orderedItemSql = "SELECT * FROM products WHERE id = " .$orderItem['id'];
+                $orderedItemStmt = $pdo->prepare($orderedItemSql);
+                $orderedItemStmt->execute();
+                $orderedRow = $orderedItemStmt->fetch(PDO::FETCH_ASSOC);
+                if($orderedRow['quantity'] < $orderItem['qty'])
+                {
+                    header ("Location: checkout.php?info={$orderItem['name']}&quantity={$orderItem['qty']}&id={$orderItem['id']}");
+                    exit;
+                }
             }
-            // insert order items into database
-            //$insertOrderItems = $pdo->multi_query($sql);
+            $insertOrder = "INSERT INTO orders (user_id, total_price, `date`) VALUES ('" . $_SESSION['sessCustomerID'] . "', '" . $cart->total() . "', '" . date("Y-m-d H:i:s") . "')";
+            $stmt = $pdo->prepare($insertOrder);
+            $stmt->execute();
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($stmt) {
+                $orderID = $pdo->lastInsertId();
+                $sql = '';
+                // get cart items
+                $cartItems = $cart->contents();
+                foreach ($cartItems as $item) {
+                    $sql = "INSERT INTO order_detail (order_id, product_id, price, quantity) VALUES ('" . $orderID . "', '" . $item['id'] . "', '" . $item['price'] . "', '" . $item['qty'] . "')";
+                    $exec = $pdo->prepare($sql);
+                    $exec->execute();
+                }
+                // insert order items into database
+                //$insertOrderItems = $pdo->multi_query($sql);
 
 
-            if($exec){
-                $cart->destroy();
-                header("Location: orderSuccess.php?id=$orderID");
-            }else{
+                if ($exec) {
+                    $cart->destroy();
+                    header("Location: orderSuccess.php?id=$orderID");
+                } else {
+                    header("Location: checkout.php");
+                }
+            } else {
                 header("Location: checkout.php");
             }
-        }else{
-            header("Location: checkout.php");
         }
     }else{
         header("Location: index.php");

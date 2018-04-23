@@ -12,7 +12,8 @@ $sql = "SELECT
             username,
             first_name,
             age,
-            picture
+            picture,
+            info
         FROM
             users
         WHERE
@@ -147,7 +148,7 @@ if (isset($_POST['submit'])) {
 ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -165,6 +166,9 @@ if (isset($_POST['submit'])) {
     <link type="text/css" rel="stylesheet" media="screen"
           href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
     <link href="css/styles.css" rel="stylesheet">
+
+            <!-- remove this if you use Modernizr -->
+    <script>(function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\s)no-js(\s|$)/,"$1js$2")})(document,window,0);</script>
 </head>
 
 
@@ -194,19 +198,17 @@ if (isset($_POST['submit'])) {
         <div>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"
                   enctype="multipart/form-data">
-                <div class="row justify-content-md-center mb-1">
-                    <div class="col-md-3"></div>
-                    <div class=" col-md-auto">
-                        <input class="form-control-file" type="file" name="picture" id="image">
+                <div class="row justify-content-md-center mb-1"><div class="col-md-auto">
+                        <input class="inputfile inputfile-1" type="file" name="picture" id="image"  data-multiple-caption="{count} files selected" multiple />
+                        <label for="image"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg><span>Choose a file&hellip;</span></label>
                     </div>
-                    <div class="col-md-1"></div>
                 </div>
                 <input class="btn btn-success mb-1" type="submit" value="Upload Image" name="submit">
             </form>
 
-            <form>
-                <div class="border rounded my-5 pt-4 pb-3" style="width: 100%">
-                    <div class="row justify-content-md-center ">
+            
+                <div class="border rounded my-5 pt-4 pb-3 well well-lg shadow_strokes_big" style="width: 100%">
+                    <div class="row justify-content-md-center">
                         <p class="col-lg-6 text-center px-2"> User name: <?= $user['username'] ?></p>
                     </div>
                     <div class="row justify-content-md-center">
@@ -215,14 +217,21 @@ if (isset($_POST['submit'])) {
                     <div class="row justify-content-md-center">
                         <p class="col-lg-6 text-center px-2"> Age: <?= $user['age'] ?></p>
                     </div>
+                    <div class="row justify-content-md-center">
+                        <p class="col-lg-6 text-center px-2"> About me: <?= $user['info'] ?></p>
+                    </div>
                 </div>
-            </form>
 
-            <form class="well well-lg shadow_strokes_big">
+            <div class="well well-lg shadow_strokes_big">
                 <div class="form-group">
                     <label> Info about me </label>
                     <textarea id="infoAboutMe" name="infoAboutMe" class="form-control shadow_strokes" rows="3" maxlength="200" style="resize: none; "></textarea>
                 </div>
+
+                <div>
+                    <button class="btn btn-warning" type="submit" name="saveChanges">Save Changes</button>
+                </div>
+
                 <div>
                     <h3 class="welcome mt-5 font-weight-bold">My Favorite Beers</h3>
                 </div>
@@ -245,13 +254,8 @@ if (isset($_POST['submit'])) {
                             <p>Beer 3</p>
                         </div>
                     </div>
-                </div>
-                <div>
-                    <div>
-                        <button class="btn btn-warning" type="submit" name="saveChanges">Save Changes</button>
-                    </div>
-                </div>
-            </form>
+                </div>                    
+            </div>
 
             <div class="justify-content-md-center row my-3">
                 <a href="#" class="btn btn-warning mx-3 col-lg-2">Change info</a>
@@ -259,7 +263,7 @@ if (isset($_POST['submit'])) {
             </div>
             <div class="justify-content-md-center row my-3">
                 <a href="wallet.php" class="btn btn-warning mx-3 col-lg-2">My wallet</a>
-                <a href="basket.php" class="btn btn-warning mx-3 col-lg-2">Basket</a>
+                <a href="viewCart.php" class="btn btn-warning mx-3 col-lg-2">Basket</a>
             </div>
         </div>
         <div class="col-sm-1"></div>
@@ -276,9 +280,8 @@ if (isset($_POST['submit'])) {
         $(document).ready(function () {
             $("#profile").addClass('text_shadow');
         });
-    </script>
-
-
+    </script>    
+    <script src="js/upload-avatar-button.js"></script>
 </body>
 
 </html>
