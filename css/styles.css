@@ -339,3 +339,6 @@ input #avatar{
 
 /*Shadows in faq.php strokes end here */
 
+#container_search{
+    margin: 180px auto 150px;
+}

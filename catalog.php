@@ -28,8 +28,8 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
 <header class="fixed-top">
     <?php include_once "php_includes/header.php"; ?>
 </header>
-<div style=" padding-top: 100px;
-  text-align: center;">
+
+<div id="main_container" class='container' style="margin: 180px auto 150px; text-align: center;">
     <form name="sort" action="catalog.php" method="get">
         <select class="btn" name="order">
             <option>Order by:</option>
@@ -40,8 +40,6 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
         </select>
         <input class="btn btn-danger" type="submit" value=" - Sort - "/>
     </form>
-</div>
-<div class='container' style="margin-bottom: 150px; text-align: center;">
 
     <?php
 
@@ -127,7 +125,7 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
     include_once "php_includes/paging.php";
     echo "</div>";
     ?>
-
+    <div class="container" id="container_search" style="display: none">container search </div>
 
     <footer class="fixed-bottom"
             style="font-family: 'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol'">
@@ -139,8 +137,8 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
 
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
     <script src="js/catalog.js" type="text/javascript"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.js"
-            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="js/search.js" type="text/javascript"></script>
     <script>
         $(document).ready(function () {
             $("#catalog").addClass('text_shadow');
@@ -160,6 +158,8 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
                 header.classList.remove("sticky");
             }
         }
+
+
     </script>
 
 </body>

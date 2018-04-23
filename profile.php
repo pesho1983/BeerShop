@@ -259,7 +259,7 @@ if (isset($_POST['submit'])) {
             </div>
             <div class="justify-content-md-center row my-3">
                 <a href="wallet.php" class="btn btn-warning mx-3 col-lg-2">My wallet</a>
-                <a href="#" class="btn btn-warning mx-3 col-lg-2">Basket</a>
+                <a href="basket.php" class="btn btn-warning mx-3 col-lg-2">Basket</a>
             </div>
         </div>
         <div class="col-sm-1"></div>
