@@ -13,12 +13,11 @@
     <header>
       <?php include_once "php_includes/header.php"; ?>
     </header>  
-
-    <div class="container">   
+ 
 
     <div class="row">
-        <div class="col-lg-4"></div>
-        <div class="col-lg-8">
+        <div class="col-lg-5"></div>
+        <div class="col-lg-6">
         
             <div class="main_info">
             <h2 class="welcome">Welcome to Quality House Beer Website</h2>
@@ -44,7 +43,7 @@
                         $exec->execute();
                         $beerRow = $exec->fetch (PDO::FETCH_ASSOC);
                         echo "<div class='fron beer'>";
-                        echo "<p><img style='width: 100px;' src='beers/{$beerRow['picture']}'></p>";
+                        echo "<p><img style='height: 150px;' src='beers/{$beerRow['picture']}'></p>";
                         echo "<p>{$beerRow['name']}</p>";
                         echo "<p>Sold: {$beerRow['times_sold']}</p>";
                         echo "</div>";
@@ -69,7 +68,7 @@
                         $exec->execute();
                         $beerRow = $exec->fetch (PDO::FETCH_ASSOC);
                         echo "<div class='fron beer'>";
-                        echo "<p><img style='width: 100px;' src='beers/{$beerRow['picture']}'></p>";
+                        echo "<p><img style='height: 150px;' src='beers/{$beerRow['picture']}'></p>";
                         echo "<p>{$beerRow['name']}</p>";
                         echo "</div>";
                     }
@@ -77,6 +76,7 @@
 
 
                     ?>
+                    <div class="col-lg-1"></div>
 
 <!--                    <div class="fron_beer">-->
 <!--                        <p><img src="images/qh_beer.png" ></p>-->
@@ -91,7 +91,6 @@
 <!--                        <p>QH beer: amber beer</p>-->
 <!--                    </div>-->
 
-            </div>
         </div>
 
     </div>
