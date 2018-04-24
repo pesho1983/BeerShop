@@ -3,7 +3,7 @@ $(document).ready(function () {
 
     $('#search_id').on('keyup', function (e) {
         $('#main_container').hide();
-        var text = $(this).value();
+        let text = $(this).val();
 
         $.ajax({
             type: 'GET',
